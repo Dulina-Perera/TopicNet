@@ -4,8 +4,6 @@ import os
 import pymupdf
 
 from PIL import Image
-from PIL.JpegImagePlugin import JpegImageFile
-from PIL.PngImagePlugin import PngImageFile
 from tqdm import tqdm
 from typing import Dict, List, Tuple
 
