@@ -1,0 +1,189 @@
+cs3121 - introduction to data science
+cognitive analytics
+dr. nisansa de silva,
+department of computer science & engineering
+<url>
+let's look at analytics models again
+what does the
+ai model think?
+how can we
+make it happen?
+cognitive
+analytics
+what will
+happen?
+prescriptive
+analytics
+why did it
+happen?
+predictive
+analytics
+what
+happened?
+diagnostic
+analytics
+descriptive
+analytics
+l
+e
+u
+a
+v
+difficulty/maturity of data and analysis capabilities
+cognitive analytics
+▪️ cognition is the mental action or process of acquiring
+knowledge by understanding true thought, experience
+and the senses.
+▪️ cognitive processes use existing knowledge and
+generate new knowledge.
+▪️ the purpose of cognitive computing is to perform tasks
+that only humans used to be able to do.
+▪️ it augments human capabilities (as opposed to ai which
+just automates)
+cognitive analytics
+▪️ cognitive analytics reveals certain patterns and connections that
+simple analytics cannot.
+▪️ cognitive computing allows a wide variety of problems previously
+incapable of being solved by fixed program instructions to be
+calculable and estimable.
+▪️ cognitive analytics can be thought of as analytics with human-like
+intelligence applied to certain tasks, and brings together a number of
+intelligent technologies, including:
+semantics
+artificial intelligence algorithms
+deep learning
+machine learning.
+▪️ this allows a cognitive application to improve over time.
+cognitive analytics
+combining artificial intelligence (ai) and data analytics
+cognitive analytics
+combining artificial intelligence (ai) and data analytics
+cognitive analytics
+combining artificial intelligence (ai) and data analytics
+cognitive analytics
+combining artificial intelligence (ai) and data analytics
+cognitive analytics
+▪️ it uses several visual perceptions, speech recognition,
+decision-making and nlp (natural language processing)
+concepts to make sense of previously untapped data from
+rich sources such as conversational logs, feedback, reviews,
+social media and so on.
+▪️ applying such techniques, a cognitive application can get
+smarter and more effective over time by (self) learning
+from its interactions with data and with humans.
+▪️ inferences are not structured queries based on a rules
+database, rather could be unstructured hypotheses
+gathered from several data sources and expressed with
+varying degrees of confidence level.
+cognitive analytics
+▪️ cognitive analytics is intelligent
+technology that covers
+multiple analytical techniques to analyze large data sets
+and give structure to the unstructured data.
+▪️ cognitive analytics system searches through the data that
+exists in its knowledge base to find solutions that make
+sense for the questions posed.
+▪️ a cognitive system can create competitive advantage to
+business, providing real-time answers with the ability to:
+search through massive amounts of information
+making sense of context and meaning of a sentence
+computing the most likely answer.
+recognizing certain objects in an image given large amounts of
+information.
+cognitive analytics
+▪️ an organization might use cognitive analytics to
+monitor
+their customer behavior patterns and
+emerging trends. this way the organization can
+predict
+future outcomes and plan their objectives
+accordingly to improve their performance.
+▪️ some sections of cognitive analytics also fall under
+business
+data
+predictive
+intelligence is used to make predictions.
+analytics, where
+in
+how does cognitive computing work?
+▪️ adaptive:
+flexible systems which learn as information changes in tandem with
+the evolution of goals and requirements.
+cognitive applications must be adaptive in nature.
+capable of integrating latest or frequently changing data feeds like
+real-time, or near real-time, to master ambiguity and
+unpredictability.
+▪️ interactive:
+the cognitive system must be able to interact easily with users so
+that users can define their needs comfortably.
+similarly, it must also interact with other processors, devices, and
+cloud services..
+how does cognitive computing work?
+▪️ iterative:
+iterative process to solve problems which are ambiguous
+the system should remember previous interactions in a process.
+it should be able to define the problem by asking questions or finding
+an additional source.
+for this, ensure that the cognitive system is always provided with
+enough validated quality information and that the data sources it
+operates are reliable and up to date.
+▪️ stateful:
+the system should return information that is suitable for the specific
+application at that point in time.
+how does cognitive computing work?
+▪️ contextual:
+cognitive applications should be able to understand, identify, and
+extract contextual elements such as meaning, syntax, time, location,
+appropriate domain, process, task and goal.
+it must draw on multiple sources of information, including both
+structured and unstructured digital information.
+▪️ dark data compatibility:
+cognitive computing systems should be able to deal with "dark data"
+such as social media postings, emr notes, fitness device readings,
+unstructured images, videos and the digital or non-digital documents
+generated by users in day to day life.
+cognitive computing applications process such multi-structured and
+unstructured dark data along with structured information to pull out
+non-obvious insights and subject it to analytics.
+real-life applications of cognitive analytics
+▪️ the medical industry is now starting to use cognitive
+analytics to match its patients with the best possible
+treatments.
+▪️ some examples of cognitive analytics which are in use
+today include microsoft's cortana, apple's siri, and ibm's
+watson.
+▪️ organizations are using cognitive analytics to tap into
+unstructured data sources such as images, emails, text
+documents, and social posts.
+▪️ though cognitive analytics is still in its infancy, it may be
+the solution to finding real-time answers for large
+amounts of diverse data, and bringing a paradigm shift
+from traditional analytics.
+real-life applications of cognitive analytics
+cognitive analytics: pros and cons
+advantages
+▪️ reduction in human
+error
+▪️ prevention of wrong
+decision by machines.
+▪️ available 24x7
+▪️ helping in repetitive
+jobs
+▪️ digital assistance
+▪️ faster decisions
+disadvantages
+▪️ security
+▪️ change management
+▪️ lengthy and costly
+development cycles
+▪️ making humans lazy
+▪️ no emotions
+▪️ unemployment
+▪️ lacking out of box
+thinking
+references
+▪️ prescriptive and cognitive analytics slides by dr shehan perera
+▪️ harnessing the power of cognitive analytics to reinvent your business by 10xds
+▪️ cognitive analytics - combining artificial intelligence (ai) and data analytics by
+cognitive analytics research lab, ulster university
+▪️ cognitive computing by kripapious
