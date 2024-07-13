@@ -1,2 +1,7 @@
 Pdf-Content-Extraction/Documents/*
 Pdf-Content-Extraction/Images/*
+
+
+**/*.csv
+**/*.parquet
+**/*.txt
