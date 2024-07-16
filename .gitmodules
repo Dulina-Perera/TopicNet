@@ -1,3 +1,0 @@
-[submodule "backend/clean"]
-	path = backend/clean
-	url = https://github.com/Pyrokryos/Clean-Text.git

@@ -1,1 +1,0 @@
-from _sentence_transformers import SentenceTransformersEmbedder
