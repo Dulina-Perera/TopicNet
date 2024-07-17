@@ -12,7 +12,7 @@ from _3_embed._error import NoSentencesToEncodeError
 class BaseEmbedder(ABC):
 	def __init__(self, model: Any = None) -> None:
 		self.logger: logging.Logger = logging.getLogger(__name__)
-		self.model = model
+		self.model: Any = model
 
 
 	@abstractmethod
