@@ -9,9 +9,8 @@ from backend._3_embed._error import NoSentencesToEncodeError
 
 def extract_embeddings(
   model: BaseEmbedder,
-  logger: logging.Logger,
   sentences: List[str],
-  images: List[str] = None,
+  logger: logging.Logger
 ) -> ndarray:
   try:
     if not sentences:
