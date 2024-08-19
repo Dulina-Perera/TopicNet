@@ -1,0 +1,81 @@
+.wrapper {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	gap: 24px;
+	justify-content: flex-end;
+	left: 0px;
+	padding: 24px 38px;
+	pointer-events: none;
+	position: fixed;
+	top: 0px;
+	width: 100vw;
+	z-index: 300;
+}
+
+.button_add {
+	align-items: center;
+	background-color: #4f46e5;
+	border: none;
+	border-radius: 100%;
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0,75);
+	color: white;
+	cursor: pointer;
+	display: flex;
+	font-size: 24px;
+	justify-content: center;
+	outline: none;
+	padding: 12px;
+	pointer-events: all;
+	transition: all ease 0.2s;
+}
+
+.button_add:active {
+	transform: scale(0.95);
+}
+
+.button_add:hover {
+	background-color: #3730a3;
+	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0,75);
+	transform: scale(1.05);
+}
+
+.button_delete {
+	align-items: center;
+	background-color: #dc2626;
+	border: none;
+	border-radius: 100%;
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0,75);
+	color: white;
+	cursor: pointer;
+	display: flex;
+	font-size: 24px;
+	justify-content: center;
+	outline: none;
+	padding: 12px;
+	pointer-events: all;
+	transition: all ease 0.2s;
+}
+
+.button_delete:active {
+	transform: scale(0.95);
+}
+
+.button_delete:hover {
+	background-color: #b91c1c;
+	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0,75);
+	transform: scale(1.05);
+}
+
+.button_delete_hidden {
+	background-color: #dc2626;
+	border-radius: 100%;
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0,75);
+	color: white;
+	cursor: pointer;
+	font-size: 24px;
+	padding: 12px;
+	pointer-events: all;
+	transform: translateY(-100px);
+	transition: all ease 0.2s;
+}
