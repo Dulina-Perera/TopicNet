@@ -1,4 +1,4 @@
-/* @refresh reload */
+import BoardComponent from './components/BoardComponent';
 import { render } from 'solid-js/web';
 
 import './index.css';
@@ -11,4 +11,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <h1>Hello World!</h1>, root!);
+render(() => <BoardComponent />, root!);
