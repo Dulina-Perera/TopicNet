@@ -1,6 +1,5 @@
-Pdf-Content-Extraction/Documents/*
-Pdf-Content-Extraction/Images/*
-
+**/node_modules
+**/dist
 
 **/*.csv
 **/*.parquet
