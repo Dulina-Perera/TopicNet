@@ -1,5 +1,12 @@
 import styles from './styles.module.css';
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal, onCleanup } from 'solid-js';
+
+const click_ouside = (element: any, accessor: any) => {
+	const onClick = (event: Event) => !element.contains(event.target) && accessor()?.();
+	document.body.addEventListener('click', onClick);
+
+	onCleanup(() => document.body.removeEventListener('click', onClick));
+};
 
 interface ButtonProps {
 	show_delete: boolean;
@@ -37,7 +44,13 @@ const ButtonComponent: Component<ButtonProps> = (props: ButtonProps) => {
 	const handle_on_click_dropdown = (event: Event) => {
 		event.stopPropagation();
 		set_is_open(true);
-	}
+	};
+
+	const handle_click_outside_dropdown = () => {
+		set_is_open(false);
+		set_input_cnt(0);
+		set_output_cnt(0);
+	};
 
 	return (
 		<div class={styles.wrapper}>
@@ -67,7 +80,11 @@ const ButtonComponent: Component<ButtonProps> = (props: ButtonProps) => {
 					<path d='M14 7v1H8v6H7V8H1V7h6V1h1v6h6z'></path>
 				</svg>
 			</button>
-			<div class={is_open() ? styles.dropdown : styles.dropdown_hidden}>
+			<div
+				class={is_open() ? styles.dropdown : styles.dropdown_hidden}
+				//@ts-ignore
+				use:click_ouside={handle_click_outside_dropdown}
+			>
 				<label class={styles.label}>Number of Inputs</label>
 				<input class={styles.input} type='number' value={input_cnt()} onInput={handle_change_input_cnt}></input>
 				<label class={styles.label}>Number of Outputs</label>
