@@ -18,7 +18,7 @@
 	background-color: #4f46e5;
 	border: none;
 	border-radius: 100%;
-	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0,75);
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0.75);
 	color: white;
 	cursor: pointer;
 	display: flex;
@@ -36,7 +36,7 @@
 
 .button_add:hover {
 	background-color: #3730a3;
-	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0,75);
+	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0.75);
 	transform: scale(1.05);
 }
 
@@ -68,12 +68,17 @@
 }
 
 .button_delete_hidden {
+	align-items: center;
 	background-color: #dc2626;
+	border: none;
 	border-radius: 100%;
 	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0,75);
 	color: white;
 	cursor: pointer;
+	display: flex;
 	font-size: 24px;
+	justify-content: center;
+	outline: none;
 	padding: 12px;
 	pointer-events: all;
 	transform: translateY(-100px);
