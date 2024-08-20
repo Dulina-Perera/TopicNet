@@ -1,0 +1,85 @@
+.node {
+	background-color: white;
+	border: 2px solid #c4c4c4;
+	border-radius: 6px;
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0.75);
+	cursor: grab;
+	display: flex;
+	flex-direction: column;
+	height: 120px;
+	position: absolute;
+	transition: border ease 0.2s, box-shadow ease 0.2s;
+	user-select: none;
+	width: 120px;
+	z-index: 1;
+}
+
+.node:hover {
+	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0.75);
+}
+
+.node_selected {
+	background-color: white;
+	border: 2px solid #e38c29;
+	border-radius: 6px;
+	box-shadow: 1px 1px 11px -6px rgba(0, 0, 0, 0.75);
+	cursor: grab;
+	display: flex;
+	flex-direction: column;
+	height: 120px;
+	position: absolute;
+	transition: border ease 0.2s, box-shadow ease 0.2s;
+	user-select: none;
+	width: 120px;
+	z-index: 100;
+}
+
+.node_selected:hover {
+	box-shadow: 2px 2px 12px -6px rgba(0, 0, 0, 0.75);
+}
+
+.input_wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	height: 100%;
+	justify-content: center;
+	left: -24px;
+	pointer-events: none;
+	position: absolute;
+	top: 0px;
+	width: 12px;
+}
+
+.input {
+	background-color: #e38c29;
+	border-radius: 100%;
+	cursor: crosshair;
+	height: 12px;
+	pointer-events: all;
+	width: 12px;
+}
+
+.output_rapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	height: 100%;
+	justify-content: center;
+	pointer-events: none;
+	position: absolute;
+	right: -24px;
+	top: 0px;
+	width: 12px;
+}
+
+.output {
+	background-color: #e38c29;
+	border-radius: 100%;
+	cursor: crosshair;
+	pointer-events: all;
+	height: 12px;
+	width: 12px;
+}
