@@ -1,0 +1,22 @@
+*.ipynb*
+*.ipynb
+
+# local data
+output/*
+data/*
+temp*
+test*
+
+# python
+.ipynb_checkpoints
+*.ipynb
+**/__pycache__/
+
+# logs
+*.log
+*.out
+
+models/Layout/*
+models/MFD/*
+models/MFR/*
+models/TabRec/*
