@@ -12,6 +12,7 @@ from _3_embed._error import NoSentencesToEncodeError
 class BaseEmbedder(ABC):
 	def __init__(self, model: Any = None) -> None:
 		self.logger: logging.Logger = logging.getLogger(__name__)
+
 		self.model: Any = model
 
 
@@ -34,7 +35,7 @@ class SentenceTransformersEmbedder(BaseEmbedder):
         	)
 				else:
 					raise
-			except Exception as e:
+			except Exception:
 				self.logger.warning(f'Invalid SentenceTransformer model definition: {model}.')
 
 				# Fallback to the default model.

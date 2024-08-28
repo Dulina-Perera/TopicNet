@@ -69,7 +69,7 @@ MODEL:
     FREEZE_AT: 2
     NAME: build_vit_fpn_backbone
   CONFIG_PATH: ''
-  DEVICE: cuda
+  DEVICE: cpu
   FPN:
     FUSE_TYPE: sum
     IN_FEATURES:
@@ -292,8 +292,8 @@ MODEL:
     - layer7
     - layer11
     POS_TYPE: abs
-  WEIGHTS: 
-OUTPUT_DIR: 
+  WEIGHTS:
+OUTPUT_DIR:
 SCIHUB_DATA_DIR_TRAIN: ~/publaynet/layout_scihub/train
 SEED: 42
 SOLVER:
