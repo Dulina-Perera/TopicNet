@@ -1,1 +1,0 @@
-from _method import extract_sentences_from_cleaned_text

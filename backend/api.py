@@ -1,13 +1,9 @@
-# %%
+#
+
 import uvicorn
 
 from fastapi.applications import FastAPI
-from fastapi.datastructures import UploadFile
-from fastapi.exceptions import HTTPException
-from fastapi.param_functions import File
-from secrets import token_hex
 
-# %%
 app: FastAPI = FastAPI(title='TopicNet API', version='0.1.0')
 
 
@@ -31,7 +27,6 @@ async def generate_mindmap_from_pdf(file: UploadFile = File(...)):
 			'message': 'File uploaded successfully.'
 		}
 
-# %%
 if __name__ == '__main__':
   uvicorn.run(
     'api:app',
