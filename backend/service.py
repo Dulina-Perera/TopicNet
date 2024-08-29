@@ -114,6 +114,9 @@ def main():
   clusterer.fit(embeddings)
   clusters: ndarray = clusterer.labels_
 
+  # Visualize embeddings.
+  visualize_embeddings(embeddings, clusters)
+
   df: DataFrame = DataFrame({
 		'Sentence': sentences,
 		'Embedding': embeddings.tolist(),
@@ -145,10 +148,6 @@ def main():
   df['Topic'] = df['Cluster'].map(topics)
 
   df.to_csv('test.csv', index=False)
-
-  # Optionally, print topics for each cluster
-  for cluster, terms in topics.items():
-    print(f"Cluster {cluster}: {', '.join(terms)}")
 
 
 

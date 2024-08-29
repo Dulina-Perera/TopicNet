@@ -268,3 +268,17 @@
 2024-08-29 07:18:11 AM [INFO] Initialize HDBScanClusterer.
 2024-08-29 07:18:11 AM [INFO] Fit HDBScan model.
 2024-08-29 07:18:11 AM [INFO] Assign labels to embeddings.
+2024-08-29 07:22:19 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 07:22:20 AM [INFO] Load Punkt tokenizer
+2024-08-29 07:22:20 AM [INFO] Extract 53 sentences
+2024-08-29 07:22:20 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 07:22:23 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 07:22:25 AM [INFO] Embed sentences.
+2024-08-29 07:22:33 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 07:22:33 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 07:22:33 AM [INFO] Fit HDBScan model.
+2024-08-29 07:22:33 AM [INFO] Assign labels to embeddings.
