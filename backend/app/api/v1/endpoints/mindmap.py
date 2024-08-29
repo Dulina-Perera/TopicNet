@@ -3,10 +3,12 @@
 import os
 
 from app.models import Node
-from app.services import extract_text_from_pdf
+from app.services import cluster_embeddings, extract_embeddings, extract_text_from_pdf, extract_sentences_from_cleaned_text, generate_topics, reduce_embeddings, visualize_embeddings
 from fastapi import APIRouter, File, HTTPException, UploadFile
+from numpy import ndarray
+from pandas import DataFrame
 from secrets import token_hex
-from typing import Dict
+from typing import Dict, List
 
 router: APIRouter = APIRouter()
 
@@ -31,6 +33,27 @@ async def generate_mindmap_from_pdf(file: UploadFile = File(...)):
       f.write(content)
 
     extract_text_from_pdf(file_path)
+
+    sentences: List[str] = extract_sentences_from_cleaned_text(f'{dir_path}/{file_name}.clean.txt')
+
+    embeddings: ndarray = extract_embeddings(sentences)
+    embeddings = reduce_embeddings(embeddings)
+
+    labels: ndarray; probabilities: ndarray
+    labels, probabilities = cluster_embeddings(embeddings)
+
+    visualize_embeddings(embeddings, labels)
+
+    df: DataFrame = DataFrame({
+			'Sentence': sentences,
+			'Embedding': embeddings.tolist(),
+			'Cluster': labels.tolist(),
+			'Probability': probabilities.tolist()
+		})
+
+    df = generate_topics(df)
+
+    df.to_csv(f'{dir_path}/{file_name}.csv', index=False)
 
     return {
 			'status': 'success',
