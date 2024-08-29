@@ -1,0 +1,2 @@
+class TopicNet:
+  pass

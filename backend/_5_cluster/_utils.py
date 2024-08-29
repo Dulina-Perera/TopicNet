@@ -1,7 +1,5 @@
 import hdbscan
 
-from backend._5_cluster._clusterer import BaseClusterer
-from numpy import ndarray
 from typing import Any
 
 

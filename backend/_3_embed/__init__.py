@@ -1,3 +1,3 @@
-from _embedder import BaseEmbedder, SentenceTransformersEmbedder
-from _error import NoSentencesToEncodeError
-from _method import extract_embeddings
+from _3_embed._embedder import BaseEmbedder
+from _3_embed._embedder import SentenceTransformersEmbedder
+from _3_embed._error import NoSentencesToEncodeError

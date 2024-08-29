@@ -1,0 +1,270 @@
+2024-08-29 12:40:30 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 12:40:30 AM [INFO] Load Punkt tokenizer
+2024-08-29 12:40:30 AM [INFO] Extract 25 sentences
+2024-08-29 12:40:30 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 12:40:35 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 12:41:04 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 12:41:04 AM [INFO] Load Punkt tokenizer
+2024-08-29 12:41:04 AM [INFO] Extract 25 sentences
+2024-08-29 12:41:04 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 12:41:08 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 12:41:10 AM [INFO] Embed sentences.
+2024-08-29 12:42:15 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 12:42:15 AM [INFO] Load Punkt tokenizer
+2024-08-29 12:42:15 AM [INFO] Extract 25 sentences
+2024-08-29 12:42:15 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 12:42:19 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 12:42:21 AM [INFO] Embed sentences.
+2024-08-29 12:50:10 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 12:50:10 AM [INFO] Load Punkt tokenizer
+2024-08-29 12:50:10 AM [INFO] Extract 16 sentences
+2024-08-29 12:50:10 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 12:50:13 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 12:50:16 AM [INFO] Embed sentences.
+2024-08-29 12:52:39 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 12:52:39 AM [INFO] Load Punkt tokenizer
+2024-08-29 12:52:39 AM [INFO] Extract 53 sentences
+2024-08-29 12:52:39 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 12:52:43 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 12:52:44 AM [INFO] Embed sentences.
+2024-08-29 01:01:29 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:01:29 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:01:29 AM [INFO] Extract 53 sentences
+2024-08-29 01:01:29 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:01:34 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:01:35 AM [INFO] Embed sentences.
+2024-08-29 01:03:40 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:03:40 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:03:40 AM [INFO] Extract 53 sentences
+2024-08-29 01:03:40 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:03:44 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:03:46 AM [INFO] Embed sentences.
+2024-08-29 01:04:28 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:04:28 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:04:28 AM [INFO] Extract 53 sentences
+2024-08-29 01:04:28 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:04:32 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:04:33 AM [INFO] Embed sentences.
+2024-08-29 01:04:40 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:19:41 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:19:41 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:19:41 AM [INFO] Extract 53 sentences
+2024-08-29 01:19:41 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:19:46 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:19:48 AM [INFO] Embed sentences.
+2024-08-29 01:19:54 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:19:54 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:19:54 AM [INFO] Fit HDBScan model.
+2024-08-29 01:20:56 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:20:56 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:20:56 AM [INFO] Extract 53 sentences
+2024-08-29 01:20:56 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:21:00 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:21:01 AM [INFO] Embed sentences.
+2024-08-29 01:21:07 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:21:07 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:21:07 AM [INFO] Fit HDBScan model.
+2024-08-29 01:21:35 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:21:35 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:21:35 AM [INFO] Extract 53 sentences
+2024-08-29 01:21:35 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:21:38 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:21:40 AM [INFO] Embed sentences.
+2024-08-29 01:21:45 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:21:45 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:21:45 AM [INFO] Fit HDBScan model.
+2024-08-29 01:28:24 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:28:24 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:28:24 AM [INFO] Extract 53 sentences
+2024-08-29 01:28:24 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:28:28 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:28:30 AM [INFO] Embed sentences.
+2024-08-29 01:28:37 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:28:37 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:28:37 AM [INFO] Fit HDBScan model.
+2024-08-29 01:31:02 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:31:02 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:31:02 AM [INFO] Extract 53 sentences
+2024-08-29 01:31:02 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:31:06 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:31:08 AM [INFO] Embed sentences.
+2024-08-29 01:31:14 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:31:14 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:31:14 AM [INFO] Fit HDBScan model.
+2024-08-29 01:32:39 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:32:39 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:32:39 AM [INFO] Extract 53 sentences
+2024-08-29 01:32:39 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:32:43 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:32:45 AM [INFO] Embed sentences.
+2024-08-29 01:32:45 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:32:45 AM [INFO] Fit HDBScan model.
+2024-08-29 01:34:14 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:34:14 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:34:14 AM [INFO] Extract 4 sentences
+2024-08-29 01:34:14 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:34:17 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:34:18 AM [INFO] Embed sentences.
+2024-08-29 01:34:18 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:34:39 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:34:39 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:34:39 AM [INFO] Extract 4 sentences
+2024-08-29 01:34:39 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:34:43 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:34:43 AM [INFO] Embed sentences.
+2024-08-29 01:34:43 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:34:43 AM [INFO] Fit HDBScan model.
+2024-08-29 01:36:13 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:36:13 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:36:13 AM [INFO] Extract 53 sentences
+2024-08-29 01:36:13 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:36:16 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:36:18 AM [INFO] Embed sentences.
+2024-08-29 01:36:18 AM [INFO] Fit HDBScan model.
+2024-08-29 01:36:46 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:36:46 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:36:46 AM [INFO] Extract 53 sentences
+2024-08-29 01:36:46 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:36:50 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:36:51 AM [INFO] Embed sentences.
+2024-08-29 01:36:51 AM [INFO] Fit HDBScan model.
+2024-08-29 01:37:31 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:37:31 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:37:31 AM [INFO] Extract 53 sentences
+2024-08-29 01:37:31 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:37:35 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:37:36 AM [INFO] Embed sentences.
+2024-08-29 01:37:36 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:37:36 AM [INFO] Fit HDBScan model.
+2024-08-29 01:37:36 AM [INFO] Assign labels to embeddings.
+2024-08-29 01:38:08 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:38:08 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:38:08 AM [INFO] Extract 53 sentences
+2024-08-29 01:38:08 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:38:11 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:38:13 AM [INFO] Embed sentences.
+2024-08-29 01:38:20 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:38:20 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:38:20 AM [INFO] Fit HDBScan model.
+2024-08-29 01:38:20 AM [INFO] Assign labels to embeddings.
+2024-08-29 01:39:25 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:39:25 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:39:25 AM [INFO] Extract 53 sentences
+2024-08-29 01:39:25 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:39:29 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:39:30 AM [INFO] Embed sentences.
+2024-08-29 01:39:36 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:39:36 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:39:36 AM [INFO] Fit HDBScan model.
+2024-08-29 01:40:09 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 01:40:09 AM [INFO] Load Punkt tokenizer
+2024-08-29 01:40:09 AM [INFO] Extract 53 sentences
+2024-08-29 01:40:09 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 01:40:13 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 01:40:14 AM [INFO] Embed sentences.
+2024-08-29 01:40:21 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 01:40:21 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 01:40:21 AM [INFO] Fit HDBScan model.
+2024-08-29 01:40:21 AM [INFO] Assign labels to embeddings.
+2024-08-29 07:17:58 AM [INFO] Read file at path: /mnt/KINGSTON/Projects/Self/TopicNet/backend/test.txt
+2024-08-29 07:17:58 AM [INFO] Load Punkt tokenizer
+2024-08-29 07:17:58 AM [INFO] Extract 53 sentences
+2024-08-29 07:17:58 AM [INFO] Load pretrained SentenceTransformer: all-mpnet-base-v2
+2024-08-29 07:18:03 AM [INFO] Initialize SentenceTransformer model: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-29 07:18:05 AM [INFO] Embed sentences.
+2024-08-29 07:18:11 AM [INFO] Reduce embeddings to 5 dimensions.
+2024-08-29 07:18:11 AM [INFO] Initialize HDBScanClusterer.
+2024-08-29 07:18:11 AM [INFO] Fit HDBScan model.
+2024-08-29 07:18:11 AM [INFO] Assign labels to embeddings.

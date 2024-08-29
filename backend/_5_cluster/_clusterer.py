@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 from abc import ABC, abstractmethod
-from backend._5_cluster._utils import does_support_hdbscan
+from _5_cluster._utils import does_support_hdbscan
 from numpy import ndarray
 from typing import Any
 
@@ -37,15 +37,17 @@ class HDBScanClusterer(BaseClusterer):
 
 	def fit(self, embeddings: np.ndarray) -> 'HDBScanClusterer':
 		self.model.fit(embeddings)
+		print(self.model.labels_)
 		self.logger.info('Fit HDBScan model.')
 
 		membership_vectors: ndarray = hdbscan.all_points_membership_vectors(self.model)
+		cluster_cnt: int = membership_vectors.shape[1]
+
 		membership_vectors = np.array([
     	vec / np.sum(vec) if np.sum(vec) > 0 else vec
      	for vec in membership_vectors
     ])
 
-		cluster_cnt: int = membership_vectors.shape[1]
 		self.labels_ = np.array([
 			np.random.choice(cluster_cnt, p=vec)
 			for vec in membership_vectors
