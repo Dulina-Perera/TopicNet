@@ -6,7 +6,6 @@ import os
 from numpy import ndarray
 from openai import OpenAI
 from openai.types.chat.chat_completion import ChatCompletion
-from openai.types.chat.chat_completion_message import ChatCompletionMessage
 from scipy.sparse import csr_matrix
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from transformers import pipeline, SummarizationPipeline

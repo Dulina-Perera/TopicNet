@@ -31,8 +31,6 @@ def extract_text_from_pdf(path: Union[str, Path]) -> str:
 
       print(f"Text extracted and saved to: {txt_file_path}")
 
-      pymupdf.close()
-
       return title
     except Exception as e:
         print(f"An error occurred: {e}")

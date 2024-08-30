@@ -237,3 +237,513 @@
 2024-08-30 06:03:54 AM [INFO] Reduce embeddings to 8 dimensions.
 2024-08-30 06:03:54 AM [INFO] Fit HDBSCAN model.
 2024-08-30 06:03:54 AM [INFO] Assign labels to embeddings.
+2024-08-30 06:49:04 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 06:49:04 AM [INFO] Load Punkt tokenizer
+2024-08-30 06:49:04 AM [INFO] Extract 52 sentences
+2024-08-30 06:49:09 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 06:49:12 AM [INFO] Embed sentences.
+2024-08-30 06:49:12 AM [INFO] Initialize UMAP reducer.
+2024-08-30 06:49:20 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 06:51:35 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 06:51:35 AM [INFO] Load Punkt tokenizer
+2024-08-30 06:51:35 AM [INFO] Extract 52 sentences
+2024-08-30 06:51:40 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 06:51:43 AM [INFO] Embed sentences.
+2024-08-30 06:51:43 AM [INFO] Initialize UMAP reducer.
+2024-08-30 06:51:51 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 06:56:10 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 06:56:10 AM [INFO] Load Punkt tokenizer
+2024-08-30 06:56:10 AM [INFO] Extract 52 sentences
+2024-08-30 06:56:14 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 06:56:17 AM [INFO] Embed sentences.
+2024-08-30 06:56:17 AM [INFO] Initialize UMAP reducer.
+2024-08-30 06:56:25 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 06:58:23 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 06:58:23 AM [INFO] Load Punkt tokenizer
+2024-08-30 06:58:23 AM [INFO] Extract 52 sentences
+2024-08-30 06:58:27 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 06:58:30 AM [INFO] Embed sentences.
+2024-08-30 06:58:30 AM [INFO] Initialize UMAP reducer.
+2024-08-30 06:58:40 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:00:19 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:00:19 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:00:19 AM [INFO] Extract 52 sentences
+2024-08-30 07:00:24 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:00:26 AM [INFO] Embed sentences.
+2024-08-30 07:00:26 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:00:39 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:03:16 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:03:16 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:03:16 AM [INFO] Extract 52 sentences
+2024-08-30 07:03:22 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:03:24 AM [INFO] Embed sentences.
+2024-08-30 07:03:24 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:03:36 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:03:59 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:03:59 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:03:59 AM [INFO] Extract 52 sentences
+2024-08-30 07:04:03 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:04:06 AM [INFO] Embed sentences.
+2024-08-30 07:04:06 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:04:19 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:09:22 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:09:22 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:09:22 AM [INFO] Extract 52 sentences
+2024-08-30 07:09:27 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:09:29 AM [INFO] Embed sentences.
+2024-08-30 07:09:29 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:09:38 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:09:38 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:09:38 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:11:39 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:11:39 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:11:39 AM [INFO] Extract 52 sentences
+2024-08-30 07:11:44 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:11:45 AM [INFO] Embed sentences.
+2024-08-30 07:11:45 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:11:47 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:11:47 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:11:47 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:12:25 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:12:25 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:12:25 AM [INFO] Extract 52 sentences
+2024-08-30 07:12:29 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:12:29 AM [INFO] Embed sentences.
+2024-08-30 07:12:31 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:12:32 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:12:32 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:12:32 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:13:46 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:13:46 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:13:46 AM [INFO] Extract 52 sentences
+2024-08-30 07:13:53 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:13:54 AM [INFO] Embed sentences.
+2024-08-30 07:13:54 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:14:03 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:14:03 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:14:03 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:17:13 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:17:13 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:17:13 AM [INFO] Extract 52 sentences
+2024-08-30 07:17:18 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:17:20 AM [INFO] Embed sentences.
+2024-08-30 07:17:20 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:17:31 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:17:31 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:17:31 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:20:14 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:20:14 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:20:14 AM [INFO] Extract 52 sentences
+2024-08-30 07:20:19 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:20:22 AM [INFO] Embed sentences.
+2024-08-30 07:20:22 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:20:30 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:20:30 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:20:30 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 07:20:44 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:20:44 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:20:44 AM [INFO] Extract 52 sentences
+2024-08-30 07:20:47 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:20:48 AM [INFO] Embed sentences.
+2024-08-30 07:20:48 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:20:50 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:20:50 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:20:50 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:22:49 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:22:49 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:22:49 AM [INFO] Extract 52 sentences
+2024-08-30 07:22:53 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:22:56 AM [INFO] Embed sentences.
+2024-08-30 07:22:56 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:23:04 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:23:04 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:23:04 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 07:23:12 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:23:12 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:23:12 AM [INFO] Extract 52 sentences
+2024-08-30 07:23:15 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:23:17 AM [INFO] Embed sentences.
+2024-08-30 07:23:17 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:23:18 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:23:18 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:23:18 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:30:49 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:30:49 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:30:49 AM [INFO] Extract 52 sentences
+2024-08-30 07:30:54 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:30:56 AM [INFO] Embed sentences.
+2024-08-30 07:30:56 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:31:04 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:31:04 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:31:04 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:31:45 AM [ERROR] An error occurred while generating the mind map.
+2024-08-30 07:32:02 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:32:02 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:32:02 AM [INFO] Extract 52 sentences
+2024-08-30 07:32:08 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:32:09 AM [INFO] Embed sentences.
+2024-08-30 07:32:09 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:32:13 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:32:13 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:32:13 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:32:56 AM [ERROR] An error occurred while generating the mind map.
+2024-08-30 07:33:02 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:33:04 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:33:04 AM [INFO] Extract 52 sentences
+2024-08-30 07:33:09 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:33:10 AM [INFO] Embed sentences.
+2024-08-30 07:33:10 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:33:12 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:33:12 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:33:12 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:33:47 AM [ERROR] An error occurred while generating the mind map.
+2024-08-30 07:35:27 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:35:27 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:35:27 AM [INFO] Extract 52 sentences
+2024-08-30 07:35:31 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:35:35 AM [INFO] Embed sentences.
+2024-08-30 07:35:35 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:35:49 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:35:49 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:35:49 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:36:24 AM [ERROR] 'DataFrame' object has no attribute 'append'
+2024-08-30 07:41:41 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:41:41 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:41:41 AM [INFO] Extract 52 sentences
+2024-08-30 07:41:47 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:41:49 AM [INFO] Embed sentences.
+2024-08-30 07:41:49 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:42:00 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:42:00 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:42:00 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 07:42:06 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:42:06 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:42:06 AM [INFO] Extract 52 sentences
+2024-08-30 07:42:12 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:42:13 AM [INFO] Embed sentences.
+2024-08-30 07:42:13 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:42:16 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:42:16 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:42:16 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:47:00 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:47:00 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:47:00 AM [INFO] Extract 52 sentences
+2024-08-30 07:47:05 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:47:08 AM [INFO] Embed sentences.
+2024-08-30 07:47:08 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:47:23 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:47:23 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:47:23 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 07:47:30 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:47:30 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:47:30 AM [INFO] Extract 52 sentences
+2024-08-30 07:47:33 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:47:34 AM [INFO] Embed sentences.
+2024-08-30 07:47:34 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:47:38 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:47:38 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:47:38 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:51:00 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:51:00 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:51:00 AM [INFO] Extract 52 sentences
+2024-08-30 07:51:04 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:51:07 AM [INFO] Embed sentences.
+2024-08-30 07:51:07 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:51:19 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:51:19 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:51:19 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:54:52 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:54:52 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:54:52 AM [INFO] Extract 52 sentences
+2024-08-30 07:54:56 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:54:59 AM [INFO] Embed sentences.
+2024-08-30 07:54:59 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:55:11 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:55:11 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:55:11 AM [INFO] Assign labels to embeddings.
+2024-08-30 07:57:12 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:57:12 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:57:12 AM [INFO] Extract 52 sentences
+2024-08-30 07:57:17 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:57:20 AM [INFO] Embed sentences.
+2024-08-30 07:57:20 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:57:35 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:57:35 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:57:35 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 07:57:40 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 07:57:40 AM [INFO] Load Punkt tokenizer
+2024-08-30 07:57:40 AM [INFO] Extract 52 sentences
+2024-08-30 07:57:46 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 07:57:47 AM [INFO] Embed sentences.
+2024-08-30 07:57:47 AM [INFO] Initialize UMAP reducer.
+2024-08-30 07:57:50 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 07:57:50 AM [INFO] Fit HDBSCAN model.
+2024-08-30 07:57:50 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:04:33 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:04:33 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:04:33 AM [INFO] Extract 52 sentences
+2024-08-30 08:04:38 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:04:43 AM [INFO] Embed sentences.
+2024-08-30 08:04:43 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:04:53 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:04:53 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:04:53 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 08:04:58 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:05:00 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:05:00 AM [INFO] Extract 52 sentences
+2024-08-30 08:05:05 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:05:06 AM [INFO] Embed sentences.
+2024-08-30 08:05:06 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:05:08 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:05:08 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:05:08 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:13:57 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:13:57 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:13:57 AM [INFO] Extract 52 sentences
+2024-08-30 08:14:02 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:14:05 AM [INFO] Embed sentences.
+2024-08-30 08:14:05 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:14:14 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:14:14 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:14:14 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:17:05 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:17:06 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:17:06 AM [INFO] Extract 52 sentences
+2024-08-30 08:17:13 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:17:15 AM [INFO] Embed sentences.
+2024-08-30 08:17:15 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:17:24 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:17:24 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:17:24 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 08:17:29 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:17:31 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:17:31 AM [INFO] Extract 52 sentences
+2024-08-30 08:17:37 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:17:38 AM [INFO] Embed sentences.
+2024-08-30 08:17:38 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:17:41 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:17:41 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:17:41 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:22:56 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:22:56 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:22:56 AM [INFO] Extract 52 sentences
+2024-08-30 08:23:04 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:23:06 AM [INFO] Embed sentences.
+2024-08-30 08:23:06 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:23:15 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:23:15 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:23:15 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:24:50 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:24:50 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:24:50 AM [INFO] Extract 52 sentences
+2024-08-30 08:24:56 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:24:58 AM [INFO] Embed sentences.
+2024-08-30 08:24:58 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:25:10 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:25:10 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:25:10 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 08:25:15 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:25:15 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:25:15 AM [INFO] Extract 52 sentences
+2024-08-30 08:25:23 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:25:24 AM [INFO] Embed sentences.
+2024-08-30 08:25:24 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:25:27 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:25:27 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:25:27 AM [ERROR] Unexpected error: tuple index out of range.
+2024-08-30 08:25:31 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:25:31 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:25:31 AM [INFO] Extract 52 sentences
+2024-08-30 08:25:34 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:25:37 AM [INFO] Embed sentences.
+2024-08-30 08:25:37 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:25:40 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:25:40 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:25:40 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:29:03 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:29:03 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:29:03 AM [INFO] Extract 52 sentences
+2024-08-30 08:29:08 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:29:10 AM [INFO] Embed sentences.
+2024-08-30 08:29:10 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:29:20 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:29:21 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:29:21 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:41:35 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:41:35 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:41:35 AM [INFO] Extract 52 sentences
+2024-08-30 08:41:40 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:41:42 AM [INFO] Embed sentences.
+2024-08-30 08:41:42 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:41:50 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:41:50 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:41:50 AM [INFO] Assign labels to embeddings.
+2024-08-30 08:45:13 AM [INFO] Read file at path: ./temp/005f605e8b76deeea52dbf1e7d477a57/005f605e8b76deeea52dbf1e7d477a57.clean.txt
+2024-08-30 08:45:13 AM [INFO] Load Punkt tokenizer
+2024-08-30 08:45:13 AM [INFO] Extract 52 sentences
+2024-08-30 08:45:18 AM [INFO] Initialize SentenceTransformer embedder: SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel 
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, 'include_prompt': True})
+  (2): Normalize()
+).
+2024-08-30 08:45:20 AM [INFO] Embed sentences.
+2024-08-30 08:45:20 AM [INFO] Initialize UMAP reducer.
+2024-08-30 08:45:29 AM [INFO] Reduce embeddings to 8 dimensions.
+2024-08-30 08:45:29 AM [INFO] Fit HDBSCAN model.
+2024-08-30 08:45:29 AM [INFO] Assign labels to embeddings.
