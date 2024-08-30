@@ -3,5 +3,6 @@
 **/temp
 
 **/*.csv
+**/*.env
 **/*.parquet
 **/*.txt
