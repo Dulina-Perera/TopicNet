@@ -8,7 +8,6 @@ from typing import Dict, List
 
 def generate_topics(df: DataFrame) -> DataFrame:
   sentences: List[str] = df['Sentence'].tolist()
-  embeddings: List[List[float]] = df['Embedding'].tolist()
   clusters: List[int] = df['Cluster'].tolist()
 
   grouped_sentences = defaultdict(list)

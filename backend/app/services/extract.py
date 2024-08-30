@@ -11,7 +11,7 @@ from pymupdf import Document
 from typing import List, Union
 
 
-def extract_text_from_pdf(path: Union[str, Path]) -> None:
+def extract_text_from_pdf(path: Union[str, Path]) -> str:
   if not path.endswith('.pdf'):
     raise ValueError("The provided file is not a PDF.")
   else:
@@ -19,7 +19,9 @@ def extract_text_from_pdf(path: Union[str, Path]) -> None:
 
     try:
       doc: Document = pymupdf.open(path)
+
       text_content: List[str] = []
+      title: str = doc.metadata.get('title', 'Untitled')
 
       for page in doc:
         text_content.append(page.get_text())
@@ -29,6 +31,9 @@ def extract_text_from_pdf(path: Union[str, Path]) -> None:
 
       print(f"Text extracted and saved to: {txt_file_path}")
 
+      pymupdf.close()
+
+      return title
     except Exception as e:
         print(f"An error occurred: {e}")
 
