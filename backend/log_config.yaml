@@ -1,0 +1,19 @@
+version: 1
+formatters:
+  default:
+    format: '%(asctime)s [%(levelname)s] %(message)s'
+    datefmt: '%Y-%m-%d %I:%M:%S %p'
+
+handlers:
+  file:
+    class: logging.FileHandler
+    filename: api.log
+    formatter: default
+    encoding: utf-8
+  console:
+    class: logging.StreamHandler
+    formatter: default
+
+root:
+  level: INFO
+  handlers: ['file', 'console']
