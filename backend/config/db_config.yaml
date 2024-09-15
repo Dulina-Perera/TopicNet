@@ -1,0 +1,9 @@
+# backend/config/db_config.yaml
+
+dialect: postgresql
+driver: psycopg2
+username: topicnet
+password: CS3501_Group20
+host: localhost
+port: 5432
+database: topicnet

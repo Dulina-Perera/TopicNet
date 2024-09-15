@@ -1,3 +1,5 @@
+# backend/config/log_config.yaml
+
 version: 1
 formatters:
   default:

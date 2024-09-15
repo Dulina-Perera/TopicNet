@@ -58,3 +58,6 @@
 2024-09-12 11:24:17 PM [INFO] accept thread stopped
 2024-09-12 11:24:17 PM [INFO] starting 1 workers
 2024-09-12 11:24:17 PM [INFO] Actix runtime found; starting in Actix runtime
+2024-09-12 11:27:58 PM [INFO] SIGINT received; starting forced shutdown
+2024-09-12 11:27:58 PM [INFO] shutting down idle worker
+2024-09-12 11:27:58 PM [INFO] accept thread stopped

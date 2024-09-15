@@ -15,7 +15,7 @@ from typing import Any, Dict
 # %%
 load_dotenv()
 
-with open('log_config.yaml', 'r') as f:
+with open('config/log_config.yaml', 'r') as f:
 	log_config: Dict[str, Any] = yaml.safe_load(f.read())
 
 logging.config.dictConfig(log_config)
@@ -27,7 +27,6 @@ app: Robyn = Robyn(__file__)
 @app.get('/')
 async def index():
   return 'Hello World!'
-
 
 # %%
 if __name__ == '__main__':
