@@ -1,18 +1,39 @@
 <script lang="ts">
-	import user from '$lib/stores/user';
-	import Login from '$lib/components/Login.svelte';
+	import type { PageData } from "./$types";
 
-	$: isLoggedIn = $user === null ? false : true;
+	export let data: PageData;
 
-	const logout = () => {
-		user.set(null);
-	};
+	$: ({ articles } = data);
 </script>
 
-<h1>Welcome to TopicNet!</h1>
-{#if isLoggedIn}
-	<h2>Thank you {($user && $user.firstname) || 'User'} for logging in!</h2>
-	<input type="button" value="Logout!" on:click={logout}>
-{:else}
-	<Login />
-{/if}
+<div class="grid">
+	<div>
+		<h2>Articles:</h2>
+
+		{#each articles as article}
+			<article>
+				<header>{article.title}</header>
+
+				<p>{article.content}</p>
+
+				<form action="?/deleteArticle&id={article.id}" method="post">
+					<button type="submit" class="outline secondary">Delete Article</button>
+				</form>
+
+				<a href="/{article.id}" role="button" class="outline constrast" style="width: 100%;">Edit Article</a>
+			</article>
+		{/each}
+	</div>
+
+	<form action="?/createArticle" method="post">
+		<h3>New Article</h3>
+
+		<label for="title">Title:</label>
+		<input type="text" id="title" name="title">
+
+		<label for="content">Content:</label>
+		<textarea id="content" name="content" rows="5"></textarea>
+
+		<button type="submit">Create Article</button>
+	</form>
+</div>

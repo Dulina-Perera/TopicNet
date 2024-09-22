@@ -20,12 +20,14 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^9.6.0",
+		"@types/node": "^22.7.4",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
 		"globals": "^15.0.0",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
+		"prisma": "^5.20.0",
 		"svelte": "^4.2.7",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
@@ -33,5 +35,12 @@
 		"vite": "^5.0.3",
 		"vitest": "^2.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@lucia-auth/adapter-prisma": "^4.0.1",
+		"@lucia-auth/sveltekit": "^0.6.11",
+		"@picocss/pico": "^2.0.6",
+		"@prisma/client": "^5.20.0",
+		"lucia": "^3.2.0"
+	}
 }
