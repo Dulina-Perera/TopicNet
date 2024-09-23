@@ -1,12 +1,9 @@
 <script lang="ts">
-	import "@picocss/pico";
+	import "../app.css";
+	import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
-<div class="container">
-	<hgroup>
-		<h1><a href="/" style="color: inherit; text-decoration: none;">TopicNet 🔥</a></h1>
-
-		<h2>Let's add authentication to TopicNet!</h2>
-	</hgroup>
+<div class="flex flex-col min-h-screen">
+	<Navbar />
 	<slot />
 </div>
