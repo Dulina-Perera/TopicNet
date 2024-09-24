@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { searchVisible } from "$lib/stores";
+	import { loginVisible, searchVisible } from "$lib/stores";
 
 	let navMenuVisible: boolean = false;
 
@@ -13,6 +13,10 @@
 
 	const showSearch = () => {
 		searchVisible.set(true);
+	};
+
+	const showLogin = () => {
+		loginVisible.set(true);
 	};
 </script>
 
@@ -77,7 +81,13 @@
 			></i>
 
 			<!-- Login button -->
-			<i class="cursor-pointer duration-[0.4s] hover:text-first-color ri-user-line text-title-color text-xl transition-[color]" id="login-btn"></i>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<i
+				class="cursor-pointer duration-[0.4s] hover:text-first-color ri-user-line text-title-color text-xl transition-[color]"
+				id="login-btn"
+				on:click={showLogin}
+			></i>
 
 			<!-- Toggle button -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->

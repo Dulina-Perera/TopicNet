@@ -18,3 +18,6 @@ export const clearUser = () => {
 
 // Initially, the search component is not visible.
 export const searchVisible = writable(false);
+
+// Initially, the login component is not visible.
+export const loginVisible = writable(false);

@@ -15,7 +15,7 @@
 <div
 	class={`
 		${isVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-		backdrop-blur-xl bg-[hsla(230, 75%, 15%, .1)] fixed left-0 pb-0 pt-32 px-6 sm:pt-40 top-0 transition-opacity w-full z-modal
+		backdrop-blur-xl bg-[hsla(230, 75%, 15%, .1)] fixed h-full left-0 pb-0 pt-32 px-6 sm:pt-40 top-0 transition-opacity w-full z-modal
 	`}
 	id="search"
 >
