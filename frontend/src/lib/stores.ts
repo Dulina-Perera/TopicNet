@@ -15,3 +15,6 @@ export const setUser = (authenticatedUser: User) => {
 export const clearUser = () => {
 	user.set(null);
 };
+
+// Initially, the search component is not visible.
+export const searchVisible = writable(false);
