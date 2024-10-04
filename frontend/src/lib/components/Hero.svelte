@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { FileButton } from '@skeletonlabs/skeleton';
+</script>
+
 <section class="w-full min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-white">
   <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 max-w-[90%] mx-auto">
     <!-- Text Content -->
@@ -9,12 +13,7 @@
         Interactively Visualize Unstructured Text Documents as Mindmaps
       </p>
       <div class="mt-8">
-        <a href="#learn-more" class="inline-block px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-          Learn More
-        </a>
-        <a href="#get-started" class="ml-4 inline-block px-8 py-4 border border-indigo-600 text-lg font-medium rounded-md text-indigo-600 hover:bg-indigo-50">
-          Get Started
-        </a>
+        <FileButton name="files" />
       </div>
     </div>
 
