@@ -28,6 +28,6 @@ for pdf in pdfs:
 
   pages: List[Image.Image] = convert_from_path(f"./data/pdfs/{pdf}")
   for (i, page) in enumerate(pages):
-    page.save(f"./data/imgs/{pdf_name}/page_{i}.png", "PNG")
+    page.save(f"./data/imgs/{pdf_name}/{pdf_name}_page_{i}.png", "PNG")
 
   print(f"Converted {pdf} to images.")
