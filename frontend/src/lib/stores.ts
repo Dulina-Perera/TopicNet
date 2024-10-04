@@ -21,3 +21,12 @@ export const searchVisible = writable(false);
 
 // Initially, the login component is not visible.
 export const loginVisible = writable(false);
+
+// Initially, the board is not grabbed.
+export const grabbingBoard = writable(false);
+
+// Initially, the board is not scaled.
+export const boardScale = writable(1);
+
+// Initially, the board is not clicked.
+export const boardClickedPosition = writable({ x: -1, y: -1 });
