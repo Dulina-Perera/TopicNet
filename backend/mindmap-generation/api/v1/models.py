@@ -2,7 +2,7 @@
 
 # %%
 # Import the necessary modules.
-import warnings; warnings.filterwarnings('ignore')
+import warnings; warnings.filterwarnings("ignore")
 
 import yaml
 
@@ -12,14 +12,14 @@ from sqlalchemy.orm.decl_api import declarative_base
 from sqlalchemy.orm.session import sessionmaker
 from sqlalchemy.sql.schema import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Float, Integer, String
-from typing import Any, Dict
+from typing import Any, Dict, Union
 
 # %%
-Base: Any = declarative_base() # Create a base class for the ORM.
+Base: Any = declarative_base() # The base class for the ORM models
 
 # Load the database configuration from the YAML file.
-with open('config/db_config.yaml', 'r') as f:
-  db_config: Dict[str, Any] = yaml.safe_load(f.read())
+with open("./config/db_config.yaml", "r") as f:
+  db_config: Dict[str, Union[int, str]] = yaml.safe_load(f.read())
 
 # Create the database connection url.
 db_url: str = f"{db_config['dialect']}+{db_config['driver']}://{db_config['username']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
@@ -31,11 +31,11 @@ SessionLocal: Any = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # %%
 # Define the database models.
 class Document(Base):
-	__tablename__ = 'document'
+	__tablename__ = "document"
 
 	id = Column(
   	type_=Integer,
-		autoincrement='ignore_fk',
+		autoincrement="ignore_fk",
    	primary_key=True
   )
 	path = Column(
@@ -46,19 +46,19 @@ class Document(Base):
   )
 
 class Node(Base):
-	__tablename__ = 'node'
+	__tablename__ = "node"
 
 	id = Column(
 	 	type_=Integer,
-		autoincrement='ignore_fk',
+		autoincrement="ignore_fk",
 		primary_key=True
 	)
 	parent_id = Column(
-		ForeignKey('node.id'),
+		ForeignKey("node.id"),
 		type_=Integer
 	)
 	document_id = Column(
-		ForeignKey('document.id'),
+		ForeignKey("document.id"),
 		type_=Integer,
 		nullable=False
 	)
@@ -69,20 +69,20 @@ class Node(Base):
 	content = Column(type_=String)
 
 class Sentence(Base):
-	__tablename__ = 'sentence'
+	__tablename__ = "sentence"
 
 	id = Column(
 	 	type_=Integer,
-		autoincrement='auto',
+		autoincrement="auto",
 		primary_key=True
 	)
 	document_id = Column(
-		ForeignKey('document.id'),
+		ForeignKey("document.id"),
 		type_=Integer,
 		nullable=False
 	)
 	node_id = Column(
-		ForeignKey('node.id'),
+		ForeignKey("node.id"),
 		type_=Integer
 	)
 	content = Column(
@@ -92,7 +92,7 @@ class Sentence(Base):
 	embeddings = Column(type_=ARRAY(Float))
 
 # %%
-if __name__ == '__main__':
+if __name__ == "__main__":
   # Drop all tables in the database.
   Base.metadata.drop_all(bind=engine)
 

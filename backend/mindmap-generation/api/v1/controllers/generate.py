@@ -1,4 +1,5 @@
 # %%
+# Import the necessary modules.
 from fastapi import APIRouter, File, HTTPException, UploadFile
 from secrets import token_urlsafe
 from typing import Union
@@ -6,9 +7,12 @@ from typing import Union
 from ..services import (
   AWSEnvironmentVariableNotSetError,
   InvalidFileFormatError,
+  InvalidURIError,
   NoSubmittedFileError,
-  NoSuchBucketError,
+  NoSuchS3BucketError,
+  NoSuchS3FileError,
   S3UploadError,
+  store_s3_file_uri,
   upload_pdf_to_s3,
   verify_file_format
 )
@@ -26,17 +30,25 @@ async def endpoint_generate_base(file: Union[UploadFile, None] = File(default=No
       "application/pdf"
     )
 
-    # Upload the file to S3.
+    # Upload the file to S3 and store the file URI in the database.
     file_uri: str = upload_pdf_to_s3(
 			file,
 			token_urlsafe(16),
 			"topicnet"
 		)
-
-    return {"message": f"File uploaded to {file_uri}"}
+    if store_s3_file_uri(file_uri):
+      return {
+				"message": "The file was successfully uploaded to S3 and the file URI was stored in the database."
+			}
+    else:
+      return {
+				"message": "The file was successfully uploaded to S3, but an error occurred while storing the file URI in the database."
+			}
   except (
 		AWSEnvironmentVariableNotSetError,
-		NoSuchBucketError,
+  	InvalidURIError,
+		NoSuchS3BucketError,
+		NoSuchS3FileError,
 		S3UploadError
 	) as e:
     raise HTTPException(status_code=500, detail=str(e))
@@ -44,3 +56,5 @@ async def endpoint_generate_base(file: Union[UploadFile, None] = File(default=No
     raise HTTPException(status_code=400, detail=str(e))
   except InvalidFileFormatError as e:
     raise HTTPException(status_code=415, detail=str(e))
+  except Exception as e:
+    raise HTTPException(status_code=500, detail=str(e))

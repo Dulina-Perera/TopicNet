@@ -5,8 +5,8 @@ import os
 from fastapi import UploadFile
 from typing import Dict, Union
 
-from .exceptions import AWSEnvironmentVariableNotSetError, InvalidFileFormatError, NoSubmittedFileError, NoSuchBucketError, S3UploadError
-from .verification_n_validation import validate_bucket_head, verify_file_format
+from .exceptions import AWSEnvironmentVariableNotSetError, InvalidFileFormatError, NoSubmittedFileError, NoSuchS3BucketError, S3UploadError
+from .verification_n_validation import does_s3_bucket_exist, verify_file_format
 
 # %%
 def upload_pdf_to_s3(
@@ -42,9 +42,7 @@ def upload_pdf_to_s3(
 		)
 
     # Make sure that the bucket exists and that the user has access to it.
-    _: Dict[str, Union[bool, str]] = validate_bucket_head(bucket_name)
-    if not _['exists']:
-      raise NoSuchBucketError(f"Bucket '{bucket_name}' does not exist or you do not have access to it.")
+    does_s3_bucket_exist(bucket_name)
 
     # Upload the file to S3 using the file's file-like object.
     s3_client.upload_fileobj(file.file, bucket_name, object_name)
@@ -55,7 +53,7 @@ def upload_pdf_to_s3(
     AWSEnvironmentVariableNotSetError,
     InvalidFileFormatError,
     NoSubmittedFileError,
-    NoSuchBucketError
+    NoSuchS3BucketError
   ) as e:
     raise
   except Exception as e:
