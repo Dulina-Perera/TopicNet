@@ -1,39 +1,38 @@
 # %%
-import re
 from sqlalchemy.orm.session import Session
+from typing import Any
 
-from .exceptions import InvalidURIError
-from .verification_n_validation import does_s3_file_exist
-from ..models import Document, SessionLocal
+from .v_and_v import does_s3_file_exist, is_s3_uri_valid
+from ....exceptions import InvalidS3URIError
+from ....models import Document
 
 # %%
-def store_s3_file_uri(file_uri: str) -> bool:
-  # Verify that the file URI is valid.
-  if file_uri is None:
-    raise InvalidURIError("The file URI is empty.")
-  elif not re.match(r"https://\w+\.s3\.\w+-\w+-\d+\.amazonaws\.com/\w+", file_uri):
-    raise InvalidURIError("The file URI is invalid.")
+def save_s3_uri(
+	s3_uri: str,
+	db_session: Session,
+	s3_client: Any
+) -> bool:
+  # Verify that the S3 URI is valid.
+  if not is_s3_uri_valid(s3_uri):
+    raise InvalidS3URIError("The S3 URI is invalid.")
 
-  # Check if the s3 file pointed to by the file URI exists.
-  does_s3_file_exist(file_uri, "topicnet")
-
-	# Create a new session.
-  session: Session = SessionLocal()
+  # Check if the S3 file pointed to by the S3 URI exists.
+  does_s3_file_exist(s3_uri, s3_client)
 
   try:
     # Create a new document object.
-    document: Document = Document(path=file_uri)
+    document: Document = Document(path=s3_uri)
 
     # Add the document to the session and commit the transaction.
-    session.add(document)
-    session.commit()
+    db_session.add(document)
+    db_session.commit()
 
     return True
   except Exception:
     # Rollback the transaction if an error occurs.
-    session.rollback()
+    db_session.rollback()
 
     return False
   finally:
     # Close the session.
-    session.close()
+    db_session.close()

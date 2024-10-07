@@ -7,6 +7,21 @@ from dotenv import load_dotenv
 from typing import Dict, Union
 
 # %%
+def are_env_vars_set(*env_vars: str) -> bool:
+  """
+  Check if the specified environment variables are set.
+
+	This function checks if the specified environment variables are set.
+
+	Parameters:
+		*env_vars (str): The environment variables to check.
+
+	Returns:
+		bool: True if all the environment variables are set, False otherwise
+  """
+  return all([os.getenv(env_var) for env_var in env_vars])
+
+
 def load_env_vars() -> None:
 	"""
 	Load the environment variables from .env files.

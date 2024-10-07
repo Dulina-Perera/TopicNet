@@ -7,7 +7,6 @@ import pathlib
 import pymupdf
 import pymupdf4llm
 
-from pymupdf import Document
 from typing import Union
 
 # %%

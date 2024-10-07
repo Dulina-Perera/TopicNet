@@ -2,7 +2,6 @@
 
 # %%
 import os
-import pytextrank
 import re
 import spacy
 

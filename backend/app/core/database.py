@@ -1,11 +1,12 @@
 # %%
 # Import the required modules.
+from fastapi import Depends
 from sqlalchemy.engine import Engine, create_engine
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm.decl_api import declarative_base
 from sqlalchemy.orm.scoping import scoped_session
 from sqlalchemy.orm.session import Session, sessionmaker
-from typing import Any, Dict, Generator, Union
+from typing import Annotated, Any, Dict, Generator, Union
 
 from .config import load_db_config
 
@@ -48,7 +49,7 @@ def init_db() -> None:
   Base.metadata.create_all(bind=engine)
 
 
-def get_db() -> Generator[Any, Any, Any]:
+def get_db_session() -> Generator[Any, Any, Any]:
   """
   Get a new database session.
 
@@ -68,6 +69,10 @@ def get_db() -> Generator[Any, Any, Any]:
     raise
   finally:
     db_session.close()
+
+# %%
+# Database session dependency
+db_session_dep = Annotated[scoped_session[Session], Depends(get_db_session)]
 
 # %%
 if __name__ == "__main__":
