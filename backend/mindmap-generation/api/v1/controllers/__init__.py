@@ -1,4 +1,3 @@
-# backend/mindmap-generation/api/v1/controllers/__init__.py
-
 # %%
+from .generate import generate_router
 from .summarize import summarize_router

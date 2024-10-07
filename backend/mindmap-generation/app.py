@@ -1,5 +1,3 @@
-# backend/mindmap-generation/main.py
-
 # %%
 import warnings; warnings.filterwarnings('ignore')
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +11,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from typing import Any, Dict
 
-from api.v1.controllers import summarize_router
+from api.v1.controllers import generate_router, summarize_router
 
 # %%
 load_dotenv()
@@ -30,6 +28,7 @@ app: FastAPI = FastAPI(
 	version='0.1.0',
 )
 
+app.include_router(generate_router, prefix='/api/v1/generate')
 app.include_router(summarize_router, prefix='/api/v1/summarize')
 
 # %%
