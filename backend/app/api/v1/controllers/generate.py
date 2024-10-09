@@ -1,11 +1,13 @@
 # %%
 # Import the required modules.
+import os
+
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from logging import Logger
 from secrets import token_urlsafe
 from sqlalchemy.orm.scoping import scoped_session
 from sqlalchemy.orm.session import Session
-from typing import Any, Dict, Union, Tuple
+from typing import Any, Dict, List, Union, Tuple
 
 from ..services import (
   is_file_format_allowed,
@@ -48,7 +50,8 @@ async def generate_base(
     document_id: int = save_s3_uri(s3_uri, db_session, s3_client)
 
     # TODO: Implement the sentence extraction and preprocessing logic here. ########################
-
+    with open(os.path.join(os.path.dirname(__file__), "../../../../static/uploads/cognitive-analytics/cognitive-analytics.clean.txt"), "r") as f:
+      sentences: List[str] = [line.strip() for line in f if line.strip()]
     ################################################################################################
 
     # Return the document ID and the S3 URI.

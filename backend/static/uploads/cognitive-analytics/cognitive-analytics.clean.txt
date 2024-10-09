@@ -1,0 +1,62 @@
+Cognitive Analytics Cognition is mental action or process acquiring knowledge by understanding true thought experience senses
+Cognitive Analytics Cognitive processes use existing knowledge generate new knowledge
+Cognitive Analytics Purpose cognitive computing is perform tasks that only humans used be able do
+Cognitive Analytics It augments human capabilities (As opposed AI which just automates)
+
+Cognitive Analytics Cognitive analytics reveals certain patterns connections that simple analytics cannot
+Cognitive Analytics Cognitive computing allows wide variety problems previously incapable being solved by fixed program instructions be calculable estimable
+Cognitive Analytics Cognitive analytics can be thought as analytics with human-like intelligence applied certain tasks brings together number intelligent technologies including Semantics
+Cognitive Analytics Cognitive analytics can be thought as analytics with human-like intelligence applied certain tasks brings together number intelligent technologies including Artificial intelligence algorithms
+Cognitive Analytics Cognitive analytics can be thought as analytics with human-like intelligence applied certain tasks brings together number intelligent technologies including Deep learning
+Cognitive Analytics Cognitive analytics can be thought as analytics with human-like intelligence applied certain tasks brings together number intelligent technologies including Machine learning
+Cognitive Analytics This allows cognitive application improve over time
+
+Cognitive Analytics It uses several visual perceptions speech recognition decision-making NLP (Natural Language Processing) concepts make sense previously untapped data from rich sources such as conversational logs feedback reviewssocial media so on
+Cognitive Analytics Applying such techniques cognitive application can get smarter more effective over time by (self) learning from its interactions with data with humans
+Cognitive Analytics Inferences are not structured queries based on rules database rather could be unstructured hypotheses gathered from several data sources expressed with varying degrees confidence level
+
+Cognitive Analytics Cognitive Analytics is intelligent technology that covers multiple analytical techniques analyze large data sets give structure unstructured data
+Cognitive Analytics Cognitive analytics system searches through data that exists its knowledge base find solutions that make sense questions posed
+Cognitive Analytics cognitive system can create competitive advantage business providing real-time answers with ability Search through massive amounts information
+Cognitive Analytics cognitive system can create competitive advantage business providing real-time answers with ability Making sense context meaning sentence
+Cognitive Analytics cognitive system can create competitive advantage business providing real-time answers with ability Computing most likely answer
+Cognitive Analytics cognitive system can create competitive advantage business providing real-time answers with ability Recognizing certain objects an image given large amounts information
+
+Cognitive Analytics An organization might use cognitive analytics monitor their customer behavior patterns emerging trends This way organization can predict future outcomes plan their objectives accordingly improve their performance
+Cognitive Analytics Some sections cognitive analytics also fall under predictive analytics where data business intelligence is used make predictions
+
+How Does Cognitive Computing Work? Adaptive Flexible systems which learn as information changes tandem with evolution goals requirements
+How Does Cognitive Computing Work? Adaptive Cognitive applications must be adaptive nature
+How Does Cognitive Computing Work? Adaptive Capable integrating latest or frequently changing data feeds like real-time or near real-time master ambiguity unpredictability
+How Does Cognitive Computing Work? Interactive cognitive system must be able interact easily with users so that users can define their needs comfortably
+How Does Cognitive Computing Work? Interactive Similarly it must also interact with other processors devices Cloud services
+
+How Does Cognitive Computing Work? Iterative Iterative process solve problems which are ambiguous
+How Does Cognitive Computing Work? Iterative system should remember previous interactions process
+How Does Cognitive Computing Work? Iterative It should be able define problem by asking questions or finding an additional source
+How Does Cognitive Computing Work? Iterative this ensure that cognitive system is always provided with enough validated quality information that data sources it operates are reliable up date
+How Does Cognitive Computing Work? Stateful system should return information that is suitable specific application at that point time
+
+How Does Cognitive Computing Work? Contextual Cognitive applications should be able understand identify extract contextual elements such as meaning syntax time location appropriate domain process task goal
+How Does Cognitive Computing Work? Contextual It must draw on multiple sources information including both structured unstructured digital information
+How Does Cognitive Computing Work? Dark Data Compatibility Cognitive computing systems should be able deal with “dark data” such as social media postings EMR notes fitness device readings unstructured images videos digital or non-digital documents generated by users day day life
+How Does Cognitive Computing Work? Dark Data Compatibility Cognitive Computing applications process such multi-structured unstructured dark data along with structured information pull out non-obvious insights subject it analytics
+
+Real-Life Applications Cognitive Analytics medical industry is now starting use cognitive analytics match its patients with best possible treatments
+Real-Life Applications Cognitive Analytics Some examples cognitive analytics which are use today include Microsoft’s Cortana Apple’s Siri IBM’s Watson
+Real-Life Applications Cognitive Analytics Organizations are using cognitive analytics tap into unstructured data sources such as images emails text documents social posts
+Real-Life Applications Cognitive Analytics Though cognitive analytics is still its infancy it may be solution finding real-time answers large amounts diverse data bringing paradigm shift from traditional analytics
+
+Cognitive Analytics Pros Cons Advantages Reduction Human Error
+Cognitive Analytics Pros Cons Advantages Prevention wrong decision by machines
+Cognitive Analytics Pros Cons Advantages Available 24x7
+Cognitive Analytics Pros Cons Advantages Helping Repetitive Jobs
+Cognitive Analytics Pros Cons Advantages Digital Assistance
+Cognitive Analytics Pros Cons Advantages Faster Decisions
+Cognitive Analytics Pros Cons Disadvantages Security
+Cognitive Analytics Pros Cons Disadvantages Change management
+Cognitive Analytics Pros Cons Disadvantages Lengthy Costly development cycles
+Cognitive Analytics Pros Cons Disadvantages Making Humans Lazy
+Cognitive Analytics Pros Cons Disadvantages No Emotions
+Cognitive Analytics Pros Cons Disadvantages Unemployment
+Cognitive Analytics Pros Cons Disadvantages Lacking Out Box Thinking
