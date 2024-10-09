@@ -1,5 +1,3 @@
-# backend/scripts/postgres-setup.zsh
-
 #!/usr/bin/env zsh
 
 # Function to check if a package is already installed.
