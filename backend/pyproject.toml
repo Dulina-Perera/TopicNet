@@ -9,6 +9,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+alembic = "1.13.3"
 boto3 = "1.35.31"
 fastapi = "0.115.0"
 gensim = "4.3.3"

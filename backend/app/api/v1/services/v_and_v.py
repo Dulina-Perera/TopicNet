@@ -29,7 +29,7 @@ def is_file_format_allowed(
 def is_s3_uri_valid(s3_uri: Union[str, None]) -> bool:
 	if s3_uri is None:
 		return False
-	elif not re.match(r"s3://\w+/\w+", s3_uri):
+	elif not re.match(r"s3://[a-zA-Z0-9.\-_]+(/[a-zA-Z0-9.\-_]+)*", s3_uri):
 		return False
 
 	return True

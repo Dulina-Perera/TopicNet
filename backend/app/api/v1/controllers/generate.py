@@ -1,11 +1,13 @@
 # %%
 # Import the required modules.
+import os
+
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from logging import Logger
 from secrets import token_urlsafe
 from sqlalchemy.orm.scoping import scoped_session
 from sqlalchemy.orm.session import Session
-from typing import Any, Dict, Union, Tuple
+from typing import Any, Dict, List, Union, Tuple
 
 from ..services import (
   is_file_format_allowed,
@@ -39,22 +41,24 @@ async def generate_base(
     # Check if the file format is allowed.
     ALLOWED_FILE_FORMATS: Tuple[str, ...] = ("application/pdf",)
     if not is_file_format_allowed(file, ALLOWED_FILE_FORMATS):
-      raise InvalidFileFormatError(f"Invalid file format. Only {', '.join(ALLOWED_FILE_FORMATS)} files are supported.")
+      raise InvalidFileFormatError(
+        f"Invalid file format. Only {', '.join(ALLOWED_FILE_FORMATS)} files are supported."
+      )
 
     # Upload the file to S3 and store the file's S3 URI in the database.
     s3_uri: str = upload_file_to_s3(file, token_urlsafe(16), s3_client)
-    if save_s3_uri(
-      s3_uri,
-      db_session,
-      s3_client,
-    ):
-      return {
-				"message": "The file was successfully uploaded to S3 and the file URI was stored in the database."
-			}
-    else:
-      return {
-				"message": "The file was successfully uploaded to S3, but an error occurred while storing the file URI in the database."
-			}
+    document_id: int = save_s3_uri(s3_uri, db_session, s3_client)
+
+    # TODO: Implement the sentence extraction and preprocessing logic here. ########################
+    with open(os.path.join(os.path.dirname(__file__), "../../../../static/uploads/cognitive-analytics/cognitive-analytics.clean.txt"), "r") as f:
+      sentences: List[str] = [line.strip() for line in f if line.strip()]
+    ################################################################################################
+
+    # Return the document ID and the S3 URI.
+    return {
+			"document_id": document_id,
+			"s3_uri": s3_uri
+		}
   except NoFileSubmittedError as e:
     raise HTTPException(status_code=400, detail=str(e))
   except InvalidFileFormatError as e:
