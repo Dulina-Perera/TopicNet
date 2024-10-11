@@ -1,8 +1,7 @@
 # %%
 # Import the required modules.
+from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.sql.schema import Column, ForeignKey
-from sqlalchemy.sql.sqltypes import Float, Integer, String
 
 from ..core.database import Base
 
