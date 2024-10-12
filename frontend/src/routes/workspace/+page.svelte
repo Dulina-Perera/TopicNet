@@ -15,4 +15,4 @@
 </script>
 
 <!-- <Board /> -->
-<Node content={content} />
+<Node nodeContent={content} />
