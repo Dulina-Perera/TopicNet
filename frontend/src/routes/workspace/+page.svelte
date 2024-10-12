@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Board from "$lib/components/Board.svelte";
 	import Node from "$lib/components/Node.svelte";
+	// import Toolbar from "$lib/components/Toolbar.svelte";
 
 	let content = `
 # Welcome to TopicNet
@@ -16,3 +17,4 @@
 
 <!-- <Board /> -->
 <Node nodeContent={content} />
+<!-- <Toolbar /> -->
