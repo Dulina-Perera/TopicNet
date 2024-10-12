@@ -1,6 +1,8 @@
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
+import { customTheme } from './theme';
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: 'class',
@@ -39,7 +41,7 @@ export default {
   },
   plugins: [
 		skeleton({
-			themes: { preset: [ "modern" ] }
+			themes: { custom: [ customTheme ] }
 		})
 	]
 }
