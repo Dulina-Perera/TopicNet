@@ -15,6 +15,7 @@
 		"test:unit": "vitest"
 	},
 	"devDependencies": {
+		"@magidoc/plugin-svelte-marked": "^6.1.0",
 		"@playwright/test": "^1.28.1",
 		"@skeletonlabs/skeleton": "^2.10.2",
 		"@skeletonlabs/tw-plugin": "^0.4.0",
@@ -22,12 +23,14 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^9.6.0",
+		"@types/marked": "^6.0.0",
 		"@types/node": "^22.7.4",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
 		"globals": "^15.0.0",
+		"marked": "^14.1.2",
 		"postcss": "^8.4.47",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
@@ -46,6 +49,17 @@
 		"@lucia-auth/sveltekit": "^0.6.11",
 		"@picocss/pico": "^2.0.6",
 		"@prisma/client": "^5.20.0",
-		"lucia": "^3.2.0"
+		"@tailwindcss/typography": "^0.5.15",
+		"@tiptap/core": "^2.8.0",
+		"@tiptap/extension-bullet-list": "^2.8.0",
+		"@tiptap/extension-document": "^2.8.0",
+		"@tiptap/extension-heading": "^2.8.0",
+		"@tiptap/extension-list-item": "^2.8.0",
+		"@tiptap/extension-paragraph": "^2.8.0",
+		"@tiptap/extension-text": "^2.8.0",
+		"@tiptap/pm": "^2.8.0",
+		"@tiptap/starter-kit": "^2.8.0",
+		"lucia": "^3.2.0",
+		"svelte-markdown": "^0.4.1"
 	}
 }

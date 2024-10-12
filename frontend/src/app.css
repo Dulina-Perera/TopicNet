@@ -1,8 +1,32 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+
+@tailwind base;
+@layer base {
+	a {
+    @apply text-blue-600 underline;
+  }
+	h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+	li {
+		@apply list-item;
+	}
+	p {
+		@apply inline
+	}
+	ul {
+		@apply list-disc list-inside ml-2
+	}
+}
+
+@tailwind components;
+@tailwind utilities;
 
 :root {
 	--first-color: hsl(230, 75%, 56%);
@@ -12,7 +36,7 @@
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
 
-	--body-font: "Syne", sans-serif;
+	/* --body-font: "Syne", sans-serif; */
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
 
@@ -55,10 +79,6 @@ input,
 button {
   border: none;
   outline: none;
-}
-
-ul {
-  list-style: none;
 }
 
 a {
