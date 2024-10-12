@@ -1,5 +1,3 @@
-// frontend/src/app.d.ts
-
 import type { PrismaClient } from "@prisma/client";
 
 // for information about these interfaces
