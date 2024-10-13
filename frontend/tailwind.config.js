@@ -39,9 +39,6 @@ export default {
 			}
 		},
 	},
-	// corePlugins: {
-	// 	preflight: false
-	// },
 	plugins: [
 		skeleton({
 			themes: { custom: [customTheme] }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&family=Protest+Strike&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @layer base {
@@ -21,7 +22,7 @@
 		@apply inline
 	}
 	ul {
-		@apply list-disc list-inside ml-2
+		@apply list-none list-inside ml-2
 	}
 }
 
@@ -36,12 +37,15 @@
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
 
-	/* --body-font: "Syne", sans-serif; */
+	--body-font: "Syne", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
 
-	--z-fixed: 100;
-  --z-modal: 1000;
+	--theme-font-family-logo: "Protest Strike", sans-serif;
+
+	--theme-z-index-tooltip: 100,
+	--theme-z-index-fixed: 100,
+	--theme-z-index-modal: 100,
 
 	--header-height: 3.5rem;
 }
