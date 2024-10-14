@@ -22,15 +22,15 @@ class Document(Base):
   )
 
   @classmethod
-  def create(cls, path: str, session: Session) -> "Document":
+  def create(cls, session: Session, path: str) -> "Document":
     """
 		Create a new document record in the database.
 
-		:param path: The path where the document is actually stored
-		:type path: str
-
 		:param session: The database session
 		:type session: Session
+
+		:param path: The path where the document is actually stored
+		:type path: str
 
 		:return: The newly created document record
 		:rtype: Document

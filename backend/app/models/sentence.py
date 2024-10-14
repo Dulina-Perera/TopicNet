@@ -33,14 +33,17 @@ class Sentence(Base):
   @classmethod
   def create(
 		cls,
+		session: Session,
 		document_id: int,
 		node_id: int,
 		content: str,
-		embeddings: list[float],
-		session: Session
+		embeddings: list[float]
 	) -> "Sentence":
     """
 		Create a new sentence record in the database.
+
+		:param session: The database session
+		:type session: Session
 
 		:param document_id: The ID of the document
 		:type document_id: int
@@ -50,9 +53,6 @@ class Sentence(Base):
 
 		:param embeddings: The embeddings of the sentence
 		:type embeddings: list[float]
-
-		:param session: The database session
-		:type session: Session
 
 		:return: The newly created sentence record
 		:rtype: Sentence

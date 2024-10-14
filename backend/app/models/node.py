@@ -28,13 +28,16 @@ class Node(Base):
   @classmethod
   def create(
     cls,
+    session: Session,
     parent_id: int,
     document_id: int,
-    topic_and_content: str,
-    session: Session
+    topic_and_content: str
   ) -> "Node":
     """
 		Create a new node record in the database.
+
+		:param session: The database session
+		:type session: Session
 
 		:param parent_id: The ID of the parent node
 		:type parent_id: int
@@ -44,9 +47,6 @@ class Node(Base):
 
 		:param topic_and_content: The topic and content of the node
 		:type topic_and_content: str
-
-		:param session: The database session
-		:type session: Session
 
 		:return: The newly created node record
 		:rtype: Node

@@ -1,7 +1,6 @@
 # %%
 # Import the required modules.
 import os
-import random
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from logging import Logger
@@ -17,14 +16,13 @@ from ..services import (
   model_topics_with_nmf,
   parse_topic,
   refine_topic_n_content,
+  refine_topic_and_content_using_openai,
   save_s3_uri,
+  save_sentences_to_db,
   upload_file_to_s3
 )
 from ....core import get_db_session, get_logger, get_s3_client
-from ....exceptions import (
-	InvalidFileFormatError,
-	NoFileSubmittedError
-)
+from ....exceptions import InvalidFileFormatError, NoFileSubmittedError
 
 # %%
 # Router for the generate endpoint
@@ -39,28 +37,37 @@ async def generate_base(
   logger: Logger = Depends(get_logger)
 ) -> Dict:
   try:
-    # # Check if a file was submitted.
-    # if not is_file_not_none(file):
-    #   raise NoFileSubmittedError("No file was submitted.")
+    # Check if a file was submitted.
+    if not is_file_not_none(file):
+      raise NoFileSubmittedError("No file was submitted.")
 
-    # # Check if the file format is allowed.
-    # ALLOWED_FILE_FORMATS: Tuple[str, ...] = ("application/pdf",)
-    # if not is_file_format_allowed(file, ALLOWED_FILE_FORMATS):
-    #   raise InvalidFileFormatError(
-    #     f"Invalid file format. Only {', '.join(ALLOWED_FILE_FORMATS)} files are supported."
-    #   )
+    # Check if the file format is allowed.
+    ALLOWED_FILE_FORMATS: Tuple[str, ...] = ("application/pdf",)
+    if not is_file_format_allowed(file, ALLOWED_FILE_FORMATS):
+      raise InvalidFileFormatError(
+        f"Invalid file format. Only {', '.join(ALLOWED_FILE_FORMATS)} files are supported."
+      )
 
-    # # Upload the file to S3 and store the file's S3 URI in the database.
-    # s3_uri: str = upload_file_to_s3(file, token_urlsafe(16), s3_client)
-    # document_id: int = save_s3_uri(s3_uri, db_session, s3_client)
+    # Upload the file to S3 and store the file's S3 URI in the database.
+    s3_uri: str = upload_file_to_s3(file, token_urlsafe(16), s3_client)
+    document_id: int = save_s3_uri(s3_uri, db_session, s3_client)
 
     # TODO: Implement the sentence extraction and preprocessing logic here. ########################
     with open(os.path.join(os.path.dirname(__file__), "../../../../static/uploads/cognitive-analytics/cognitive-analytics.clean.txt"), "r") as f:
       sentences: List[str] = [line.strip() for line in f if line.strip()]
     ################################################################################################
 
+    # Save the sentences to the database.
+    sentence_ids: List[int] = save_sentences_to_db(
+      db_session,
+      sentences,
+      document_id,
+      max_retries=3*len(sentences)
+    )
+    logger.info(f"Saved {len(sentence_ids)} sentences to the database.")
+
     # Model the topics using NMF.
-    # topics: List[str]
+    topics: List[str]
     _, topics = model_topics_with_nmf(sentences)
     topics = [parse_topic(topic) for topic in topics]
 
@@ -70,7 +77,8 @@ async def generate_base(
     # Refine the topics and content using OpenAI.
     refined_content: List[str] = []
     for (topic, content) in topic_dict.items():
-      refined_content.append(refine_topic_n_content(topic, content))
+      _ = await refine_topic_and_content_using_openai(topic, content)
+      refined_content.append(_)
 
     # Return the document ID and the S3 URI.
     return {
