@@ -2,11 +2,11 @@
 import numpy as np
 import random
 import re
-import os
 
+from collections import defaultdict
 from gensim.corpora import Dictionary
 from gensim.models import CoherenceModel, Nmf, TfidfModel
-from typing import List, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 # from ....exceptions import InsufficientContextException
 
@@ -54,29 +54,10 @@ def transform_bow_vectors_to_tfidf_fmt(
 	return tfidf_vectors
 
 
-def parse_topic(topic_str: str) -> str:
-  """
-  Parse a topic string in the format '0.036*"disadvantages" + 0.030*"cons" + ...'
-    and return a string with the words joined by hyphens.
-
-    Parameters:
-    - topic_str (str): The topic string to be parsed.
-
-    Returns:
-    - str: A string of words separated by hyphens.
-  """
-  # Use regular expression to find all words between the quotes.
-  words = re.findall(r'\"(.*?)\"', topic_str)
-
-  # Join the words with hyphens.
-  return '-'.join(words)
-
-
-
 def model_topics_with_nmf(
   corpus: List[str],
   min_topics: int = 2,
-  max_topics: int = 6,
+  max_topics: int = 4,
   normalize: bool = True,
   random_state: int = random.randint(0, 100)
 ) -> Tuple[Nmf, List[str]]:
@@ -155,13 +136,39 @@ def model_topics_with_nmf(
   return best_nmf_model, topic_classifications
 
 
-# %%
-if __name__ == '__main__':
-  with open(os.path.join(os.path.dirname(__file__), "../../../../static/uploads/cognitive-analytics/cognitive-analytics.clean.txt"), "r") as f:
-    sentences: List[str] = [line.strip() for line in f if line.strip()]
+def parse_topic(topic_str: str) -> str:
+  """
+  Parse a topic string in the format '0.036*"disadvantages" + 0.030*"cons" + ...'
+    and return a string with the words joined by hyphens.
 
-  topic_classifications: List[str]
-  _, topic_classifications = model_topics_with_nmf(sentences)
-  for topic in topic_classifications:
-    print(parse_topic(topic))
-  print(len(set(topic_classifications)))
+    Parameters:
+    - topic_str (str): The topic string to be parsed.
+
+    Returns:
+    - str: A string of words separated by hyphens.
+  """
+  # Use regular expression to find all words between the quotes.
+  words = re.findall(r'\"(.*?)\"', topic_str)
+
+  # Join the words with hyphens.
+  return '-'.join(words)
+
+
+def create_topic_dict(topics: List[str], sentences: List[str]) -> Dict[str, str]:
+  """
+  Create a dictionary mapping topics to the sentences that belong to them.
+
+	Parameters:
+	- topics (List[str]): List of topics.
+	- sentences (List[str]): List of sentences.
+
+	Returns:
+	- Dict[str, str]: A dictionary mapping topics to the sentences that belong to them.
+  """
+  topic2sentences: defaultdict = defaultdict(list)
+  for (topic, sentence) in zip(topics, sentences):
+    topic2sentences[topic].append(sentence)
+
+  return {
+    topic: "\n".join(topic_sentences) for (topic, topic_sentences) in topic2sentences.items()
+	}
