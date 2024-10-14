@@ -1,13 +1,11 @@
-<script lang="ts">
-	import Logo from "$lib/components/navbar/Logo.svelte";
-	// import Hero from "$lib/components/Hero.svelte";
-	// import Login from "$lib/components/Login.svelte";
-	// import Navbar from "$lib/components/Navbar.svelte";
-	// import Search from "$lib/components/Search.svelte";
+<script>
+	import { Login, Logo, Navbar } from "$lib/components/header";
 </script>
 
-<Logo logoText="TopicNet" />
-<!-- <Navbar />
-<Search />
-<Login /> -->
-<!-- <Hero /> -->
+<header class="fixed left-4 top-4 w-[calc(100%-2rem)]">
+	<div class="flex justify-between">
+		<Logo logoText="TopicNet" />
+		<Navbar />
+		<Login />
+	</div>
+</header>

@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&family=Protest+Strike&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 @tailwind base;
 @layer base {
@@ -42,10 +42,11 @@
   --normal-font-size: .938rem;
 
 	--theme-font-family-logo: "Protest Strike", sans-serif;
+	--theme-font-family-base: "Nunito", sans-serif;
 
-	--theme-z-index-tooltip: 100,
-	--theme-z-index-fixed: 100,
-	--theme-z-index-modal: 100,
+	--theme-z-index-tooltip: 10;
+	--theme-z-index-fixed: 100;
+	--theme-z-index-modal: 1000;
 
 	--header-height: 3.5rem;
 }

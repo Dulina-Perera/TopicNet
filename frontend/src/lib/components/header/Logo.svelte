@@ -2,15 +2,13 @@
 	export let logoText: string | undefined = undefined;
 </script>
 
-<div
-	class="fixed left-4 p-3 top-4 w-fit"
->
-	<a href="/" class="text-2xl">{logoText}</a>
+<div class="inline-flex items-center p-1">
+	<a href="/" class="text-xl">{logoText}</a>
 </div>
 
 <style>
 	div {
-		background-color: var(--color-surface-300);
+		background-color: var(--color-surface-200);
 		border-radius: var(--theme-rounded-container);
 		z-index: var(--theme-z-index-fixed);
 	}
