@@ -6,6 +6,7 @@ from .summarization import (
   summarize_using_spacy
 )
 from .topic_modeling import create_topic_dict, model_topics_with_nmf, parse_topic
+from .topic_n_content_refiner import refine_topic_n_content
 from .v_and_v import (
 	does_s3_bucket_exist,
 	does_s3_file_exist,

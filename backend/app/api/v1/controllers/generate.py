@@ -16,6 +16,7 @@ from ..services import (
   is_file_not_none,
   model_topics_with_nmf,
   parse_topic,
+  refine_topic_n_content,
   save_s3_uri,
   upload_file_to_s3
 )
@@ -58,20 +59,24 @@ async def generate_base(
       sentences: List[str] = [line.strip() for line in f if line.strip()]
     ################################################################################################
 
-    # # Model the topics using NMF.
+    # Model the topics using NMF.
     # topics: List[str]
     _, topics = model_topics_with_nmf(sentences)
     topics = [parse_topic(topic) for topic in topics]
 
-    # # Create a dictionary mapping topics to the sentences that belong to them.
+    # Create a dictionary mapping topics to the sentences that belong to them.
     topic_dict: Dict[str, str] = create_topic_dict(topics, sentences)
-    print(topic_dict)
+
+    # Refine the topics and content using OpenAI.
+    refined_content: List[str] = []
+    for (topic, content) in topic_dict.items():
+      refined_content.append(refine_topic_n_content(topic, content))
 
     # Return the document ID and the S3 URI.
     return {
 			# "document_id": document_id,
 			# "s3_uri": s3_uri,
-			"topics": topic_dict
+			"content": refined_content
 		}
   except NoFileSubmittedError as e:
     raise HTTPException(status_code=400, detail=str(e))
