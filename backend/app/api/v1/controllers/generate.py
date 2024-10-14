@@ -10,16 +10,19 @@ from sqlalchemy.orm.session import Session
 from typing import Any, Dict, List, Union, Tuple
 
 from ..services import (
+  create_topic_dict,
   is_file_format_allowed,
   is_file_not_none,
+  model_topics_with_nmf,
+  parse_topic,
+  refine_topic_n_content,
+  refine_topic_and_content_using_openai,
   save_s3_uri,
+  save_sentences_to_db,
   upload_file_to_s3
 )
 from ....core import get_db_session, get_logger, get_s3_client
-from ....exceptions import (
-	InvalidFileFormatError,
-	NoFileSubmittedError
-)
+from ....exceptions import InvalidFileFormatError, NoFileSubmittedError
 
 # %%
 # Router for the generate endpoint
@@ -54,10 +57,34 @@ async def generate_base(
       sentences: List[str] = [line.strip() for line in f if line.strip()]
     ################################################################################################
 
+    # Save the sentences to the database.
+    sentence_ids: List[int] = save_sentences_to_db(
+      db_session,
+      sentences,
+      document_id,
+      max_retries=3*len(sentences)
+    )
+    logger.info(f"Saved {len(sentence_ids)} sentences to the database.")
+
+    # Model the topics using NMF.
+    topics: List[str]
+    _, topics = model_topics_with_nmf(sentences)
+    topics = [parse_topic(topic) for topic in topics]
+
+    # Create a dictionary mapping topics to the sentences that belong to them.
+    topic_dict: Dict[str, str] = create_topic_dict(topics, sentences)
+
+    # Refine the topics and content using OpenAI.
+    refined_content: List[str] = []
+    for (topic, content) in topic_dict.items():
+      _ = await refine_topic_and_content_using_openai(topic, content)
+      refined_content.append(_)
+
     # Return the document ID and the S3 URI.
     return {
-			"document_id": document_id,
-			"s3_uri": s3_uri
+			# "document_id": document_id,
+			# "s3_uri": s3_uri,
+			"content": refined_content
 		}
   except NoFileSubmittedError as e:
     raise HTTPException(status_code=400, detail=str(e))
