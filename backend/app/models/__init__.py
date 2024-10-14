@@ -1,2 +1,4 @@
 # %%
-from .document_models import Document, Node, Sentence
+from .document import Document
+from .node import Node
+from .sentence import Sentence
