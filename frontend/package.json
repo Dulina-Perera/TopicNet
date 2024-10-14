@@ -16,6 +16,8 @@
 	},
 	"devDependencies": {
 		"@magidoc/plugin-svelte-marked": "^6.1.0",
+		"@melt-ui/pp": "^0.3.2",
+		"@melt-ui/svelte": "^0.83.0",
 		"@playwright/test": "^1.28.1",
 		"@skeletonlabs/skeleton": "^2.10.2",
 		"@skeletonlabs/tw-plugin": "^0.4.0",
@@ -60,7 +62,6 @@
 		"@tiptap/pm": "^2.8.0",
 		"@tiptap/starter-kit": "^2.8.0",
 		"lucia": "^3.2.0",
-		"stripe": "^17.2.0",
-		"svelte-markdown": "^0.4.1"
+		"stripe": "^17.2.0"
 	}
 }
