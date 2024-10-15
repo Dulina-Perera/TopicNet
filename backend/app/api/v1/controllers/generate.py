@@ -21,7 +21,7 @@ from ..services_ import (
   save_sentences_to_db,
   upload_file_to_s3
 )
-from ....core import get_db_session, get_logger, get_s3_client
+from ....core import get_db_session, get_logger, get_aws_s3_client
 from ....exceptions import InvalidFileFormatError, NoFileSubmittedError
 
 # %%
@@ -33,7 +33,7 @@ generate_router: APIRouter = APIRouter()
 async def generate_base(
   file: Union[UploadFile, None] = File(default=None),
 	db_session: scoped_session[Session] = Depends(get_db_session),
-  s3_client: Any = Depends(get_s3_client),
+  s3_client: Any = Depends(get_aws_s3_client),
   logger: Logger = Depends(get_logger)
 ) -> Dict:
   try:

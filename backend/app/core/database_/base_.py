@@ -47,7 +47,7 @@ def init_db() -> None:
 	Returns:
 		None
   """
-  from ...models import Document, Node, Sentence
+  from ...models_ import Document, Node, Sentence
 
   # Drop all tables in the database.
   Base.metadata.drop_all(bind=engine)
