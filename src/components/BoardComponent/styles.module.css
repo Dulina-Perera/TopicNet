@@ -1,0 +1,41 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    overflow: scroll;
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, #b8b8b8bf 1px, rgba(0, 0, 0, 0) 1px);
+    cursor: grab;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.board_with_sidebar {
+    margin-left: 250px; /* Shift board when sidebar is visible */
+}
+
+.boardDragging {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, #b8b8b8bf 1px, rgba(0, 0, 0, 0) 1px);
+    cursor: grabbing;
+    
+}
+
+.boardSidebarVisible {
+    position: relative;
+    width: calc(100vw - 250px); /* Assuming the sidebar width is 250px */
+    height: 100vh;
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, #b8b8b8bf 1px, rgba(0, 0, 0, 0) 1px);
+    cursor: grabbing;
+}

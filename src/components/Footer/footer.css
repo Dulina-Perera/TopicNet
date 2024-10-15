@@ -1,0 +1,50 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: grey;
+    padding: 20px;
+    color: black;
+    border-top: 4px solid black;
+}
+
+   
+.company-name {
+    margin: 0;
+    font-size: 24px;
+}
+  
+.compnay-data {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: black;
+}
+ 
+  
+.footer-right {
+    text-align: right;
+}
+
+h4 {
+    margin: 0;
+    font-size: 18px;
+}
+  
+.social-icons {
+    margin-top: 5px;
+}
+
+.sm-icon {
+    font-size: 24px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.icon:hover {
+    color: lightgray;
+}
+  
+  

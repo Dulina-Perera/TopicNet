@@ -1,0 +1,53 @@
+.about-page {
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-top: 2px solid black;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 60px;
+    color: #333;
+    font-family: "Space Grotesk";
+}
+  
+.topic-section {
+    font-family: "Space Grotesk";
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    width: 60%;
+    transition: all 0.5s ease;
+}
+
+.topic-section:hover{
+    scale: 1.05;
+}
+  
+.left {
+    margin-left: 0;
+    margin-right: auto;
+}
+  
+.right {
+    margin-right: 0;
+    margin-left: auto;
+}
+  
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #444;
+}
+  
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #666;
+    }
+  

@@ -1,0 +1,161 @@
+.uploadPage {
+  padding: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadTitle {
+  font-size: 70px;
+  /* margin-top: 10px; */
+  font-family: "Space Grotesk";
+  font-weight: bold;
+}
+
+.uploadTxt {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.uploadBox {
+  background-color: #fff;
+  width: fit-content;
+  border: 1.5px solid #545455;
+  border-radius: 20px;
+  margin-top: 70px;
+}
+
+.file-btn {
+  margin: 5px 5px;
+  width: 80vh;
+  height: 150px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #000000;
+  background-color: #fff;
+  border: 3px dashed #817c88;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.file-btn:hover {
+  color: #0d0d0d;
+  font-size: 25px;
+  background-color: #fff;
+}
+
+.generating-txt {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: #f3ecff;
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  border: 1px solid #4b4b4b;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: fit-content;
+  max-width: 80vh;
+  color: black;
+}
+
+.selected-file p {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 15px;
+}
+
+.selected-file button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selected-file button:hover {
+  color: #fff;
+  background-color: #494949;
+}
+
+.generateBtn {
+  margin-top: 50px;
+  background-color: black;
+  color: white;
+  font-family: "Space Grotesk";
+  padding: 15px 30px;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  width: fit-content;
+  border: none;
+}
+
+.generateBtn:disabled {
+  cursor: not-allowed;
+}
+
+.generateBtn:hover {
+  font-weight: bold;
+  scale: 1.1;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Optional: to stack elements vertically */
+  text-align: center; /* Optional: for centering text */
+}
+
+.howItWorks {
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 12px; /* Circular tips */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  padding: 20px;
+  width: 85%;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+.howItWorks h2 {
+  font-family: "Space Grotesk";
+  font-size: 45px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.howItWorks p, li {
+  font-size: 20px;
+  color: #555;
+}
+
+.howItWorks ul {
+  padding-left: 20px;
+}
+
