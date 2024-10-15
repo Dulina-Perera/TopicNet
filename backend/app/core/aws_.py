@@ -5,7 +5,7 @@ from boto3 import client
 from fastapi import Depends
 from typing import Annotated, Any
 
-from .config import are_env_vars_set
+from .config_ import are_env_vars_set
 from ..exceptions import UndefinedAWSEnvironmentVariableError
 
 # %%

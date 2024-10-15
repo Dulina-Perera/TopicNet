@@ -1,13 +1,15 @@
 # %%
 # Import the required libraries, modules, classes, and functions.
+import logging
 import os
 import yaml
 
 from dotenv import load_dotenv
-from typing import Dict, Tuple, Union
+from typing import Any, Dict, Tuple, Union
 
 # %%
-CONFIG_DIR: str = os.path.join(os.path.dirname(__file__), "../../config")  # The directory containing the configuration files
+# The directory containing the configuration files
+CONFIG_DIR: str = os.path.join(os.path.dirname(__file__), "../../config")
 
 # %%
 def are_env_vars_set(*env_vars: Tuple[str]) -> bool:
@@ -49,3 +51,17 @@ def load_db_config() -> Dict[str, Union[int, str]]:
 		db_config: Dict[str, Union[int, str]] = yaml.safe_load(file.read())
 
 	return db_config
+
+
+def setup_logging() -> None:
+  """
+  Set up the logging system using the configuration from the YAML file located in the config directory.
+
+	:param None
+
+	:return: None
+  """
+  with open(os.path.join(CONFIG_DIR, "log_config.yaml"), "r") as file:
+    log_config: Dict[str, Any] = yaml.safe_load(file.read())
+
+  logging.config.dictConfig(log_config)

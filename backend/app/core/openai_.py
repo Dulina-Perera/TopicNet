@@ -7,7 +7,7 @@ from openai.pagination import SyncPage
 from openai.types import Model
 from typing import List
 
-from .config import are_env_vars_set
+from .config_ import are_env_vars_set
 from ..exceptions import EnvVarsNotSetError
 
 # %%
