@@ -1,5 +1,7 @@
 # %%
-import warnings; warnings.filterwarnings("ignore")  # Ignore warnings.
+import warnings
+
+from backend.app.api.v1.services.user_services.routers import auth, pdfs, users; warnings.filterwarnings("ignore")  # Ignore warnings.
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__)))  # Add the current directory to the system path.
 
 # %%
@@ -28,6 +30,9 @@ topicnet: FastAPI = FastAPI(
 # Register the routers.
 topicnet.include_router(generate_router, prefix="/api/v1/generate")
 topicnet.include_router(summarize_router, prefix="/api/v1/summarize")
+topicnet.include_router(auth.router)
+topicnet.include_router(pdfs.router)
+topicnet.include_router(users.router)
 
 # %%
 if __name__ == "__main__":
