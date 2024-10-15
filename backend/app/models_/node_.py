@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import Session
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
-from ..core import Base
+from ..core_ import Base
 
 # %%
 class Node(Base):

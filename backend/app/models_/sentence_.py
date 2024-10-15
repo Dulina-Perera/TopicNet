@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import Session
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
-from ..core import Base
+from ..core_ import Base
 
 # %%
 class Sentence(Base):

@@ -8,7 +8,7 @@ from openai.types import Model
 from typing import List
 
 from .config_ import are_env_vars_set
-from ..exceptions import EnvVarsNotSetError
+from ..exceptions_ import EnvVarsNotSetError
 
 # %%
 async def is_valid_openai_model(model: str) -> bool:

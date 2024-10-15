@@ -21,8 +21,8 @@ from ..services_ import (
   save_sentences_to_db,
   upload_file_to_s3
 )
-from ....core import get_db_session, get_logger, get_aws_s3_client
-from ....exceptions import InvalidFileFormatError, NoFileSubmittedError
+from ....core_ import get_db_session, get_logger, get_aws_s3_client
+from ....exceptions_ import InvalidFileFormatError, NoFileSubmittedError
 
 # %%
 # Router for the generate endpoint

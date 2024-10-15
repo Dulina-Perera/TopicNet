@@ -5,7 +5,7 @@ from fastapi import UploadFile
 from typing import Any
 
 from .v_and_v import does_s3_bucket_exist
-from ....exceptions import S3UploadError
+from ....exceptions_ import S3UploadError
 
 # %%
 def upload_file_to_s3(

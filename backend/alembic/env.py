@@ -7,7 +7,7 @@ from sqlalchemy.engine import engine_from_config
 from sqlalchemy.pool import NullPool
 from typing import Any, Dict, Union
 
-from app.core import load_db_config, Base
+from app.core_ import load_db_config, Base
 from app.models_ import Document, Node, Sentence
 
 # %%

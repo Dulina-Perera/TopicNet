@@ -4,8 +4,8 @@ import os
 
 from openai import AsyncOpenAI
 
-from .....core import is_valid_openai_model
-from .....exceptions import InvalidOpenAIModelError
+from .....core_ import is_valid_openai_model
+from .....exceptions_ import InvalidOpenAIModelError
 
 # %%
 async def refine_topic_and_content_using_openai(

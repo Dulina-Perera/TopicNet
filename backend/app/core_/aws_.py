@@ -7,7 +7,7 @@ from fastapi import Depends
 from typing import Annotated, Any
 
 from .config_ import are_env_vars_set
-from ..exceptions import EnvVarsNotSetError
+from ..exceptions_ import EnvVarsNotSetError
 
 # %%
 def get_aws_s3_client() -> Any:
