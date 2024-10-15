@@ -1,12 +1,12 @@
 # %%
-class NoSuchDocumentError(Exception):
+class DocumentDoesNotExistError(Exception):
   def __init__(self, document_id: str) -> None:
-    super().__init__(f"No such document: {document_id}")
+    super().__init__(f"Document {document_id} does not exist")
 
-class NoSuchNodeError(Exception):
+class NodeDoesNotExistError(Exception):
 	def __init__(self, node_id: str) -> None:
-		super().__init__(f"No such node: {node_id}")
+		super().__init__(f"Node {node_id} does not exist")
 
-class NoSuchSentenceError(Exception):
+class SentenceDoesNotExistError(Exception):
 	def __init__(self, sentence_id: str) -> None:
-		super().__init__(f"No such sentence: {sentence_id}")
+		super().__init__(f"Sentence {sentence_id} does not exist")

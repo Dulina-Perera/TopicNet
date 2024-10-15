@@ -1,4 +1,4 @@
 # %%
-from .document import Document
-from .node import Node
-from .sentence import Sentence
+from .document_ import Document
+from .node_ import Node
+from .sentence_ import Sentence
