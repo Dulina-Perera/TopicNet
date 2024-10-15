@@ -1,4 +1,21 @@
 # %%
+from .database_ import (
+	bind_sentence_to_node,
+	does_document_exist,
+	does_node_exist,
+	does_sentence_exist
+)
+
+
+
+
+
+
+
+
+
+
+
 from .db import save_s3_uri, save_sentences_to_db
 from .file_storage import upload_file_to_s3
 from .summarization import (

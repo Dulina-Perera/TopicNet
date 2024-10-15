@@ -3,6 +3,7 @@
 from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import Session
+from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
 from ..core.database import Base
 
@@ -10,15 +11,12 @@ from ..core.database import Base
 class Sentence(Base):
   __tablename__ = "sentence"
 
-  id = Column(
-	 	type_=Integer,
-		autoincrement="auto",
-		primary_key=True
-	)
+  id = Column(type_=Integer, primary_key=True)
   document_id = Column(
 		ForeignKey("document.id"),
 		type_=Integer,
-		nullable=False
+		nullable=False,
+		primary_key=True
 	)
   node_id = Column(
 		ForeignKey("node.id"),
@@ -29,6 +27,13 @@ class Sentence(Base):
 		nullable=False
 	)
   embeddings = Column(type_=ARRAY(Float))
+
+  __table_args__ = (
+		PrimaryKeyConstraint("id", "document_id"),
+		ForeignKeyConstraint(["document_id"], ["document.id"], ondelete="CASCADE"),
+		ForeignKeyConstraint(["node_id", "document_id"], ["node.id", "node.document_id"], ondelete="SET NULL"),
+		Index("ix_sentence_document_id_node_id", "document_id", "node_id")
+	)
 
   @classmethod
   def create(
@@ -58,7 +63,12 @@ class Sentence(Base):
 		:rtype: Sentence
 		"""
 		# Create a new sentence record.
-    sentence: Sentence = cls(document_id, node_id, content, embeddings)
+    sentence: Sentence = cls(
+      document_id=document_id,
+      node_id=node_id,
+      content=content,
+      embeddings=embeddings
+    )
 
     # Add the sentence record to the session and commit the transaction.
     try:

@@ -9,7 +9,7 @@ from sqlalchemy.orm.scoping import scoped_session
 from sqlalchemy.orm.session import Session
 from typing import Any, Dict, List, Union, Tuple
 
-from ..services import (
+from ..services_ import (
   create_topic_dict,
   is_file_format_allowed,
   is_file_not_none,
