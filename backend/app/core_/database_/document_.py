@@ -2,7 +2,7 @@
 # Import the required classes, functions, and modules.
 from sqlalchemy.orm import Session
 
-from ...models import Document
+from ...models_ import Document
 
 # %%
 def does_document_exist(session: Session, document_id: int) -> bool:

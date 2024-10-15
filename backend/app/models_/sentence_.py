@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import Session
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
-from ..core.database import Base
+from ..core_ import Base
 
 # %%
 class Sentence(Base):
@@ -74,6 +74,7 @@ class Sentence(Base):
     try:
       session.add(sentence)
       session.commit()
+      session.refresh(sentence)
 
       return sentence
     except Exception as e:

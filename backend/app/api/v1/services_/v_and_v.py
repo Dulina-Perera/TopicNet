@@ -6,7 +6,7 @@ from botocore.exceptions import ClientError
 from fastapi import UploadFile
 from typing import Any, Tuple, Union
 
-from ....exceptions import NoSuchS3BucketError, NoSuchS3FileError
+from ....exceptions_ import NoSuchS3BucketError, NoSuchS3FileError
 
 # %%
 def is_file_not_none(file: Union[UploadFile, None]) -> bool:

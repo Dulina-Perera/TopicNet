@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import Session
 from sqlalchemy.schema import Index, PrimaryKeyConstraint
 
-from ..core.database import Base
+from ..core_ import Base
 
 # %%
 class Document(Base):
@@ -39,6 +39,7 @@ class Document(Base):
     try:
       session.add(document)
       session.commit()
+      session.refresh(document)
 
       return document
     except Exception as e:

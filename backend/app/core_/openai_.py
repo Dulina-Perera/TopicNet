@@ -7,8 +7,8 @@ from openai.pagination import SyncPage
 from openai.types import Model
 from typing import List
 
-from .config import are_env_vars_set
-from ..exceptions import EnvVarsNotSetError
+from .config_ import are_env_vars_set
+from ..exceptions_ import EnvVarsNotSetError
 
 # %%
 async def is_valid_openai_model(model: str) -> bool:

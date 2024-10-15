@@ -3,7 +3,7 @@
 from sqlalchemy.orm import Session
 from typing import Optional
 
-from ...models import Sentence
+from ...models_ import Sentence
 
 # %%
 def does_sentence_exist(session: Session, sentence_id: int, document_id: int) -> bool:

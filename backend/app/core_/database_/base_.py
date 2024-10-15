@@ -1,14 +1,20 @@
 # %%
 # Import the required modules.
 from fastapi import Depends
-from sqlalchemy.engine import Engine, create_engine
 from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import (
+  AsyncEngine,
+  AsyncSession,
+  async_scoped_session,
+  async_sessionmaker,
+  create_async_engine
+)
 from sqlalchemy.orm.decl_api import declarative_base
 from sqlalchemy.orm.scoping import scoped_session
-from sqlalchemy.orm.session import Session, sessionmaker
+from sqlalchemy.orm.session import Session
 from typing import Annotated, Any, Dict, Generator, Union
 
-from .config import load_db_config
+from ..config_ import load_db_config
 
 # %%
 # Database configuration
@@ -19,10 +25,11 @@ DB_URL: str = f"{DB_CONFIG['dialect']}+{DB_CONFIG['driver']}://" \
 							f"{DB_CONFIG['username']}:{DB_CONFIG['password']}@" \
 							f"{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
 
-engine: Engine = create_engine(url=DB_URL, echo=True)  # Database engine
-SessionLocal: scoped_session[Session] = scoped_session(
-  sessionmaker(autocommit=False, autoflush=False, bind=engine)
-)  # A scoped session that is thread-safe
+engine: AsyncEngine = create_async_engine(DB_URL, echo=True) # The async database engine
+SessionLocal: async_scoped_session[AsyncSession] = async_sessionmaker(
+  bind=engine,
+  class_=AsyncSession
+) # The async database session
 
 # Base class for all the ORM models
 Base: Any = declarative_base()
@@ -40,7 +47,7 @@ def init_db() -> None:
 	Returns:
 		None
   """
-  from ..models import Document, Node, Sentence
+  from ...models_ import Document, Node, Sentence
 
   # Drop all tables in the database.
   Base.metadata.drop_all(bind=engine)

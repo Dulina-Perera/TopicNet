@@ -4,8 +4,8 @@ from time import sleep
 from typing import Any, List, Optional
 
 from .v_and_v import does_s3_file_exist, is_s3_uri_valid
-from ....exceptions import InvalidS3URIError
-from ....models import Document, Sentence
+from ....exceptions_ import InvalidS3URIError
+from ....models_ import Document, Sentence
 
 # %%
 def save_s3_uri(

@@ -11,7 +11,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from app.api.v1.controllers import generate_router, summarize_router
-from app.core import load_env_vars, setup_logging
+from app.core_ import load_env_vars, setup_logging
 
 # %%
 load_env_vars() # Load the environment variables.
