@@ -1,4 +1,8 @@
 # %%
+class DatabaseInitializationError(Exception):
+  def __init__(self, message: str) -> None:
+    super().__init__(message)
+
 class DocumentDoesNotExistError(Exception):
   def __init__(self, document_id: str) -> None:
     super().__init__(f"Document {document_id} does not exist")

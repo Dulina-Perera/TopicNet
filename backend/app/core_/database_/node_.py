@@ -1,16 +1,18 @@
 # %%
 # Import the required classes, functions, and modules.
-from sqlalchemy.orm import Session
+from sqlalchemy import select, Result
+from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Tuple
 
 from ...models_ import Node
 
 # %%
-def does_node_exist(session: Session, node_id: int, document_id: int) -> bool:
+async def does_node_exist(session: AsyncSession, node_id: int, document_id: int) -> bool:
   """
 	Check if a node with a given node ID and document ID exists in the database.
 
 	:param session: The database session
-	:type session: Session
+	:type session: AsyncSession
 
 	:param node_id: The ID of the node
 	:type node_id: int
@@ -21,4 +23,7 @@ def does_node_exist(session: Session, node_id: int, document_id: int) -> bool:
 	:return: True if the node exists, False otherwise
 	:rtype: bool
 	"""
-  return session.query(Node).filter(Node.id == node_id, Node.document_id == document_id).count() > 0
+  result: Result[Tuple[Node]] = await session.execute(
+    select(Node).filter(Node.id == node_id, Node.document_id == document_id)
+	)
+  return result.scalars().first() is not None

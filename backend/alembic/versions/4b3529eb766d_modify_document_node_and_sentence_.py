@@ -1,8 +1,8 @@
-"""create composite primary keys out of 'id' and 'document_id' for both 'node' and 'sentence' models
+"""modify 'document', 'node' and 'sentence' models to support asynchronous database operations
 
-Revision ID: b3da088a266e
-Revises: 473c703c96e6
-Create Date: 2024-10-15 19:27:31.753390
+Revision ID: 4b3529eb766d
+Revises: 
+Create Date: 2024-10-16 11:20:26.839943
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = 'b3da088a266e'
-down_revision: Union[str, None] = '473c703c96e6'
+revision: str = '4b3529eb766d'
+down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -30,8 +30,8 @@ def upgrade() -> None:
     op.create_table('node',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('document_id', sa.Integer(), nullable=False),
-    sa.Column('parent_id', sa.Integer(), nullable=True),
-    sa.Column('topic_and_content', sa.String(), nullable=True),
+    sa.Column('parent_id', sa.Integer(), nullable=False),
+    sa.Column('topic_and_content', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['document_id'], ['document.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['parent_id', 'document_id'], ['node.id', 'node.document_id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id', 'document_id')
@@ -40,9 +40,9 @@ def upgrade() -> None:
     op.create_table('sentence',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('document_id', sa.Integer(), nullable=False),
-    sa.Column('node_id', sa.Integer(), nullable=True),
+    sa.Column('node_id', sa.Integer(), nullable=False),
     sa.Column('content', sa.String(), nullable=False),
-    sa.Column('embeddings', postgresql.ARRAY(sa.Float()), nullable=True),
+    sa.Column('embeddings', postgresql.ARRAY(sa.Float()), nullable=False),
     sa.ForeignKeyConstraint(['document_id'], ['document.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['node_id', 'document_id'], ['node.id', 'node.document_id'], ondelete='SET NULL'),
     sa.PrimaryKeyConstraint('id', 'document_id')

@@ -1,17 +1,18 @@
 # %%
 # Import the required classes, functions, and modules.
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.schema import Index, PrimaryKeyConstraint
 
-from ..core_ import Base
+from ..core_.database_ import Base
 
 # %%
 class Document(Base):
   __tablename__ = "document"
 
-  id = Column(type_=Integer, autoincrement="auto")
-  path = Column(type_=String, unique=True, nullable=False)
+  id: Mapped[int] = mapped_column(autoincrement="auto")
+  path: Mapped[str] = mapped_column(nullable=False, unique=True)
 
   __table_args__ = (
 		PrimaryKeyConstraint("id"),
@@ -19,7 +20,7 @@ class Document(Base):
 	)
 
   @classmethod
-  def create(cls, session: Session, path: str) -> "Document":
+  async def create(cls, session: AsyncSession, path: str) -> "Document":
     """
 		Create a new document record in the database.
 
@@ -38,10 +39,10 @@ class Document(Base):
     # Add the document record to the session and commit the transaction.
     try:
       session.add(document)
-      session.commit()
-      session.refresh(document)
+      await session.commit()
+      await session.refresh(document)
 
       return document
     except Exception as e:
-      session.rollback()
+      await session.rollback()
       raise e
