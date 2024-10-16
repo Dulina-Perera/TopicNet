@@ -1,11 +1,9 @@
 <script>
-	import { Login, Logo, Navbar } from "$lib/components/header";
+	import { Login, Logo, HeaderBar, Navbar } from "$lib/components/header-bar";
 </script>
 
-<header class="fixed left-4 top-4 w-[calc(100%-2rem)]">
-	<div class="flex justify-between">
-		<Logo logoText="TopicNet" />
-		<Navbar />
-		<Login />
-	</div>
-</header>
+<HeaderBar>
+	<Logo logoText="TopicNet" />
+	<Navbar />
+	<Login />
+</HeaderBar>
