@@ -1,16 +1,16 @@
 # %%
 # Import the required classes, functions, and modules.
-from sqlalchemy.orm import Session
-
-from ...models_ import Document
+from sqlalchemy import select, Result
+from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Tuple
 
 # %%
-def does_document_exist(session: Session, document_id: int) -> bool:
+async def does_document_exist(session: AsyncSession, document_id: int) -> bool:
   """
   Check if a document with a given ID exists in the database.
 
   :param session: The database session
-  :type session: Session
+  :type session: AsyncSession
 
   :param document_id: The ID of the document
   :type document_id: int
@@ -18,4 +18,9 @@ def does_document_exist(session: Session, document_id: int) -> bool:
   :return: True if the document exists, False otherwise
   :rtype: bool
   """
-  return session.query(Document).filter(Document.id == document_id).count() > 0
+  from ...models_ import Document
+
+  result: Result[Tuple[Document]] = await session.execute(
+    select(Document).filter(Document.id == document_id)
+  )
+  return result.scalars().first() is not None

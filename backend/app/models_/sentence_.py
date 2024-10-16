@@ -2,31 +2,21 @@
 # Import the required classes, functions, and modules.
 from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
-from ..core_ import Base
+from ..core_.database_ import Base
 
 # %%
 class Sentence(Base):
   __tablename__ = "sentence"
 
-  id = Column(type_=Integer, primary_key=True)
-  document_id = Column(
-		ForeignKey("document.id"),
-		type_=Integer,
-		nullable=False,
-		primary_key=True
-	)
-  node_id = Column(
-		ForeignKey("node.id"),
-		type_=Integer
-	)
-  content = Column(
-	 	type_=String,
-		nullable=False
-	)
-  embeddings = Column(type_=ARRAY(Float))
+  id: Mapped[int] = mapped_column()
+  document_id: Mapped[int] = mapped_column(nullable=False)
+  node_id: Mapped[int] = mapped_column()
+  content: Mapped[str] = mapped_column(nullable=False)
+  embeddings: Mapped[list[float]] = mapped_column(ARRAY(Float))
 
   __table_args__ = (
 		PrimaryKeyConstraint("id", "document_id"),
@@ -36,9 +26,9 @@ class Sentence(Base):
 	)
 
   @classmethod
-  def create(
+  async def create(
 		cls,
-		session: Session,
+		session: AsyncSession,
 		document_id: int,
 		node_id: int,
 		content: str,
@@ -73,10 +63,10 @@ class Sentence(Base):
     # Add the sentence record to the session and commit the transaction.
     try:
       session.add(sentence)
-      session.commit()
-      session.refresh(sentence)
+      await session.commit()
+      await session.refresh(sentence)
 
       return sentence
     except Exception as e:
-      session.rollback()
+      await session.rollback()
       raise e

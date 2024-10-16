@@ -1,19 +1,20 @@
 # %%
 # Import the required classes, functions, and modules.
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint
 
-from ..core_ import Base
+from ..core_.database_ import Base
 
 # %%
 class Node(Base):
   __tablename__ = "node"
 
-  id = Column(type_=Integer, autoincrement="auto", primary_key=True)
-  document_id = Column(type_=Integer, nullable=False, primary_key=True)
-  parent_id = Column(type_=Integer)
-  topic_and_content = Column(type_=String)
+  id: Mapped[int] = mapped_column()
+  document_id: Mapped[int] = mapped_column(nullable=False)
+  parent_id: Mapped[int] = mapped_column()
+  topic_and_content: Mapped[str] = mapped_column(nullable=False)
 
   __table_args__ = (
 		PrimaryKeyConstraint("id", "document_id"),
@@ -23,9 +24,9 @@ class Node(Base):
 	)
 
   @classmethod
-  def create(
+  async def create(
     cls,
-    session: Session,
+    session: AsyncSession,
     parent_id: int,
     document_id: int,
     topic_and_content: str
@@ -58,10 +59,10 @@ class Node(Base):
     # Add the node record to the session and commit the transaction.
     try:
       session.add(node)
-      session.commit()
-      session.refresh(node)
+      await session.commit()
+      await session.refresh(node)
 
       return node
     except Exception as e:
-      session.rollback()
+      await session.rollback()
       raise e
