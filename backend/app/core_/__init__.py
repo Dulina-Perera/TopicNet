@@ -5,10 +5,12 @@ from .database_ import (
 	Base,
 	async_db_session_dep,
 	bind_sentence_to_node,
+	delete_nodes,
 	does_document_exist,
 	does_node_exist,
 	does_sentence_exist,
-	get_db_session
+	get_db_session,
+	read_descendant_node_ids,
 )
 from .logging_ import get_logger, logger_dep
 from .openai_ import is_valid_openai_model
