@@ -3,10 +3,9 @@
 from sqlalchemy import select, Result
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Tuple
-from typing import Optional
+from typing import Any, Optional
 
 from ...exceptions_ import SentenceDoesNotExistError
-from ...models_ import Sentence
 
 # %%
 async def does_sentence_exist(session: AsyncSession, sentence_id: int, document_id: int) -> bool:
@@ -25,13 +24,15 @@ async def does_sentence_exist(session: AsyncSession, sentence_id: int, document_
 	:return: True if the sentence exists, False otherwise
 	:rtype: bool
 	"""
+  from ...models_ import Sentence
+
   result: Result[Tuple[Sentence]] = session.execute(
     select(Sentence).filter(Sentence.id == sentence_id, Sentence.document_id == document_id)
 	)
   return result.scalars().first() is not None
 
 
-async def bind_sentence_to_node(session: AsyncSession, sentence_id: int, document_id: int, node_id: int) -> Sentence:
+async def bind_sentence_to_node(session: AsyncSession, sentence_id: int, document_id: int, node_id: int) -> Any:
   """
 	Bind a sentence to a node in the database.
 
@@ -50,7 +51,9 @@ async def bind_sentence_to_node(session: AsyncSession, sentence_id: int, documen
 	:return: The updated sentence record
 	:rtype: Sentence
 	"""
-	# Retrieve the sentence record.
+  from ...models_ import Sentence
+
+ 	# Retrieve the sentence record.
   result: Result[Tuple[Sentence]] = session.execute(
 		select(Sentence).filter(Sentence.id == sentence_id, Sentence.document_id == document_id)
 	)

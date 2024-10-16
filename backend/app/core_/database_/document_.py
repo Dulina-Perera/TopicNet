@@ -4,8 +4,6 @@ from sqlalchemy import select, Result
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Tuple
 
-from ...models_ import Document
-
 # %%
 async def does_document_exist(session: AsyncSession, document_id: int) -> bool:
   """
@@ -20,6 +18,8 @@ async def does_document_exist(session: AsyncSession, document_id: int) -> bool:
   :return: True if the document exists, False otherwise
   :rtype: bool
   """
+  from ...models_ import Document
+
   result: Result[Tuple[Document]] = await session.execute(
     select(Document).filter(Document.id == document_id)
   )

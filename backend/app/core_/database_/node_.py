@@ -4,8 +4,6 @@ from sqlalchemy import select, Result
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Tuple
 
-from ...models_ import Node
-
 # %%
 async def does_node_exist(session: AsyncSession, node_id: int, document_id: int) -> bool:
   """
@@ -23,6 +21,8 @@ async def does_node_exist(session: AsyncSession, node_id: int, document_id: int)
 	:return: True if the node exists, False otherwise
 	:rtype: bool
 	"""
+  from ...models_ import Node
+
   result: Result[Tuple[Node]] = await session.execute(
     select(Node).filter(Node.id == node_id, Node.document_id == document_id)
 	)
