@@ -1,48 +1,86 @@
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/tw-plugin';
+import plugin from "tailwindcss/plugin";
+import typography from "@tailwindcss/typography";
 
-import { customTheme } from './theme';
-
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 export default {
-	darkMode: 'class',
-	content: [
-		'./src/**/*.{html,js,ts,svelte}',
-		join(
-			require.resolve('@skeletonlabs/skeleton'),
-			'../**/*.{html,js,ts,svelte}'
-		)
-	],
+	content: ["./src/**/*.{html,js,ts,svelte}"],
 	theme: {
-		extend: {
-			colors: {
-				'first-color': 'var(--first-color)',
-				'title-color': 'var(--title-color)',
-				'text-color': 'var(--text-color)',
-				'body-color': 'var(--body-color)',
-				'container-color': 'var(--container-color)',
-				'border-color': 'var(--border-color)',
-			},
-			fontFamily: {
-				body: 'var(--body-font)',
-			},
-			fontSize: {
-				h2: 'var(--h2-font-size)',
-				normal: 'var(--normal-font-size)',
-			},
-			zIndex: {
-				fixed: 'var(--z-fixed)',
-				modal: 'var(--z-modal)',
-			},
-			height: {
-				header: 'var(--header-height)',
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"2xl": "1440px",
 			}
 		},
+		extend: {
+			colors: {
+        magnum: {
+          "50": "#fff9ed",
+          "100": "#fef2d6",
+          "200": "#fce0ac",
+          "300": "#f9c978",
+          "400": "#f7b155",
+          "500": "#f38d1c",
+          "600": "#e47312",
+          "700": "#bd5711",
+          "800": "#964516",
+          "900": "#793a15",
+          "950": "#411c09"
+        }
+      },
+      fontFamily: {
+        sans: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Oxygen",
+          "Ubuntu",
+          "Cantarell",
+          "Fira Sans",
+          "Droid Sans",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol"
+        ],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "SF Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          "monospace"
+        ]
+			},
+			typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            code: {
+              position: "relative",
+              borderRadius: theme("borderRadius.md")
+            }
+          }
+        }
+      })
+		}
 	},
 	plugins: [
-		skeleton({
-			themes: { custom: [customTheme] }
+		typography,
+		plugin(function ({ addVariant, matchUtilities, theme }) {
+			addVariant("hocus", ["&:hover", "&:focus"])
+      matchUtilities(
+        {
+          square: (value) => ({
+            width: value,
+            height: value
+          })
+        },
+        { values: theme("spacing") }
+      )
 		})
 	]
 }
-

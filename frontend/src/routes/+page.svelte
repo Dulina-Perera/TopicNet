@@ -1,9 +1,5 @@
 <script>
-	import { Login, Logo, HeaderBar, Navbar } from "$lib/components/header-bar";
+	import HeaderBar from "$lib/components/HeaderBar.svelte";
 </script>
 
-<HeaderBar>
-	<Logo logoText="TopicNet" />
-	<Navbar />
-	<Login />
-</HeaderBar>
+<HeaderBar />
