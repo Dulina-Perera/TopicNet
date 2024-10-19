@@ -1,5 +1,5 @@
 <script lang="ts">
-	// No changes needed here unless you have specific logic to add.
+
 </script>
 
 <header id="header">
@@ -15,7 +15,7 @@
 		max-width: 1200px;
 		min-width: 300px;
 		position: sticky;
-		top: 1rem;
+		margin-top: 1rem;
 		width: 80%;
 		z-index: var(--theme-z-index-fixed);
 	}
