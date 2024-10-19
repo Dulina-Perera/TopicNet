@@ -23,5 +23,11 @@
 		&.sign-up {
 			left: 55%;
 		}
+
+		@media (max-width: 768px) {
+			height: auto;
+			position: revert;
+			width: 100%;
+		}
 	}
 </style>

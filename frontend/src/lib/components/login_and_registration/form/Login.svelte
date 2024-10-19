@@ -81,10 +81,28 @@
 		&.sign-up {
 			opacity: 0;
 			pointer-events: none;
+
+			@media (max-width: 768px) {
+				transform: translateX(-100%);
+			}
+		}
+
+		@media (max-width: 640px) {
+			padding: 1rem 2rem 1.5rem;
+		}
+
+		@media (max-width: 768px) {
+			max-width: revert;
+			padding: 1.5rem 2.5rem 2rem;
+			transition: opacity 0.45s linear, transform 0.8s ease-in-out;
 		}
 	}
 
 	#heading {
+		@media (max-width: 768px) {
+			margin: 2rem 0;
+		}
+
 		h2 {
 			color: var(--theme-title-color);
 			font-size: 2.1rem;

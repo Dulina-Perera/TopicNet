@@ -20,6 +20,10 @@
 		padding: 2rem;
 		width: 100%;
 		z-index: var(--theme-z-index-fixed);
+
+		@media (max-width: 640px) {
+			padding: 1rem;
+		}
 	}
 
 	#box {
@@ -30,6 +34,16 @@
 		max-width: 1024px;
 		position: relative;
 		width: 100%;
+
+		@media (max-width: 640px) {
+			border-radius: 2rem;
+		}
+
+		@media (max-width: 768px) {
+			height: auto;
+			max-width: 640px;
+			overflow: hidden;
+		}
 	}
 
 	#inner-box {
@@ -39,5 +53,17 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		width: calc(100% - 4.1rem);
+
+		@media (max-width: 640px) {
+			padding: 1rem;
+		}
+
+		@media (max-width: 768px) {
+			height: revert;
+			padding: 2rem;
+			position: static;
+			transform: none;
+			width: revert;
+		}
 	}
 </style>

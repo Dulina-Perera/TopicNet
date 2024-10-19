@@ -71,12 +71,29 @@
 		&.sign-up {
 			left: 0;
 		}
+
+		@media (max-width: 640px) {
+			border-radius: 1.6rem;
+			padding: 1.5rem 1rem;
+		}
+
+		@media (max-width: 768px) {
+			display: flex;
+			height: auto;
+			padding: 3rem 2rem;
+			position: revert;
+			width: 100%;
+		}
 	}
 
 	#image-wrapper {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
+
+		@media (max-width: 768px) {
+			display: none;
+		}
 	}
 
 	.image {
@@ -121,12 +138,20 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
+		@media (max-width: 768px) {
+			width: 100%;
+		}
 	}
 
 	#text-wrapper {
 		margin-bottom: 2.5rem;
 		max-height: 2.2rem;
 		overflow: hidden;
+
+		@media (max-width: 640px) {
+			margin-bottom: 1rem;
+		}
 	}
 
 	#text-group {
@@ -141,6 +166,10 @@
 			font-size: 1.6rem;
 			font-weight: 600;
 			line-height: 2.2rem;
+
+			@media (max-width: 640px) {
+				font-size: 1.2rem;
+			}
 		}
 	}
 
