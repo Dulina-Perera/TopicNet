@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import Board from "$lib/components/Board.svelte";
 	import { Avatar, HeaderBar, Logo } from "$lib/components/header-bar";
 
@@ -13,4 +13,4 @@
 	<Logo logoText="TopicNet" />
 	<Avatar {profile} />
 </HeaderBar>
-<Board />
+<Board /> -->

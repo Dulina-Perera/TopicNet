@@ -1,5 +1,8 @@
 <script>
-	import HeaderBar from "$lib/components/HeaderBar.svelte";
+	import { Headerbar, Logo, Navbar } from "$lib/components/header-bar";
 </script>
 
-<HeaderBar />
+<Headerbar>
+	<Logo />
+	<Navbar />
+</Headerbar>
