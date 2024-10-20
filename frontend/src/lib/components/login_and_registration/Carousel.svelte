@@ -1,10 +1,10 @@
 <script lang="ts">
+	import { signupMode } from '$lib/stores';
 
+	$: mode = $signupMode;
 </script>
 
-<div id="carousel">
-
-</div>
+<div class={`${mode ? "sign-up" : ""}`} id="carousel"></div>
 
 <style lang="scss">
 	#carousel {
@@ -14,6 +14,11 @@
 		left: 45%;
 		position: absolute;
 		top: 0;
+		transition: 0.8s ease-in-out;
 		width: 55%;
+
+		&.sign-up {
+			left: 0;
+		}
 	}
 </style>

@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
+	import { signupMode } from '$lib/stores';
+
+	$: mode = $signupMode;
 
 	const onFocus = (event: FocusEvent) => {
 		const target = event.target as HTMLInputElement;
@@ -14,7 +17,7 @@
 	};
 </script>
 
-<form action="">
+<form class={`${mode ? "sign-up" : ""}`} action="">
 	<Logo />
 
 	<div id="heading">
@@ -22,7 +25,7 @@
 		<h6>Not registered yet?</h6>
 		<!-- svelte-ignore a11y-invalid-attribute -->
 		<!-- svelte-ignore a11y-missing-content -->
-		<a href="#" id="toggle">Sign up</a>
+		<a href="#" id="toggle" on:click={() => signupMode.set(true)}>Sign up</a>
 	</div>
 
 	<div id="actual-form">
@@ -72,7 +75,13 @@
 		justify-content: space-evenly;
 		margin: 0 auto;
 		max-width: 260px;
+		transition: opacity 0.02s 0.4s;
 		width: 100%;
+
+		&.sign-up {
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
 
 	#heading {

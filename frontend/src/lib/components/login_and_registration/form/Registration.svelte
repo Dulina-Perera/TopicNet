@@ -1,20 +1,23 @@
 <script lang="ts">
-	import Logo from './Logo.svelte';
+	import Logo from "./Logo.svelte";
+	import { signupMode } from "$lib/stores";
+
+	$: mode = $signupMode;
 
 	const onFocus = (event: FocusEvent) => {
 		const target = event.target as HTMLInputElement;
-		target.classList.add('active');
+		target.classList.add("active");
 	};
 
 	const onBlur = (event: FocusEvent) => {
 		const target = event.target as HTMLInputElement;
-		if (target.value === '') {
-			target.classList.remove('active');
+		if (target.value === "") {
+			target.classList.remove("active");
 		}
 	};
 </script>
 
-<form action="">
+<form class={`${mode ? "sign-up" : ""}`} action="">
 	<Logo />
 
 	<div id="heading">
@@ -22,7 +25,7 @@
 		<h6>Already have an account?</h6>
 		<!-- svelte-ignore a11y-invalid-attribute -->
 		<!-- svelte-ignore a11y-missing-content -->
-		<a href="#" id="toggle">Sign in</a>
+		<a href="#" id="toggle" on:click={() => signupMode.set(false)}>Sign in</a>
 	</div>
 
 	<div id="actual-form">
@@ -86,7 +89,13 @@
 		max-width: 260px;
 		opacity: 0;
 		pointer-events: none;
+		transition: opacity 0.02s 0.4s;
 		width: 100%;
+
+		&.sign-up {
+			opacity: 1;
+			pointer-events: all;
+		}
 	}
 
 	#heading {

@@ -4,6 +4,7 @@ export const theme: Writable<string> = writable("dark"); // Default theme is dar
 
 export const navMenuVisible: Writable<boolean> = writable(false);
 export const loginVisible: Writable<boolean> = writable(true);
+export const signupMode: Writable<boolean> = writable(false);
 
 export const boardDraggable: Writable<boolean> = writable(false);
 export const boardGrabbing: Writable<boolean> = writable(false);
