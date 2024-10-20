@@ -1,16 +1,16 @@
-<!-- <script lang="ts">
-	import Board from "$lib/components/Board.svelte";
-	import { Avatar, HeaderBar, Logo } from "$lib/components/header-bar";
-
-	let profile = {
-		firstname: "John",
-		lastname: "Doe",
-		picture: ""
-	};
+<script>
+	import { Board } from "$lib/components/workspace";
+	import { Header } from "$lib/components/header";
+	import { Nav, NavLogo } from "$lib/components/header/nav";
+	import { NavActions, NavLogin } from "$lib/components/header/nav/actions";
 </script>
 
-<HeaderBar>
-	<Logo logoText="TopicNet" />
-	<Avatar {profile} />
-</HeaderBar>
-<Board /> -->
+<Header>
+	<Nav>
+		<NavLogo />
+		<NavActions>
+			<NavLogin />
+		</NavActions>
+	</Nav>
+</Header>
+<Board />

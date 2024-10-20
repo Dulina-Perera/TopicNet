@@ -1,8 +1,16 @@
 <script>
-	import { Headerbar, Logo, Navbar } from "$lib/components/header-bar";
+	import { Header } from "$lib/components/header";
+	import { Nav, NavLogo, NavMenu } from "$lib/components/header/nav";
+	import { NavActions, NavLogin, NavToggle } from "$lib/components/header/nav/actions";
 </script>
 
-<Headerbar>
-	<Logo />
-	<Navbar />
-</Headerbar>
+<Header>
+	<Nav>
+		<NavLogo />
+		<NavMenu />
+		<NavActions>
+			<NavLogin />
+			<NavToggle />
+		</NavActions>
+	</Nav>
+</Header>
