@@ -66,6 +66,8 @@
 	form {
 		display: flex;
 		flex-direction: column;
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
 		height: 100%;
 		justify-content: space-evenly;
 		margin: 0 auto;

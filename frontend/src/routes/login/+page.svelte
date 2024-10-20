@@ -6,6 +6,7 @@
 <Login>
 	<Form>
 		<LoginForm />
+		<RegistrationForm />
 	</Form>
 	<Carousel />
 </Login>
