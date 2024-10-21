@@ -9,7 +9,11 @@
 			Upload unstructured text documents like PDFs and watch them evolve into dynamic, interactive
 			mindmaps, making it easy to visualize and explore complex information.
 		</p>
-		<button>Upload File</button>
+
+		<input type="file" accept="application/pdf" id="upload-btn" hidden />
+		<label for="upload-btn" class="custom-upload-btn"
+			><i class="ri-upload-line"></i>Upload File</label
+		>
 	</div>
 </div>
 
@@ -48,12 +52,14 @@
 				margin-bottom: 2rem;
 			}
 
-			button {
+			.custom-upload-btn {
+				align-items: center;
 				background-color: var(--theme-title-color);
 				border: none;
 				border-radius: var(--theme-border-radius-container);
 				color: #fff;
 				cursor: pointer;
+				display: inline-flex; // Align icon and text horizontally
 				font-size: 1rem;
 				padding: 1rem 2rem;
 				transition: background-color 0.3s ease;
@@ -61,6 +67,15 @@
 				&:hover {
 					background-color: var(--theme-primary-color);
 				}
+
+				i.ri-upload-line {
+					font-size: 1.5rem; // Adjust the icon size
+					margin-right: 0.5rem; // Space between icon and text
+				}
+			}
+
+			input[type='file'] {
+				display: none; // Hide the default file input
 			}
 		}
 	}
