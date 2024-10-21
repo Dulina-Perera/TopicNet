@@ -59,9 +59,10 @@
 				border-radius: var(--theme-border-radius-container);
 				color: #fff;
 				cursor: pointer;
-				display: inline-flex; // Align icon and text horizontally
+				display: inline-flex;
 				font-size: 1rem;
 				padding: 1rem 2rem;
+				text-transform: uppercase;
 				transition: background-color 0.3s ease;
 
 				&:hover {
@@ -69,13 +70,13 @@
 				}
 
 				i.ri-upload-line {
-					font-size: 1.5rem; // Adjust the icon size
-					margin-right: 0.5rem; // Space between icon and text
+					font-size: 1.5rem;
+					margin-right: 0.5rem;
 				}
 			}
 
 			input[type='file'] {
-				display: none; // Hide the default file input
+				display: none;
 			}
 		}
 	}
