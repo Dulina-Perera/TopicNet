@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { boardDraggable } from "$lib/stores";
-	import { onDestroy, onMount } from "svelte";
+	import { onMount } from "svelte";
 
 	let isOpen: boolean = false;
 	let selectedOption: string = 'select';
@@ -99,7 +99,7 @@
 				cursor: pointer;
 				display: flex;
 				justify-content: center;
-				padding: 0.5rem 0.5rem;
+				padding: 0.5rem 1rem;
 				transition: border-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 				i {
