@@ -102,7 +102,12 @@
 	on:mousedown={handleMouseDown}
 	on:mousemove={handleMouseMove}
 	on:mouseup={handleMouseUp}
-/>
+>
+	<div id="button-container">
+		<button><i class="ri-arrow-down-wide-fill"></i></button>
+		<button><i class="ri-delete-bin-7-line"></i></button>
+	</div>
+</div>
 
 <style lang="scss">
 	#node {
@@ -112,37 +117,73 @@
 		cursor: grab;
 		font-size: 0.875rem;
 		line-height: 1.5rem;
-		padding: 1rem;
+		padding: 0.5rem;
 		width: 16rem;
+		position: relative;
+
+		#button-container {
+			bottom: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+			position: absolute;
+			right: 0.5rem;
+
+			button {
+				background-color: var(--theme-title-color);
+				border: none;
+				border-radius: 50%;
+				color: #fff;
+				cursor: pointer;
+				display: none;
+				font-size: 0.875rem;
+				font-weight: 800;
+				padding: 0.3rem 0.6rem;
+
+				&:hover {
+					background-color: var(--theme-primary-color);
+				}
+			}
+		}
 
 		&:active {
 			cursor: grabbing;
+		}
+
+		&:hover {
+			#button-container button {
+				display: block;
+			}
 		}
 	}
 
 	:global(h1) {
 		font-size: 1.125rem;
+		color: var(--theme-title-color);
 	}
 
 	:global(h2) {
 		font-size: 1rem;
+		color: var(--theme-title-color);
 	}
 
 	:global(h3) {
 		font-size: 0.875rem;
+		color: var(--theme-title-color);
 	}
 
 	:global(p) {
+		color: var(--theme-title-color);
 		display: inline;
 	}
 
-
 	:global(ol) {
+		color: var(--theme-title-color);
 		list-style-position: inside;
 		list-style-type: decimal;
 	}
 
 	:global(ul) {
+		color: var(--theme-title-color);
 		list-style-position: inside;
 		list-style-type: disc;
 	}
