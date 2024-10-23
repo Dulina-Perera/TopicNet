@@ -117,15 +117,31 @@
 		cursor: grab;
 		font-size: 0.875rem;
 		line-height: 1.5rem;
+		max-height: 16rem;
+		overflow-y: auto;
 		padding: 0.5rem;
 		width: 16rem;
 		position: relative;
+
+		&::-webkit-scrollbar {
+			width: 6px;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--theme-title-color);
+			border-radius: 10px;
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: var(--theme-primary-color);
+		}
 
 		#button-container {
 			bottom: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
-			position: absolute;
+			position: fixed;
 			right: 0.5rem;
 
 			button {
