@@ -1,28 +1,83 @@
 <script lang="ts">
-	import { FileButton } from '@skeletonlabs/skeleton';
 </script>
 
-<section class="relative w-full h-screen flex items-center">
-	<div
-		class="flex flex-col lg:flex-row max-w-8xl items-start justify-between gap-12 px-6 lg:px-12"
-	>
-		<div class="lg:max-w-lg text-left">
-			<h1 class="font-extrabold leading-tight text-8xl text-title-color tracking-tight">
-				TopicNet
-			</h1>
-			<p class="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-600">
-				Interactively Visualize Unstructured Text Documents as Mindmaps
-			</p>
-			<div class="mt-8">
-				<FileButton name="files" />
-			</div>
-		</div>
+<div id="hero">
+	<img src="/hero-img.svg" alt="" />
+	<div id="hero-text">
+		<h1>Transform Documents Into Interactive Mindmaps</h1>
+		<p>
+			Upload unstructured text documents like PDFs and watch them evolve into dynamic, interactive
+			mindmaps, making it easy to visualize and explore complex information.
+		</p>
 
-		<div
-			class="absolute bottom-8 pointer-events-none right-8 select-none lg:w-auto w-full h-[90vh]"
+		<input type="file" accept="application/pdf" id="upload-btn" hidden />
+		<label for="upload-btn" class="custom-upload-btn"
+			><i class="ri-upload-line"></i>Upload File</label
 		>
-			<!-- svelte-ignore a11y-img-redundant-alt -->
-			<img class="h-full w-full" src="/hero_img.svg" alt="Hero Image" />
-		</div>
 	</div>
-</section>
+</div>
+
+<style lang="scss">
+	#hero {
+		align-items: center;
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 40px;
+		height: 100vh;
+		justify-content: space-between;
+		max-width: 1536px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 20px;
+
+		img {
+			border-radius: var(--theme-border-radius-container);
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+			height: 80vh;
+			object-fit: cover;
+			width: 40vw;
+		}
+
+		#hero-text {
+			flex: 1;
+			text-align: left;
+
+			h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+
+			p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+			}
+
+			.custom-upload-btn {
+				align-items: center;
+				background-color: var(--theme-title-color);
+				border: none;
+				border-radius: var(--theme-border-radius-container);
+				color: #fff;
+				cursor: pointer;
+				display: inline-flex;
+				font-size: 1rem;
+				padding: 1rem 2rem;
+				text-transform: uppercase;
+				transition: background-color 0.3s ease;
+
+				&:hover {
+					background-color: var(--theme-primary-color);
+				}
+
+				i.ri-upload-line {
+					font-size: 1.5rem;
+					margin-right: 0.5rem;
+				}
+			}
+
+			input[type='file'] {
+				display: none;
+			}
+		}
+	}
+</style>

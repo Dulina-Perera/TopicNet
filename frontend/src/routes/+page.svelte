@@ -1,11 +1,18 @@
 <script>
-	import { Login, Logo, Navbar } from "$lib/components/header";
+	import Hero from "$lib/components/Hero.svelte";
+	import { Header } from "$lib/components/header";
+	import { Nav, NavLogo, NavMenu } from "$lib/components/header/nav";
+	import { NavActions, NavLogin, NavToggle } from "$lib/components/header/nav/actions";
 </script>
 
-<header class="fixed left-4 top-4 w-[calc(100%-2rem)]">
-	<div class="flex justify-between">
-		<Logo logoText="TopicNet" />
-		<Navbar />
-		<Login />
-	</div>
-</header>
+<Header>
+	<Nav>
+		<NavLogo />
+		<NavMenu />
+		<NavActions>
+			<NavLogin />
+			<NavToggle />
+		</NavActions>
+	</Nav>
+</Header>
+<Hero />

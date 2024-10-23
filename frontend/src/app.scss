@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+:root {
+	--theme-primary-color: hsl(230, 75%, 56%);
+	--theme-title-color: hsl(230, 75%, 15%);
+	--theme-text-color: hsl(230, 12%, 40%);
+  --theme-body-color: hsl(230, 100%, 98%);
+  --theme-container-color: hsl(230, 100%, 97%);
+  --theme-border-color: hsl(230, 25%, 80%);
+
+	--theme-font-family-logo: "Protest Strike", sans-serif;
+	--theme-font-family-base: "Nunito", sans-serif;
+	--theme-font-size-h2: 1.25rem;
+	--theme-font-size-normal: .938rem;
+
+	--theme-border-radius-base: 1.5rem;
+	--theme-border-radius-container: 0.5rem;
+
+	--theme-z-index-tooltip: 10;
+	--theme-z-index-fixed: 100;
+	--theme-z-index-modal: 1000;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --theme-font-size-h2: 1.5rem;
+		--theme-font-size-normal: 1rem;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+button {
+  font-family: var(--theme-font-family-base);
+  font-size: var(--theme-font-size-normal);
+}
+
+body {
+  background-color: var(--theme-body-color);
+  color: var(--theme-text-color);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
