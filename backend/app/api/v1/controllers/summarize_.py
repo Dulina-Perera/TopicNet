@@ -1,7 +1,8 @@
 # %%
 import os
 
-from fastapi import APIRouter, Depends, File, Response, UploadFile
+from fastapi import APIRouter, Depends, File,  Response, UploadFile
+from fastapi.responses import JSONResponse
 from logging import Logger
 from typing import List, Tuple, Union
 
@@ -42,9 +43,10 @@ async def summarize(
     # Summarize the text using SpaCy and TextRank and refine the summary using OpenAI"s GPT-4o-mini.
     summary: str = summarize_using_spacy(text)
     refined_summary: str = await refine_summary_using_openai(summary)
+    print(refined_summary)
 
-    return Response(
-    	content=refined_summary,
+    return JSONResponse(
+    	content={"summary": refined_summary},
     	status_code=200,
     	headers={"Content-Type": "application/json"}
   	)
