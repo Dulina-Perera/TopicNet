@@ -1,41 +1,40 @@
 <script lang="ts">
+	export let message: string = 'Loading...';
 </script>
 
-<section>
+<div id="loader">
 	<svg>
 		<filter id="gooey">
-			<feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-			<feColorMatrix
-				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10"
-			/>
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+			<feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10" />
 		</filter>
 	</svg>
 
 	<div id="spinner">
-		<span style="--i:1;"></span>
-		<span style="--i:2;"></span>
-		<span style="--i:3;"></span>
-		<span style="--i:4;"></span>
-		<span style="--i:5;"></span>
-		<span style="--i:6;"></span>
-		<span style="--i:7;"></span>
-		<span style="--i:8;"></span>
-
 		<span style="--j:0;" class="rotate"></span>
 		<span style="--j:1;" class="rotate"></span>
 		<span style="--j:2;" class="rotate"></span>
 		<span style="--j:3;" class="rotate"></span>
 		<span style="--j:4;" class="rotate"></span>
 	</div>
-</section>
+
+	<div id="message">
+		{message}
+	</div>
+</div>
 
 <style lang="scss">
-	section {
+	#loader {
 		align-items: center;
-		background-color: #0c1b21;
+		background-color: var(--theme-body-color);
+		border-radius: var(--theme-border-radius-container);
+		bottom: 20px;
+		box-shadow: 0 2px 16px hsla(230, 75%, 32%, 0.15);
 		display: flex;
-		justify-content: center;
-		min-height: 100vh;
+		padding: 2px 8px;
+		position: fixed;
+		right: 20px;
+		z-index: var(--theme-z-index-fixed);
 
 		svg {
 			height: 0;
@@ -43,18 +42,15 @@
 		}
 
 		#spinner {
-			height: 250px;
+			height: 32px;
+			width: 32px;
 			filter: url(#gooey);
 			position: relative;
-			width: 250px;
 
 			span {
 				display: block;
 				height: 100%;
-				left: 0;
 				position: absolute;
-				top: 0;
-				transform: rotate(calc(45deg * var(--i)));
 				width: 100%;
 
 				&.rotate {
@@ -63,26 +59,34 @@
 				}
 
 				&:before {
-					background: linear-gradient(45deg, #c7eeff, #03a9f4);
+					background: linear-gradient(45deg, var(--theme-primary-color), var(--theme-title-color));
 					border-radius: 50%;
-					box-shadow: 0 0 30px #00bcd4;
+					box-shadow: 0 0 1px var(--theme-title-color);
 					content: '';
-					height: 40px;
-					left: calc(50% - 20px);
+					height: 10px;
+					left: calc(50% - 5px);
 					position: absolute;
 					top: 0;
-					width: 40px;
+					width: 10px;
 				}
 			}
+		}
+
+		#message {
+			color: var(--theme-title-color);
+			font-size: 0.75rem;
+			font-weight: 600;
+			line-height: 1rem;
+			margin-left: 4px;
 		}
 	}
 
 	@keyframes animate {
 		0% {
-			transform: rotate(90deg);
+			transform: rotate(0deg);
 		}
 		100% {
-			transform: rotate(450deg);
+			transform: rotate(360deg);
 		}
 	}
 </style>
