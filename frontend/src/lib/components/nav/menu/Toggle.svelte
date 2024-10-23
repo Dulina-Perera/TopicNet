@@ -1,19 +1,18 @@
 <script lang="ts">
-	import { navMenuVisible } from "$lib/stores";
+	import { isVisible } from "$lib/stores/nav-menu.store";
 
 	const toggleNavMenu = () => {
-		navMenuVisible.update((value) => !value);
+		isVisible.update((value) => !value);
 	};
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<div id="nav-toggle" on:click={toggleNavMenu}>
+<button id="nav-toggle" on:click={toggleNavMenu}>
 	<i class="ri-menu-line"></i>
-</div>
+</button>
 
 <style lang="scss">
 	#nav-toggle {
+		background-color: transparent;
 		color: var(--theme-title-color);
 		cursor: pointer;
 		font-size: 1.25rem;
@@ -22,7 +21,7 @@
 		transition-property: color;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-		@media (min-width: 1024px) {
+		@media (min-width: 768px) {
 			display: none;
 		}
 

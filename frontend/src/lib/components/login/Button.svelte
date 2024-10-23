@@ -8,7 +8,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<i class="ri-user-line" id="login-btn" on:click={showLogin}></i>
+<i class="ri-ghost-smile-line" id="login-btn" on:click={showLogin}></i>
 
 <style lang="scss">
 	#login-btn {
