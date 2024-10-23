@@ -1,5 +1,5 @@
 <script>
-	import { Board, Node, Toggle } from '$lib/components/workspace';
+	import { Board, Spinner, Node, Toggle } from '$lib/components/workspace';
 	import { Header } from '$lib/components/header';
 	import { Nav, NavLogo } from '$lib/components/header/nav';
 	import { NavActions, NavLogin } from '$lib/components/header/nav/actions';
@@ -19,7 +19,7 @@
 	`;
 </script>
 
-<Header>
+<!-- <Header>
 	<Nav>
 		<NavLogo />
 		<NavActions>
@@ -29,4 +29,5 @@
 	</Nav>
 </Header>
 <Board />
-<Node content={testMarkdown} customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+<Node content={testMarkdown} customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" /> -->
+<Spinner />
