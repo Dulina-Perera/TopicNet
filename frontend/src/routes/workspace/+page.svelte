@@ -1,22 +1,52 @@
-<script>
-	import { Board, Node, Toggle } from '$lib/components/workspace';
+<script lang="ts">
+	import type { Writable } from 'svelte/store';
+	import { Board, Spinner, Node, Toggle } from '$lib/components/workspace';
 	import { Header } from '$lib/components/header';
 	import { Nav, NavLogo } from '$lib/components/header/nav';
 	import { NavActions, NavLogin } from '$lib/components/header/nav/actions';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { writable } from 'svelte/store';
 
-	let testMarkdown = `
-# Sample Heading
+	let loading: Writable<boolean> = writable(true);
+	let content: Writable<string> = writable('');
 
-- List item 1
-- List item 2
-- **Bold Text** in markdown
-- *Italic Text* in markdown
+	let file: File | null = null;
+	$: {
+		const pageState = $page?.state as { file: File };
+		if (pageState) {
+			file = pageState.file;
+		}
+	}
 
-1. Ordered List item 1
-2. Ordered List item 2
+	const processFile: (file: File) => void = async (file) => {
+		const formData: FormData = new FormData();
+		formData.append('file', file);
 
-[Link to Google](https://www.google.com)
-	`;
+		try {
+			const response = await fetch('http://localhost:5000/api/v1/summarize', {
+				method: 'POST',
+				body: formData
+			});
+
+			if (response.ok) {
+				const responseData: any = await response.json();
+				content.set(responseData.content);
+			} else {
+				console.error('Failed to process file:', response.statusText);
+			}
+		} catch (error) {
+			console.error(error);
+		} finally {
+			loading.set(false);
+		}
+	};
+
+	onMount(async () => {
+		if (file) {
+			await processFile(file);
+		}
+	});
 </script>
 
 <Header>
@@ -28,5 +58,11 @@
 		</NavActions>
 	</Nav>
 </Header>
+
 <Board />
-<Node content={testMarkdown} customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+
+{#if $loading}
+	<Spinner />
+{:else}
+	<Node content={$content} customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+{/if}

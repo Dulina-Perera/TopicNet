@@ -1,4 +1,15 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+
+	const handleFileUpload: (event: Event) => void = async (event) => {
+		const input = event.target as HTMLInputElement;
+
+		if (input.files && input.files.length > 0 && input.files[0].type === "application/pdf") {
+			const file: File = input.files[0];
+
+			goto('/workspace', { state: { file } });
+		}
+	};
 </script>
 
 <div id="hero">
@@ -10,7 +21,7 @@
 			mindmaps, making it easy to visualize and explore complex information.
 		</p>
 
-		<input type="file" accept="application/pdf" id="upload-btn" hidden />
+		<input type="file" accept="application/pdf" id="upload-btn" on:change={handleFileUpload} hidden />
 		<label for="upload-btn" class="custom-upload-btn"
 			><i class="ri-upload-line"></i>Upload File</label
 		>
