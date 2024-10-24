@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from .database import Base, engine
+from sqlalchemy.dialects.postgresql import JSONB
 
 
 class User(Base):
@@ -24,7 +25,16 @@ class File(Base):
 
     # Relationship with the User model
     owner = relationship("User", back_populates="files")
+    mindmaps = relationship("JSONModel", back_populates="file", cascade="all, delete-orphan")
 
+class JSONModel(Base):
+    __tablename__ = 'json_files'
+    id = Column(Integer, primary_key=True)
+    pdf_id = Column(Integer, ForeignKey('files.id'))
+    json_content = Column(JSONB)  # Store JSON data in the database
+    
+    file = relationship("File", back_populates="mindmaps")
+    
 
 # Create the database tables if they don't exist
 Base.metadata.create_all(bind=engine)
