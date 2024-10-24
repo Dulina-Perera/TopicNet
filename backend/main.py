@@ -9,6 +9,7 @@ import sys
 import uvicorn
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.controllers import destroy_router, generate_router, summarize_router
 from app.core_ import load_env_vars, setup_logging
@@ -23,6 +24,15 @@ topicnet: FastAPI = FastAPI(
 	debug=True,
 	title="TopicNet API",
 	version="0.1.0",
+)
+
+# Allow localhost:5173 to make requests to the API.
+topicnet.add_middleware(
+	CORSMiddleware,
+	allow_origins=["http://localhost:5173"],
+	allow_credentials=True,
+	allow_methods=["*"],
+	allow_headers=["*"],
 )
 
 # Register the routers.

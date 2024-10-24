@@ -72,7 +72,7 @@ async def refine_summary_using_openai(summary: str, model: Optional[str] = "gpt-
 			{"role": "system", "content": system_prompt},
 			{"role": "user", "content": user_prompt}
 		],
-		max_tokens=1000,
+		max_tokens=200,
 		temperature=0.3
 	)
 
