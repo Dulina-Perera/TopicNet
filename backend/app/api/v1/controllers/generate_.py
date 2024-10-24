@@ -15,7 +15,6 @@ from ..services_ import (
   is_file_not_none,
   model_topics_with_nmf,
   parse_topic,
-  refine_topic_n_content,
   refine_topic_and_content_using_openai,
   save_s3_uri,
   save_sentences_to_db,
@@ -39,14 +38,12 @@ async def generate_base(
   try:
     # Check if a file was submitted.
     if not is_file_not_none(file):
-      raise NoFileSubmittedError("No file was submitted.")
+      raise NoFileSubmittedError()
 
     # Check if the file format is allowed.
     ALLOWED_FILE_FORMATS: Tuple[str, ...] = ("application/pdf",)
     if not is_file_format_allowed(file, ALLOWED_FILE_FORMATS):
-      raise InvalidFileFormatError(
-        f"Invalid file format. Only {', '.join(ALLOWED_FILE_FORMATS)} files are supported."
-      )
+      raise InvalidFileFormatError(ALLOWED_FILE_FORMATS)
 
     # Upload the file to S3 and store the file's S3 URI in the database.
     s3_uri: str = upload_file_to_s3(file, token_urlsafe(16), s3_client)

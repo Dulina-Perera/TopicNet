@@ -10,7 +10,7 @@ import uvicorn
 
 from fastapi import FastAPI
 
-from app.api.v1.controllers import generate_router, summarize_router
+from app.api.v1.controllers import destroy_router, generate_router, summarize_router
 from app.core_ import load_env_vars, setup_logging
 
 # %%
@@ -26,6 +26,7 @@ topicnet: FastAPI = FastAPI(
 )
 
 # Register the routers.
+topicnet.include_router(destroy_router, prefix="/api/v1/destroy")
 topicnet.include_router(generate_router, prefix="/api/v1/generate")
 topicnet.include_router(summarize_router, prefix="/api/v1/summarize")
 

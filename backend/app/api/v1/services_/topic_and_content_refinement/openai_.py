@@ -27,7 +27,7 @@ async def refine_topic_and_content_using_openai(
   """
   # Check if the specified OpenAI model is valid.
   if not await is_valid_openai_model(model):
-    raise InvalidOpenAIModelError(f"The specified OpenAI model '{model}' is invalid.")
+    raise InvalidOpenAIModelError(model)
 
   # Initialize the OpenAI client.
   client: AsyncOpenAI = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
