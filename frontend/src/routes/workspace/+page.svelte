@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
-	import { Board, Spinner, Node, Toggle } from '$lib/components/workspace';
+	import { Board, Spinner, Node, SelectMoveToggle } from '$lib/components/workspace';
 	import { writable } from 'svelte/store';
 
 	let loading: Writable<boolean> = writable(true);
@@ -63,7 +63,7 @@ Cognitive systems must be interactive, enabling users to define their needs easi
 <Header>
 	<Logo />
 	<NavActions>
-		<Toggle />
+		<SelectMoveToggle />
 		<LoginButton />
 	</NavActions>
 </Header>

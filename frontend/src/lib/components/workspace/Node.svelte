@@ -14,11 +14,16 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { marked } from 'marked';
 
+	import Toolbar from './Toolbar.svelte';
+
+	// Props
 	export let content: string;
 	export let customStyles: string = '';
 
+	// Stores
 	$: isDraggable = !$boardDraggable;
 
+	// Variables
 	let wrapper_element: HTMLDivElement;
 	let element: HTMLDivElement;
 	let editor: Editor;
@@ -28,6 +33,13 @@
 	let offsetY: number = 0;
 	let isEditable: boolean = false;
 
+	let toolbarProps: { top: number; left: number; visible: boolean } = {
+		top: 0,
+		left: 0,
+		visible: false
+	};
+
+	// Lifecycle methods
 	onMount(() => {
 		editor = new Editor({
 			element: element,
@@ -62,43 +74,73 @@
 		}
 	});
 
-	const handleDoubleClick = () => {
-		if (isDraggable && editor) {
-			editor.commands.focus();
-			editor.setEditable(true);
-			isEditable = true;
-		}
-	};
-
-	const handleMouseDown = (event: MouseEvent) => {
+	// Methods
+	const handleMouseDown: (event: MouseEvent) => void = (event: MouseEvent) => {
 		if (isDraggable) {
-			isDragging = true;
-			offsetX = event.clientX - (wrapper_element?.offsetLeft || 0);
-			offsetY = event.clientY - (wrapper_element?.offsetTop || 0);
+			if (isEditable) {
+				toolbarProps.visible = false;
+			} else {
+				isDragging = true;
+				offsetX = event.clientX - (wrapper_element?.offsetLeft || 0);
+				offsetY = event.clientY - (wrapper_element?.offsetTop || 0);
+			}
 		}
 	};
 
-	const handleMouseMove = (event: MouseEvent) => {
-		if (isDragging && element) {
+	const handleDoubleClick: () => void = () => {
+		if (isDraggable) {
+			if (!isEditable) {
+				editor.commands.focus();
+				editor.setEditable(true);
+				isEditable = true;
+			}
+			updateToolbarPosition();
+		}
+	};
+
+	const handleMouseMove: (event: MouseEvent) => void = (event: MouseEvent) => {
+		if (isDraggable && isDragging) {
 			wrapper_element.style.position = 'absolute';
 			wrapper_element.style.left = `${event.clientX - offsetX}px`;
 			wrapper_element.style.top = `${event.clientY - offsetY}px`;
 		}
 	};
 
-	const handleMouseUp = () => {
-		isDragging = false;
-	};
-
-	const handleOutsideClick = (event: MouseEvent) => {
-		if (editor && editor.isEditable && element && !element.contains(event.target as Node)) {
-			editor.setEditable(false);
-			isEditable = false;
+	const handleMouseUp: () => void = () => {
+		if (isDraggable && isDragging) {
+			isDragging = false;
 		}
 	};
 
-	const handleWheel = (event: WheelEvent) => {
+	const handleOutsideClick: (event: MouseEvent) => void = (event: MouseEvent) => {
+		if (isDraggable && isEditable && element && !element.contains(event.target as Node)) {
+			editor.setEditable(false);
+			isEditable = false;
+
+			toolbarProps.visible = false;
+		}
+	};
+
+	const handleWheel: (event: WheelEvent) => void = (event: WheelEvent) => {
 		event.stopPropagation();
+	};
+
+	const updateToolbarPosition: () => void = () => {
+		const selection: Selection | null = document.getSelection();
+		if (selection && selection.rangeCount > 0) {
+			const range: Range = selection.getRangeAt(0);
+			const rect: DOMRect = range.getBoundingClientRect();
+
+			const parentRect: DOMRect = wrapper_element.getBoundingClientRect();
+
+			toolbarProps = {
+				top: rect.top - parentRect.top - 50,
+				left: rect.left - parentRect.left,
+				visible: true
+			};
+		} else {
+			toolbarProps.visible = false;
+		}
 	};
 </script>
 
@@ -113,6 +155,10 @@
 	on:mouseup={handleMouseUp}
 	on:wheel={handleWheel}
 >
+	{#if isEditable && toolbarProps.visible}
+		<Toolbar {editor} {content} customStyles={toolbarProps} />
+	{/if}
+
 	<div
 		id="node"
 		class="{isEditable ? 'editable' : ''} {boardDraggable ? 'disable-select' : ''}"
@@ -142,6 +188,7 @@
 			width: 16rem;
 
 			&::-webkit-scrollbar {
+				display: none;
 				width: 6px;
 			}
 			&::-webkit-scrollbar-track {
@@ -169,6 +216,10 @@
 		}
 
 		&:hover {
+			#node::-webkit-scrollbar {
+				display: block;
+			}
+
 			#button-container button {
 				display: block;
 			}
