@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { boardClickedPos, boardDraggable, boardGrabbing, boardScale } from "$lib/stores";
+	import { boardClickedPos, boardDraggable, boardGrabbing, boardScale } from "$lib/stores/workspace.store";
 	import { onMount } from "svelte";
 
 	$: clickedPos = $boardClickedPos;

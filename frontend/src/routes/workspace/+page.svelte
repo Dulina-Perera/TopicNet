@@ -68,13 +68,18 @@ Cognitive systems must be interactive, enabling users to define their needs easi
 	</NavActions>
 </Header>
 
-<Board />
+<Board>
+	<Node
+		content={$content}
+		customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+	/>
+</Board>
 
 <!-- {#if $loading}
 	<Spinner />
 {:else} -->
-<Node
+<!-- <Node
 	content={$content}
 	customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-/>
+/> -->
 <!-- {/if} -->

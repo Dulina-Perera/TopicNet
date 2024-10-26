@@ -10,18 +10,23 @@
 	import Paragraph from '@tiptap/extension-paragraph';
 	import Text from '@tiptap/extension-text';
 	import { Editor } from '@tiptap/core';
+	import { boardDraggable } from '$lib/stores/workspace.store';
 	import { onDestroy, onMount } from 'svelte';
 	import { marked } from 'marked';
 
 	export let content: string;
 	export let customStyles: string = '';
 
-	let editor: Editor | undefined;
-	let element: HTMLDivElement | undefined;
+	$: isDraggable = !$boardDraggable;
+
+	let wrapper_element: HTMLDivElement;
+	let element: HTMLDivElement;
+	let editor: Editor;
 
 	let isDragging: boolean = false;
 	let offsetX: number = 0;
 	let offsetY: number = 0;
+	let isEditable: boolean = false;
 
 	onMount(() => {
 		editor = new Editor({
@@ -55,30 +60,29 @@
 		if (editor) {
 			editor.destroy();
 		}
-
-		if (typeof document !== 'undefined') {
-			document.removeEventListener('mousedown', handleOutsideClick);
-		}
 	});
 
 	const handleDoubleClick = () => {
-		if (editor) {
+		if (isDraggable && editor) {
 			editor.commands.focus();
 			editor.setEditable(true);
+			isEditable = true;
 		}
 	};
 
 	const handleMouseDown = (event: MouseEvent) => {
-		isDragging = true;
-		offsetX = event.clientX - (element?.offsetLeft || 0);
-		offsetY = event.clientY - (element?.offsetTop || 0);
+		if (isDraggable) {
+			isDragging = true;
+			offsetX = event.clientX - (wrapper_element?.offsetLeft || 0);
+			offsetY = event.clientY - (wrapper_element?.offsetTop || 0);
+		}
 	};
 
 	const handleMouseMove = (event: MouseEvent) => {
 		if (isDragging && element) {
-			element.style.position = 'absolute';
-			element.style.left = `${event.clientX - offsetX}px`;
-			element.style.top = `${event.clientY - offsetY}px`;
+			wrapper_element.style.position = 'absolute';
+			wrapper_element.style.left = `${event.clientX - offsetX}px`;
+			wrapper_element.style.top = `${event.clientY - offsetY}px`;
 		}
 	};
 
@@ -89,20 +93,32 @@
 	const handleOutsideClick = (event: MouseEvent) => {
 		if (editor && editor.isEditable && element && !element.contains(event.target as Node)) {
 			editor.setEditable(false);
+			isEditable = false;
 		}
+	};
+
+	const handleWheel = (event: WheelEvent) => {
+		event.stopPropagation();
 	};
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	style={customStyles}
-	id="node"
-	bind:this={element}
+	id="node-wrapper"
+	bind:this={wrapper_element}
 	on:dblclick={handleDoubleClick}
 	on:mousedown={handleMouseDown}
 	on:mousemove={handleMouseMove}
 	on:mouseup={handleMouseUp}
+	on:wheel={handleWheel}
 >
+	<div
+		id="node"
+		class="{isEditable ? 'editable' : ''} {boardDraggable ? 'disable-select' : ''}"
+		bind:this={element}
+	></div>
+
 	<div id="button-container">
 		<button><i class="ri-arrow-down-wide-fill"></i></button>
 		<button><i class="ri-delete-bin-7-line"></i></button>
@@ -110,39 +126,60 @@
 </div>
 
 <style lang="scss">
-	#node {
-		background-color: var(--theme-body-color);
-		border-radius: var(--theme-border-radius-container);
-		box-shadow: 0 2px 16px hsla(230, 75%, 32%, 0.15);
-		cursor: grab;
-		font-size: 0.875rem;
-		line-height: 1.5rem;
-		max-height: 16rem;
-		overflow-y: auto;
-		padding: 0.5rem;
-		width: 16rem;
+	#node-wrapper {
 		position: relative;
 
-		&::-webkit-scrollbar {
-			width: 6px;
+		#node {
+			background-color: var(--theme-body-color);
+			border-radius: var(--theme-border-radius-container);
+			box-shadow: 0 2px 16px hsla(230, 75%, 32%, 0.15);
+			cursor: grab;
+			font-size: 0.875rem;
+			line-height: 1.5rem;
+			max-height: 16rem;
+			overflow-y: auto;
+			padding: 0.5rem;
+			width: 16rem;
+
+			&::-webkit-scrollbar {
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: var(--theme-title-color);
+				border-radius: 10px;
+			}
+			&::-webkit-scrollbar-thumb:hover {
+				background-color: var(--theme-primary-color);
+			}
+
+			&.disable-select {
+				user-select: none;
+			}
+
+			&.editable {
+				cursor: text !important;
+			}
 		}
-		&::-webkit-scrollbar-track {
-			background: transparent;
+
+		&:active {
+			cursor: grabbing;
 		}
-		&::-webkit-scrollbar-thumb {
-			background-color: var(--theme-title-color);
-			border-radius: 10px;
-		}
-		&::-webkit-scrollbar-thumb:hover {
-			background-color: var(--theme-primary-color);
+
+		&:hover {
+			#button-container button {
+				display: block;
+			}
 		}
 
 		#button-container {
 			bottom: 0.5rem;
+			right: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
-			position: fixed;
-			right: 0.5rem;
+			position: absolute;
 
 			button {
 				background-color: var(--theme-title-color);
@@ -158,16 +195,6 @@
 				&:hover {
 					background-color: var(--theme-primary-color);
 				}
-			}
-		}
-
-		&:active {
-			cursor: grabbing;
-		}
-
-		&:hover {
-			#button-container button {
-				display: block;
 			}
 		}
 	}

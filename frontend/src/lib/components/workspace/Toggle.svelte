@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { boardDraggable } from "$lib/stores";
+	import { boardDraggable } from "$lib/stores/workspace.store";
 	import { onMount } from "svelte";
 
 	let isOpen: boolean = false;
