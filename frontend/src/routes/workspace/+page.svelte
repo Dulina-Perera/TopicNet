@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-	import { Board, Spinner, Node, Toggle } from '$lib/components/workspace';
-	import { Header } from '$lib/components/header';
-	import { Nav, NavLogo } from '$lib/components/header/nav';
-	import { NavActions, NavLogin } from '$lib/components/header/nav/actions';
+	import { Header, Logo } from '$lib/components';
+	import { LoginButton } from '$lib/components/login';
+	import { NavActions } from '$lib/components/nav';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+
+	import { Board, Spinner, Node, Toggle } from '$lib/components/workspace';
 	import { writable } from 'svelte/store';
 
 	let loading: Writable<boolean> = writable(true);
@@ -60,13 +61,11 @@ Cognitive systems must be interactive, enabling users to define their needs easi
 </script>
 
 <Header>
-	<Nav>
-		<NavLogo />
-		<NavActions>
-			<Toggle />
-			<NavLogin />
-		</NavActions>
-	</Nav>
+	<Logo />
+	<NavActions>
+		<Toggle />
+		<LoginButton />
+	</NavActions>
 </Header>
 
 <Board />
@@ -74,5 +73,8 @@ Cognitive systems must be interactive, enabling users to define their needs easi
 <!-- {#if $loading}
 	<Spinner />
 {:else} -->
-<Node content={$content} customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+<Node
+	content={$content}
+	customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+/>
 <!-- {/if} -->

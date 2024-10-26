@@ -2,7 +2,6 @@ import { writable, type Writable } from 'svelte/store';
 
 export const theme: Writable<string> = writable("dark"); // Default theme is dark.
 
-export const navMenuVisible: Writable<boolean> = writable(false);
 export const loginVisible: Writable<boolean> = writable(true);
 export const signupMode: Writable<boolean> = writable(false);
 

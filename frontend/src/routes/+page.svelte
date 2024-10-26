@@ -1,18 +1,17 @@
-<script>
-	import Hero from "$lib/components/Hero.svelte";
-	import { Header } from "$lib/components/header";
-	import { Nav, NavLogo, NavMenu } from "$lib/components/header/nav";
-	import { NavActions, NavLogin, NavToggle } from "$lib/components/header/nav/actions";
+<script lang="ts">
+	import Hero from '$lib/components/Hero.svelte';
+	import { Header, Logo } from '$lib/components';
+	import { LoginButton } from '$lib/components/login';
+	import { NavActions } from '$lib/components/nav';
+	import { NavMenu, NavMenuToggle } from '$lib/components/nav/menu';
 </script>
 
 <Header>
-	<Nav>
-		<NavLogo />
-		<NavMenu />
-		<NavActions>
-			<NavLogin />
-			<NavToggle />
-		</NavActions>
-	</Nav>
+	<Logo />
+	<NavMenu />
+	<NavActions>
+		<LoginButton />
+		<NavMenuToggle />
+	</NavActions>
 </Header>
 <Hero />
