@@ -72,28 +72,27 @@
 </div>
 
 <style lang="scss">
-	#board-wrapper {
-		height: 100vh;
-		left: 0;
-		overflow: scroll;
-		position: fixed;
-		top: 0;
-		width: 100vw;
-	}
+  #board-wrapper {
+    height: 100vh;
+    overflow: auto;
+    position: fixed;
+    width: 100vw;
+  }
 
-	#board {
-		background-image: radial-gradient(circle,#b8b8b8bf 1px,rgba(0,0,0,0) 1px);
-		background-size: 30px 30px;
-		height: 100vh;
-		position: relative;
-		width: 100vw;
+  #board {
+    background-image: radial-gradient(circle, #b8b8b8bf 1px, rgba(0, 0, 0, 0) 1px);
+    background-size: 30px 30px;
+    height: 100%;
+    position: relative;
+    transform-origin: 0 0;
+    width: 100%;
 
-		&.grab {
-			cursor: grab;
-		}
+    &.grab {
+      cursor: grab;
+    }
 
-		&.grabbing {
-			cursor: grabbing;
-		}
-	}
+    &.grabbing {
+      cursor: grabbing;
+    }
+  }
 </style>

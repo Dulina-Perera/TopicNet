@@ -1,13 +1,9 @@
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
+	import { type Writable, writable } from 'svelte/store';
+	import { Node, Tree } from '$lib/components/workspace';
 	import { Header, Logo } from '$lib/components';
 	import { LoginButton } from '$lib/components/login';
 	import { NavActions } from '$lib/components/nav';
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-
-	import { Board, Spinner, Node, SelectMoveToggle } from '$lib/components/workspace';
-	import { writable } from 'svelte/store';
 
 	let loading: Writable<boolean> = writable(true);
 	let content: Writable<string> = writable(`
@@ -21,65 +17,101 @@ Organizations can utilize cognitive analytics to monitor customer behavior and e
 
 Cognitive systems must be interactive, enabling users to define their needs easily and integrate with various data sources and devices. They
 `);
-
-	// let file: File | null = null;
-	// $: {
-	// 	const pageState = $page?.state as { file: File };
-	// 	if (pageState) {
-	// 		file = pageState.file;
-	// 	}
-	// }
-
-	// const processFile: (file: File) => void = async (file) => {
-	// 	const formData: FormData = new FormData();
-	// 	formData.append('file', file);
-
-	// 	try {
-	// 		const response = await fetch('http://localhost:5000/api/v1/summarize', {
-	// 			method: 'POST',
-	// 			body: formData
-	// 		});
-
-	// 		if (response.ok) {
-	// 			const responseData: any = await response.json();
-	// 			content.set(responseData.summary);
-	// 		} else {
-	// 			console.error('Failed to process file:', response.statusText);
-	// 		}
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	} finally {
-	// 		loading.set(false);
-	// 	}
-	// };
-
-	// onMount(async () => {
-	// 	if (file) {
-	// 		await processFile(file);
-	// 	}
-	// });
 </script>
 
 <Header>
 	<Logo />
 	<NavActions>
-		<SelectMoveToggle />
 		<LoginButton />
 	</NavActions>
 </Header>
 
-<Board>
-	<Node
-		content={$content}
-		customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-	/>
-</Board>
+<Tree>
+	<ul>
+		<li>
+			<Node content={$content} />
+			<ul>
+				<li>
+					<Node content={$content} />
+					<ul>
+						<li><Node content={$content} /></li>
+						<li><Node content={$content} /></li>
+					</ul>
+				</li>
+				<li><Node content={$content} /></li>
+				<li>
+					<Node content={$content} />
+					<ul>
+						<li><Node content={$content} /></li>
+						<li><Node content={$content} /></li>
+						<li><Node content={$content} /></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</Tree>
 
-<!-- {#if $loading}
-	<Spinner />
-{:else} -->
-<!-- <Node
-	content={$content}
-	customStyles="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-/> -->
-<!-- {/if} -->
+<style lang="scss">
+	ul {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		padding-top: 20px;
+		position: relative;
+		transition: all 0.4s;
+
+		&:not(:first-of-type)::before {
+			border-left: 4px solid var(--theme-border-color);
+			content: '';
+			height: 20px;
+			left: 50%;
+			position: absolute;
+			top: 0;
+			width: 0;
+		}
+	}
+
+	li {
+		align-items: center;
+		display: inline-flex;
+		flex-direction: column;
+		list-style-type: none;
+		min-width: 100px;
+		padding: 10px 20px;
+		position: relative;
+		transition: all 0.4s;
+
+		&::after,
+		&::before {
+			border-top: 4px solid var(--theme-border-color);
+			content: '';
+			position: absolute;
+			width: 50%;
+			top: 0;
+		}
+
+		&::before {
+			right: 50%;
+		}
+
+		&::after {
+			left: 50%;
+		}
+
+		ul::before {
+			border-left: 4px solid var(--theme-border-color);
+			content: '';
+			height: 20px;
+			left: 50%;
+			position: absolute;
+			top: 0;
+			width: 0;
+		}
+
+		&:first-child::before,
+		&:last-child::after {
+			border-top: none;
+		}
+	}
+</style>
