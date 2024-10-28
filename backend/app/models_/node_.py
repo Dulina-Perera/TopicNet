@@ -13,7 +13,7 @@ class Node(Base):
 
   id: Mapped[int] = mapped_column()
   document_id: Mapped[int] = mapped_column(nullable=False)
-  parent_id: Mapped[int] = mapped_column()
+  parent_id: Mapped[int] = mapped_column(nullable=True)
   topic_and_content: Mapped[str] = mapped_column(nullable=False)
 
   __table_args__ = (

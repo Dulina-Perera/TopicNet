@@ -9,8 +9,8 @@ from sqlalchemy.ext.asyncio import (
   async_sessionmaker,
   create_async_engine
 )
-from sqlalchemy.orm import DeclarativeBase, Session, scoped_session
-from typing import Annotated, Any, AsyncGenerator, Dict, Union
+from sqlalchemy.orm import DeclarativeBase
+from typing import Annotated, AsyncGenerator, Dict, Union
 
 from ..config_ import load_db_config
 from ...exceptions_ import DatabaseInitializationError

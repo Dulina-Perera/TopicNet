@@ -2,7 +2,7 @@
 # Import the required classes, functions, and modules.
 from sqlalchemy import Result, delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 # %%
 async def does_node_exist(session: AsyncSession, node_id: int, document_id: int) -> bool:
@@ -29,8 +29,66 @@ async def does_node_exist(session: AsyncSession, node_id: int, document_id: int)
   return result.scalars().first() is not None
 
 
+async def read_nodes(session: AsyncSession, document_id: int) -> List[Any]:
+  """
+  Read the nodes for the given document.
+
+  :param session: The database session
+  :type session: AsyncSession
+
+  :param document_id: The ID of the document
+  :type document_id: int
+
+  :return: A list of Node objects
+  :rtype: List[Any]
+  """
+  from ...models_ import Node
+
+  result: Result = await session.execute(
+    select(Node).filter(Node.document_id == document_id)
+  )
+  return result.scalars().all()
+
+
+async def save_base_nodes(
+  session: AsyncSession,
+  topics_and_content: List[str],
+  document_id: int
+) -> List[int]:
+  """
+	Save the base nodes for the given document.
+
+	:param session: The database session
+	:type session: AsyncSession
+
+	:param topics_and_content: The topics and content of the nodes
+	:type topics_and_content: List[str]
+
+	:param document_id: The ID of the document
+	:type document_id: int
+
+	:return: The IDs of the saved nodes
+	:rtype: List[int]
+  """
+  from ...models_ import Node
+
+  root_node: Node = Node(id=0, document_id=document_id, topic_and_content=topics_and_content[0])
+  node_records: List[Node] = [
+    Node(id=index + 1, document_id=document_id, parent_id=0, topic_and_content=topic_and_content)
+		for (index, topic_and_content) in enumerate(topics_and_content[1:])
+	]
+  node_records.insert(0, root_node)
+  session.add_all(node_records)
+
+  await session.commit()
+
+  return [index for index in range(len(node_records))]
+
+
 async def read_descendant_node_ids(
-  session: AsyncSession, node_id: int, document_id: int
+  session: AsyncSession,
+  node_id: int,
+  document_id: int
 ) -> List[int]:
   """
   Find all descendant nodes of the specified node for the given document.

@@ -12,6 +12,19 @@ from typing import Any, Dict, Tuple, Union
 CONFIG_DIR: str = os.path.join(os.path.dirname(__file__), "../../config")
 
 # %%
+def is_env_var_set(env_var: str) -> bool:
+	"""
+	Check if the specified environment variable is set.
+
+	:param env_var: The environment variable to check
+	:type env_var: str
+
+	:return: True if the environment variable is set, False otherwise
+	:rtype: bool
+	"""
+	return os.getenv(env_var) is not None
+
+
 def are_env_vars_set(*env_vars: Tuple[str]) -> bool:
   """
   Check if the specified environment variables are set.

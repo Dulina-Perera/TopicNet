@@ -14,9 +14,9 @@ class Sentence(Base):
 
   id: Mapped[int] = mapped_column()
   document_id: Mapped[int] = mapped_column(nullable=False)
-  node_id: Mapped[int] = mapped_column()
+  node_id: Mapped[int] = mapped_column(nullable=True)
   content: Mapped[str] = mapped_column(nullable=False)
-  embeddings: Mapped[list[float]] = mapped_column(ARRAY(Float))
+  embeddings: Mapped[list[float]] = mapped_column(ARRAY(Float), nullable=True)
 
   __table_args__ = (
 		PrimaryKeyConstraint("id", "document_id"),

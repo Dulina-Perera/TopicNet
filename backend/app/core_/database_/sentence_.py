@@ -3,7 +3,7 @@
 from sqlalchemy import select, Result
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Tuple
-from typing import Any, Optional
+from typing import Any, List, Optional
 
 from ...exceptions_ import SentenceDoesNotExistError
 
@@ -32,7 +32,42 @@ async def does_sentence_exist(session: AsyncSession, sentence_id: int, document_
   return result.scalars().first() is not None
 
 
-async def bind_sentence_to_node(session: AsyncSession, sentence_id: int, document_id: int, node_id: int) -> Any:
+async def save_sentences(
+  session: AsyncSession,
+  sentences: List[str],
+  document_id: int
+) -> List[int]:
+  """
+  Save a list of sentences to the database.
+
+  :param session: The database session
+  :type session: AsyncSession
+  :param sentences: The list of sentences
+  :type sentences: List[str]
+  :param document_id: The ID of the document
+  :type document_id: int
+  :return: The IDs of the saved sentences
+  :rtype: List[int]
+  """
+  from ...models_ import Sentence
+
+  sentence_records: List[Sentence] = [
+    Sentence(id=index, document_id=document_id, content=sentence)
+    for (index, sentence) in enumerate(sentences)
+	]
+  session.add_all(sentence_records)
+
+  await session.commit()
+
+  return [index for index in range(len(sentences))]
+
+
+async def bind_sentence_to_node(
+  session: AsyncSession,
+  sentence_id: int,
+  document_id: int,
+  node_id: int
+) -> Any:
   """
 	Bind a sentence to a node in the database.
 
@@ -54,7 +89,7 @@ async def bind_sentence_to_node(session: AsyncSession, sentence_id: int, documen
   from ...models_ import Sentence
 
  	# Retrieve the sentence record.
-  result: Result[Tuple[Sentence]] = session.execute(
+  result: Result[Tuple[Sentence]] = await session.execute(
 		select(Sentence).filter(Sentence.id == sentence_id, Sentence.document_id == document_id)
 	)
   sentence: Optional[Sentence] = result.scalars().first()

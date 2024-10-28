@@ -1,6 +1,6 @@
 # %%
 from .aws_ import get_aws_s3_client, s3_client_dep
-from .config_ import are_env_vars_set, load_db_config, load_env_vars, setup_logging
+from .config_ import are_env_vars_set, load_db_config, load_env_vars, is_env_var_set, setup_logging
 from .database_ import (
 	Base,
 	async_db_session_dep,
@@ -11,6 +11,10 @@ from .database_ import (
 	does_sentence_exist,
 	get_db_session,
 	read_descendant_node_ids,
+	read_nodes,
+	save_base_nodes,
+	save_s3_uri,
+	save_sentences
 )
 from .logging_ import get_logger, logger_dep
 from .openai_ import is_valid_openai_model
