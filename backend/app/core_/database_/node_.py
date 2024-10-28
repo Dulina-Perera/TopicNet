@@ -1,6 +1,6 @@
 # %%
 # Import the required classes, functions, and modules.
-from sqlalchemy import Result, delete, func, select
+from sqlalchemy import Result, delete, func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Any, List, Optional, Tuple
 
@@ -235,6 +235,30 @@ async def read_descendant_node_ids(
     next_level_node_ids = []
 
   return descendant_node_ids
+
+
+async def update_node_content(session: AsyncSession, content: str, node_id: int, document_id: int) -> None:
+	"""
+	Update the content of a node.
+
+	:param session: The database session
+	:type session: AsyncSession
+
+	:param content: The new content for the node
+	:type content: str
+
+	:param node_id: The ID of the node
+	:type node_id: int
+
+	:param document_id: The ID of the document
+	:type document_id: int
+	"""
+	from ...models_ import Node
+
+	await session.execute(
+		update(Node).filter(Node.id == node_id, Node.document_id == document_id).values(topic_and_content=content)
+	)
+	await session.commit()
 
 
 async def delete_nodes(session: AsyncSession, node_ids: List[int], document_id: int) -> None:

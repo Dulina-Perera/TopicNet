@@ -9,7 +9,8 @@ from .node_ import (
   get_nodes,
   get_nodes_by_ids,
   save_base_nodes,
-  save_node_layer
+  save_node_layer,
+  update_node_content
 )
 from .sentence_ import (
   bind_sentence_to_node,

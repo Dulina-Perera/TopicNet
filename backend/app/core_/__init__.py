@@ -19,7 +19,8 @@ from .database_ import (
 	save_base_nodes,
 	save_node_layer,
 	save_s3_uri,
-	save_sentences
+	save_sentences,
+	update_node_content
 )
 from .logging_ import get_logger, logger_dep
 from .openai_ import is_valid_openai_model
