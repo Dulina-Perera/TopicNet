@@ -1,15 +1,30 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
+	import { goto } from '$app/navigation';
+	import { nodes } from '$lib/stores/workspace.store';
 
-	const handleFileUpload: (event: Event) => void = async (event) => {
+	async function handleFileUpload(event: Event) {
 		const input = event.target as HTMLInputElement;
 
-		if (input.files && input.files.length > 0 && input.files[0].type === "application/pdf") {
+		if (input.files && input.files.length > 0 && input.files[0].type === 'application/pdf') {
 			const file: File = input.files[0];
 
-			goto('/workspace', { state: { file } });
+			const formData: FormData = new FormData();
+			formData.append('file', file);
+
+			const response = await fetch('http://localhost:5000/api/v1/generate/base', {
+				method: 'POST',
+				body: formData
+			});
+
+			if (response.ok) {
+				const data: any = await response.json();
+				nodes.set(data);
+				goto('/workspace');
+			} else {
+				console.error('Failed to upload file and retrieve nodes!');
+			}
 		}
-	};
+	}
 </script>
 
 <div id="hero">
@@ -21,7 +36,13 @@
 			mindmaps, making it easy to visualize and explore complex information.
 		</p>
 
-		<input type="file" accept="application/pdf" id="upload-btn" on:change={handleFileUpload} hidden />
+		<input
+			type="file"
+			accept="application/pdf"
+			id="upload-btn"
+			on:change={handleFileUpload}
+			hidden
+		/>
 		<label for="upload-btn" class="custom-upload-btn"
 			><i class="ri-upload-line"></i>Upload File</label
 		>
