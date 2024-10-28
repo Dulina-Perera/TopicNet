@@ -13,6 +13,8 @@ from .openai_ import InvalidOpenAIModelError
 from .database_ import (
   DatabaseInitializationError,
 	DocumentDoesNotExistError,
+	NodeAlreadyHasChildrenError,
 	NodeDoesNotExistError,
+	NodeDoesNotHaveEnoughSentencesToExtendError,
 	SentenceDoesNotExistError
 )

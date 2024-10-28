@@ -1,6 +1,5 @@
 # %%
 # Import the required classes, functions, and modules.
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.schema import ForeignKeyConstraint, Index, PrimaryKeyConstraint

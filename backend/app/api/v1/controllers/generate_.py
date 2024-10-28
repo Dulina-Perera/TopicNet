@@ -1,12 +1,11 @@
 # %%
 # Import the required libraries, modules, functions and classes.
-from fastapi import APIRouter, Depends, File, HTTPException, Response, UploadFile
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from logging import Logger
-from sqlalchemy.orm.scoping import scoped_session
-from sqlalchemy.orm.session import Session
+from sqlalchemy.ext.asyncio import AsyncSession, async_scoped_session
 from typing import Any, List, Union
 
-from ..services_.generate_ import NodeResponse, generate_base
+from ..services_.generate_ import NodeResponse, extend_node, generate_base
 from ....core_ import get_aws_s3_client, get_db_session, get_logger
 from ....exceptions_ import InvalidFileFormatError, NoFileSubmittedError
 
@@ -18,7 +17,7 @@ generate_router: APIRouter = APIRouter()
 @generate_router.post("/base")
 async def generate(
   file: Union[UploadFile, None] = File(default=None),
-	db_session: scoped_session[Session] = Depends(get_db_session),
+	db_session: async_scoped_session[AsyncSession] = Depends(get_db_session),
 	s3_client: Any = Depends(get_aws_s3_client),
 	logger: Logger = Depends(get_logger)
 ) -> List[NodeResponse]:
@@ -30,5 +29,20 @@ async def generate(
     raise HTTPException(status_code=400, detail=str(e))
   except InvalidFileFormatError as e:
     raise HTTPException(status_code=415, detail=str(e))
+  except Exception as e:
+    raise HTTPException(status_code=500, detail=str(e))
+
+
+@generate_router.post("/extend")
+async def extend(
+  document_id: int,
+  node_id: int,
+  db_session: async_scoped_session[AsyncSession] = Depends(get_db_session),
+  logger: Logger = Depends(get_logger)
+) -> List[NodeResponse]:
+  try:
+    nodes: List[NodeResponse] = await extend_node(document_id, node_id, db_session, logger)
+
+    return nodes
   except Exception as e:
     raise HTTPException(status_code=500, detail=str(e))

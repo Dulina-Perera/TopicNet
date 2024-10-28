@@ -4,8 +4,17 @@ from .document_ import does_document_exist, save_s3_uri
 from .node_ import (
   delete_nodes,
   does_node_exist,
+  has_child_nodes,
   read_descendant_node_ids,
-  read_nodes,
-  save_base_nodes
+  get_nodes,
+  get_nodes_by_ids,
+  save_base_nodes,
+  save_node_layer
 )
-from .sentence_ import bind_sentence_to_node, does_sentence_exist, save_sentences
+from .sentence_ import (
+  bind_sentence_to_node,
+  does_sentence_exist,
+  point_sentences_to_parent_node,
+  read_sentences_belonging_to_node,
+  save_sentences
+)

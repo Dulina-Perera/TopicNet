@@ -10,9 +10,14 @@ from .database_ import (
 	does_node_exist,
 	does_sentence_exist,
 	get_db_session,
+	get_nodes,
+	get_nodes_by_ids,
+	has_child_nodes,
+ 	point_sentences_to_parent_node,
 	read_descendant_node_ids,
-	read_nodes,
+	read_sentences_belonging_to_node,
 	save_base_nodes,
+	save_node_layer,
 	save_s3_uri,
 	save_sentences
 )

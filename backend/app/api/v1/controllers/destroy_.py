@@ -1,6 +1,6 @@
 # %%
 # Import the required libraries, modules, classes and functions.
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from logging import Logger
 from sqlalchemy.orm.scoping import scoped_session
 from sqlalchemy.orm.session import Session
@@ -12,6 +12,7 @@ from ....core_ import (
   does_node_exist,
   get_db_session,
   get_logger,
+  point_sentences_to_parent_node,
   read_descendant_node_ids
 )
 from ....exceptions_ import DocumentDoesNotExistError, NodeDoesNotExistError
@@ -40,11 +41,6 @@ async def destroy_descendant_nodes(
 	:return Any: The response
 	:rtype: Any
 	"""
-  logger.info(
-    f"destroy_router.delete -> destroy_descendant_nodes: "
-    f"document_id={document_id}, node_id={node_id}"
-  )
-
   try:
     # Check if a document with the given `document_id` exists.
     if not does_document_exist(db_session, document_id):
@@ -62,12 +58,19 @@ async def destroy_descendant_nodes(
     descendant_node_ids: List[int] = await read_descendant_node_ids(db_session, node_id, document_id)
     logger.info(f"Descendant node IDs: {descendant_node_ids}")
 
+    # Point the sentences of the descendant nodes to the parent node.
+    await point_sentences_to_parent_node(db_session, descendant_node_ids, node_id, document_id)
+
     # Delete the descendant nodes.
-    delete_nodes(db_session, reversed(descendant_node_ids))
+    await delete_nodes(db_session, reversed(descendant_node_ids), document_id)
     logger.info(f"Deleted descendant nodes")
 
     return {
       "message": "Descendant nodes deleted"
     }
+  except DocumentDoesNotExistError as e:
+    raise HTTPException(status_code=404, detail=str(e))
+  except NodeDoesNotExistError as e:
+    raise HTTPException(status_code=404, detail=str(e))
   except Exception as e:
-    pass
+    raise HTTPException(status_code=500, detail="An error occurred while deleting nodes")

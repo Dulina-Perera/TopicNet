@@ -107,3 +107,69 @@ async def bind_sentence_to_node(
   except Exception as e:
     await session.rollback()
     raise e
+
+
+async def read_sentences_belonging_to_node(
+	session: AsyncSession,
+	node_id: int,
+	document_id: int,
+) -> List[Any]:
+	"""
+	Read the sentences that belong to the specified node.
+
+	:param session: The database session
+	:type session: AsyncSession
+
+	:param node_id: The ID of the node
+	:type node_id: int
+
+	:param document_id: The ID of the document
+	:type document_id: int
+
+	:return: A list of Sentence objects
+	:rtype: List[Any]
+	"""
+	from ...models_ import Sentence
+
+	result: Result[Tuple[Sentence]] = await session.execute(
+		select(Sentence).filter(Sentence.node_id == node_id, Sentence.document_id == document_id)
+	)
+	return result.scalars().all()
+
+
+async def point_sentences_to_parent_node(
+	session: AsyncSession,
+	node_ids: List[int],
+	parent_node_id: int,
+	document_id: int,
+) -> None:
+	"""
+	Point the sentences that belong to the specified nodes to the specified parent node.
+
+	:param session: The database session
+	:type session: AsyncSession
+
+	:param node_ids: The IDs of the nodes
+	:type node_ids: List[int]
+
+	:param parent_node_id: The ID of the parent node
+	:type parent_node_id: int
+
+	:param document_id: The ID of the document
+	:type document_id: int
+
+	:return: The updated sentence records
+	:rtype: Any
+	"""
+	from ...models_ import Sentence
+
+	result: Result[Tuple[Sentence]] = await session.execute(
+		select(Sentence).filter(Sentence.node_id.in_(node_ids), Sentence.document_id == document_id)
+	)
+	sentences: List[Sentence] = result.scalars().all()
+
+	for sentence in sentences:
+		sentence.node_id = parent_node_id
+		session.add(sentence)
+
+	await session.commit()
