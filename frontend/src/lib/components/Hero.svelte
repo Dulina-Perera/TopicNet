@@ -15,7 +15,9 @@
 <div id="hero">
 	<img src="/hero-img.svg" alt="" />
 	<div id="hero-text">
-		<h1>Transform Documents Into Interactive Mindmaps</h1>
+		<h1 id="title">
+  Transform Documents <span id="into">Into</span> Interactive Mindmaps
+</h1>
 		<p>
 			Upload unstructured text documents like PDFs and watch them evolve into dynamic, interactive
 			mindmaps, making it easy to visualize and explore complex information.
@@ -53,7 +55,7 @@
 			flex: 1;
 			text-align: left;
 
-			h1 {
+			#title {
 				font-size: 3rem;
 				margin-bottom: 1rem;
 			}
@@ -91,4 +93,29 @@
 			}
 		}
 	}
+
+	@media (max-width: 768px) {
+		#hero {
+			img {
+				height: 65vh;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		#hero {
+			img {
+				display: none;
+			}
+
+			#hero-text {
+				text-align: center;
+				#into {
+					font-size: 1.5rem;
+					display: block;
+				}
+			}
+		}
+	}
+
 </style>
