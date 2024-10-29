@@ -65,9 +65,7 @@ async def destroy_descendant_nodes(
     await delete_nodes(db_session, reversed(descendant_node_ids), document_id)
     logger.info(f"Deleted descendant nodes")
 
-    return {
-      "message": "Descendant nodes deleted"
-    }
+    return descendant_node_ids
   except DocumentDoesNotExistError as e:
     raise HTTPException(status_code=404, detail=str(e))
   except NodeDoesNotExistError as e:

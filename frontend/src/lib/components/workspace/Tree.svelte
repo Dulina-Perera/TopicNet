@@ -1,11 +1,25 @@
 <script lang="ts">
-	import Node from './Node.svelte';
+	import TreeNode from './TreeNode.svelte';
+	import { derived, type Readable } from 'svelte/store';
+	import { nodes } from '$lib/stores/workspace.store';
 	import { onMount } from 'svelte';
 
-	export let nodeData: any;
+	type TreeNode = App.Node & { children?: TreeNode[] };
 
-	let rootNode = nodeData.find((node: { parent_id: null }) => node.parent_id === null);
-	let childNodes = nodeData.filter((node: { parent_id: any }) => node.parent_id === rootNode?.id);
+	const treeData: Readable<TreeNode | null> = derived(nodes, ($nodes: App.Node[]) => {
+		function buildTree(parentId: number | null): TreeNode[] {
+			return $nodes
+				.filter((node) => node.parent_id === parentId)
+				.map((node) => ({
+					...node,
+					children: buildTree(node.id)
+				}));
+		}
+
+		const rootNode = $nodes.find((node) => node.parent_id === null);
+
+		return rootNode ? { ...rootNode, children: buildTree(rootNode.id) } : null;
+	});
 
 	function centerHorizontalScroll(node: HTMLElement) {
 		onMount(() => {
@@ -17,25 +31,10 @@
 	}
 </script>
 
-<!-- Apply the action to #scroll-wrapper -->
 <div id="scroll-wrapper" use:centerHorizontalScroll>
 	<div id="tree">
-		{#if rootNode}
-			<ul>
-				<li id={`node-${rootNode.id}`}>
-					<Node content={rootNode.topic_and_content} />
-
-					{#if childNodes.length > 0}
-						<ul>
-							{#each childNodes as childNode}
-								<li id={`node-${childNode.id}`}>
-									<Node content={childNode.topic_and_content} />
-								</li>
-							{/each}
-						</ul>
-					{/if}
-				</li>
-			</ul>
+		{#if $treeData}
+			<TreeNode treeNode={$treeData} />
 		{/if}
 	</div>
 </div>
@@ -53,68 +52,6 @@
 			align-items: center;
 			display: flex;
 			width: max-content;
-
-			ul {
-				display: flex;
-				flex-wrap: nowrap;
-				justify-content: center;
-				padding-top: 20px;
-				position: relative;
-				transition: all 0.4s;
-
-				&:not(:first-of-type)::before {
-					border-left: 4px solid var(--theme-border-color);
-					content: '';
-					height: 20px;
-					left: 50%;
-					position: absolute;
-					top: 0;
-					width: 0;
-				}
-			}
-
-			li {
-				align-items: center;
-				display: inline-flex;
-				flex-direction: column;
-				list-style-type: none;
-				min-width: 100px;
-				padding: 10px 20px;
-				position: relative;
-				transition: all 0.4s;
-
-				&::after,
-				&::before {
-					border-top: 4px solid var(--theme-border-color);
-					content: '';
-					position: absolute;
-					width: 50%;
-					top: 0;
-				}
-
-				&::before {
-					right: 50%;
-				}
-
-				&::after {
-					left: 50%;
-				}
-
-				ul::before {
-					border-left: 4px solid var(--theme-border-color);
-					content: '';
-					height: 20px;
-					left: 50%;
-					position: absolute;
-					top: 0;
-					width: 0;
-				}
-
-				&:first-child::before,
-				&:last-child::after {
-					border-top: none;
-				}
-			}
 		}
 	}
 </style>

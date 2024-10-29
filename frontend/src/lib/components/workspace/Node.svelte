@@ -9,15 +9,16 @@
 	import OrderedList from '@tiptap/extension-ordered-list';
 	import Paragraph from '@tiptap/extension-paragraph';
 	import Text from '@tiptap/extension-text';
+	import Toolbar from './Toolbar.svelte';
 	import { Editor } from '@tiptap/core';
 	import { boardDraggable } from '$lib/stores/workspace.store';
-	import { onDestroy, onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import { marked } from 'marked';
-
-	import Toolbar from './Toolbar.svelte';
+	import { nodes } from '$lib/stores/workspace.store';
+	import { onDestroy, onMount } from 'svelte';
 
 	// Props
-	export let content: string;
+	export let node: App.Node;
 	export let customStyles: string = '';
 
 	// Stores
@@ -43,7 +44,7 @@
 	onMount(() => {
 		editor = new Editor({
 			element: element,
-			content: marked.parse(content), // Convert markdown to HTML.
+			content: marked.parse(node.topic_and_content), // Convert markdown to HTML.
 			extensions: [
 				Bold,
 				BulletList,
@@ -74,7 +75,7 @@
 		}
 	});
 
-	// Methods
+	// Event handlers
 	const handleMouseDown: (event: MouseEvent) => void = (event: MouseEvent) => {
 		if (isDraggable) {
 			if (isEditable) {
@@ -125,6 +126,7 @@
 		event.stopPropagation();
 	};
 
+	// Functions
 	const updateToolbarPosition: () => void = () => {
 		const selection: Selection | null = document.getSelection();
 		if (selection && selection.rangeCount > 0) {
@@ -142,6 +144,60 @@
 			toolbarProps.visible = false;
 		}
 	};
+
+	async function extendNode() {
+		// Check if the node has child nodes.
+		const childNodes: App.Node[] = get(nodes).filter((n) => n.parent_id === node.id);
+		const hasChildNodes: boolean = childNodes.length > 0;
+
+		// If the node has child nodes, do nothing.
+		if (hasChildNodes) return;
+
+		// Else, create child nodes for the node.
+		const response: Response = await fetch(
+			`http://localhost:5000/api/v1/generate/extend?document_id=${node.document_id}&node_id=${node.id}`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+
+		// If the request is successful, update the nodes store.
+		if (response.ok) {
+			const newNodes: App.Node[] = await response.json();
+			nodes.update((n) => [...n, ...newNodes]);
+		} else {
+			console.error('Failed to extend node.');
+		}
+	}
+
+	async function destroyDescendantNodes() {
+		console.log($nodes);
+		// Check if the node has child nodes.
+		const childNodes: App.Node[] = get(nodes).filter((n) => n.parent_id === node.id);
+		const hasChildNodes: boolean = childNodes.length > 0;
+
+		// If the node has no child nodes, do nothing.
+		if (!hasChildNodes) return;
+
+		// Else, destroy the child nodes of the node.
+		const response: Response = await fetch(
+			`http://localhost:5000/api/v1/destroy?document_id=${node.document_id}&node_id=${node.id}`,
+			{
+				method: 'DELETE'
+			}
+		);
+
+		// If the request is successful, update the nodes store.
+		if (response.ok) {
+			const destroyedNodeIds: number[] = await response.json();
+			nodes.update((n) => n.filter((node) => !destroyedNodeIds.includes(node.id)));
+		} else {
+			console.error('Failed to destroy descendant nodes.');
+		}
+	}
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -156,7 +212,7 @@
 	on:wheel={handleWheel}
 >
 	{#if isEditable && toolbarProps.visible}
-		<Toolbar {editor} {content} customStyles={toolbarProps} />
+		<Toolbar {editor} content={node.topic_and_content} customStyles={toolbarProps} />
 	{/if}
 
 	<div
@@ -166,8 +222,8 @@
 	></div>
 
 	<div id="button-container">
-		<button><i class="ri-arrow-down-wide-fill"></i></button>
-		<button><i class="ri-delete-bin-7-line"></i></button>
+		<button on:click={extendNode}><i class="ri-arrow-down-wide-fill"></i></button>
+		<button on:click={destroyDescendantNodes}><i class="ri-delete-bin-7-line"></i></button>
 	</div>
 </div>
 
