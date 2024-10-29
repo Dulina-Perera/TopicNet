@@ -5,14 +5,18 @@
 	import { NavActions } from '$lib/components/nav';
 </script>
 
-<Header>
-	<Logo />
-	<NavActions>
-		<LoginButton />
-	</NavActions>
-</Header>
-<Tree />
+<div id="container">
+	<Header>
+		<Logo />
+		<NavActions>
+			<LoginButton />
+		</NavActions>
+	</Header>
+	<Tree />
+</div>
 
 <style lang="scss">
-
+	#container {
+		position: relative;
+	}
 </style>

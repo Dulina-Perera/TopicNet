@@ -2,6 +2,7 @@
 	import Node from './Node.svelte';
 
 	export let treeNode: TreeNode;
+	export let isRoot: boolean = false;
 
 	type TreeNode = App.Node & { children?: TreeNode[] };
 
@@ -11,53 +12,23 @@
 	}
 </script>
 
-{#if treeNode && treeNode.id == 0}
-	<ul>
-		<li id={`node-${treeNode.id}`}>
-			<Node node={treeNodeToNode(treeNode)} />
-		</li>
-		{#if treeNode.children && treeNode.children.length > 0}
-			<ul>
-				{#each treeNode.children as childNode}
-					<svelte:self treeNode={childNode} />
-				{/each}
-			</ul>
-		{/if}
-	</ul>
-{:else}
-	<li id={`node-${treeNode.id}`}>
+<!-- Each node is wrapped in an <li> -->
+<li id={`node-${treeNode.id}`} class="tree-node" class:is-root={isRoot}>
+	<div class="node-content">
 		<Node node={treeNodeToNode(treeNode)} />
-	</li>
+	</div>
+
 	{#if treeNode.children && treeNode.children.length > 0}
-		<ul>
-			{#each treeNode.children as childNode}
-				<svelte:self treeNode={childNode} />
+		<ul class="child-nodes">
+			{#each treeNode.children as childNode, index}
+				<svelte:self treeNode={childNode} isRoot={false} />
 			{/each}
 		</ul>
 	{/if}
-{/if}
+</li>
 
 <style lang="scss">
-	ul {
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: center;
-		padding-top: 20px;
-		position: relative;
-		transition: all 0.4s;
-
-		&:not(:first-of-type)::before {
-			border-left: 4px solid var(--theme-border-color);
-			content: '';
-			height: 20px;
-			left: 50%;
-			position: absolute;
-			top: 0;
-			width: 0;
-		}
-	}
-
-	li {
+	.tree-node {
 		align-items: center;
 		display: inline-flex;
 		flex-direction: column;
@@ -84,19 +55,28 @@
 			left: 50%;
 		}
 
-		ul::before {
-			border-left: 4px solid var(--theme-border-color);
-			content: '';
-			height: 20px;
-			left: 50%;
-			position: absolute;
-			top: 0;
-			width: 0;
-		}
-
 		&:first-child::before,
 		&:last-child::after {
 			border-top: none;
+		}
+
+		.child-nodes {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+			position: relative;
+			padding-top: 10px;
+
+			&::before {
+				border-left: 2px solid var(--theme-border-color);
+				content: '';
+				height: 20px;
+				left: 50%;
+				position: absolute;
+				top: -10px;
+				transform: translateX(-50%);
+				width: 0;
+			}
 		}
 	}
 </style>

@@ -17,7 +17,6 @@
 		}
 
 		const rootNode = $nodes.find((node) => node.parent_id === null);
-
 		return rootNode ? { ...rootNode, children: buildTree(rootNode.id) } : null;
 	});
 
@@ -34,24 +33,28 @@
 <div id="scroll-wrapper" use:centerHorizontalScroll>
 	<div id="tree">
 		{#if $treeData}
-			<TreeNode treeNode={$treeData} />
+			<ul>
+				<TreeNode treeNode={$treeData} isRoot={true} />
+			</ul>
 		{/if}
 	</div>
 </div>
 
 <style lang="scss">
 	#scroll-wrapper {
-		align-items: center;
+		align-items: start;
 		display: flex;
 		height: 100vh;
-		justify-content: center;
-		overflow-x: auto; /* Allow horizontal scroll if needed */
-		width: 100vw;
+		justify-content: start;
+		left: 0;
+		overflow-x: auto;
+		position: absolute;
+		top: 5rem;
 
 		#tree {
 			align-items: center;
 			display: flex;
-			width: max-content;
+			justify-content: center;
 		}
 	}
 </style>
