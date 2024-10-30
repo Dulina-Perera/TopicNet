@@ -15,6 +15,10 @@ class NoSuchS3FileError(AWSError):
 	def __init__(self, object_name: str, bucket_name: str) -> None:
 		super().__init__(f"File '{object_name}' does not exist in bucket '{bucket_name}' or you do not have access to it.")
 
+class S3DownloadError(AWSError):
+  def __init__(self) -> None:
+    super().__init__("An error occurred while downloading the file from S3.")
+
 class S3UploadError(AWSError):
 	def __init__(self) -> None:
 		super().__init__("An error occurred while uploading the file to S3.")

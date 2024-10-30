@@ -11,7 +11,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.v1.controllers import destroy_router, generate_router, summarize_router, update_router, upload_router_
+from app.api.v1.controllers import destroy_router, download_router_, generate_router_, summarize_router, update_router, upload_router_
 from app.core_ import load_env_vars, setup_logging
 
 # %%
@@ -37,7 +37,8 @@ topicnet.add_middleware(
 
 # Register the routers.
 topicnet.include_router(destroy_router, prefix="/api/v1/destroy")
-topicnet.include_router(generate_router, prefix="/api/v1/generate")
+topicnet.include_router(download_router_, prefix="/api/v1/download")
+topicnet.include_router(generate_router_, prefix="/api/v1/generate")
 topicnet.include_router(summarize_router, prefix="/api/v1/summarize")
 topicnet.include_router(update_router, prefix="/api/v1/update")
 topicnet.include_router(upload_router_, prefix="/api/v1/upload")

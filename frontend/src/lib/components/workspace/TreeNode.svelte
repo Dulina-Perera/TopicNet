@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Node from './Node.svelte';
+	import { type Writable } from 'svelte/store';
 
+	export let nodes: Writable<App.Node[]>;
 	export let treeNode: TreeNode;
 	export let isRoot: boolean = false;
 
@@ -15,7 +17,7 @@
 <!-- Each node is wrapped in an <li> -->
 <li id={`node-${treeNode.id}`} class="tree-node" class:is-root={isRoot}>
 	<div class="node-content">
-		<Node node={treeNodeToNode(treeNode)} />
+		<Node node={treeNodeToNode(treeNode)} {nodes} />
 	</div>
 
 	{#if treeNode.children && treeNode.children.length > 0}
@@ -68,7 +70,7 @@
 			padding-top: 10px;
 
 			&::before {
-				border-left: 2px solid var(--theme-border-color);
+				border-left: 4px solid var(--theme-border-color);
 				content: '';
 				height: 20px;
 				left: 50%;

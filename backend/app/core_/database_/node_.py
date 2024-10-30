@@ -54,7 +54,7 @@ async def get_max_node_id_for_document(
   return result.scalar()
 
 
-async def get_nodes(session: AsyncSession, document_id: int) -> List[Any]:
+async def read_nodes(session: AsyncSession, document_id: int) -> List[Any]:
   """
   Read the nodes for the given document.
 
@@ -99,7 +99,7 @@ async def get_nodes_by_ids(session: AsyncSession, node_ids: List[int], document_
 	return result.scalars().all()
 
 
-async def save_base_nodes(
+async def create_base_nodes(
   session: AsyncSession,
   topics_and_content: List[str],
   document_id: int

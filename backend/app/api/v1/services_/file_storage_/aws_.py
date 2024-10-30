@@ -6,7 +6,7 @@ from fastapi import UploadFile
 from typing import Any, Optional
 
 from ..verification_and_validation_ import does_s3_bucket_exist
-from .....exceptions_ import S3UploadError
+from .....exceptions_ import S3DownloadError, S3UploadError
 
 # %%
 async def upload_file_to_s3(
@@ -47,3 +47,36 @@ async def upload_file_to_s3(
   except Exception as e:
     raise S3UploadError() from e
 
+
+async def download_file_from_s3_(
+	s3_uri_: str,
+	s3_client_: Any
+) -> bytes:
+	"""
+	Download a file from an S3 bucket.
+
+	:param s3_uri_: The S3 URI of the file to download
+	:type s3_uri_: str
+
+	:param s3_client_: The S3 client to use
+	:type s3_client_: Any
+
+	:return: The file's content
+	:rtype: bytes
+
+	:raises S3DownloadError: An error occurred while downloading the file from S3
+	"""
+	try:
+		# Extract the bucket name and object name from the S3 URI.
+		bucket_name_: str; object_name_: str
+		bucket_name_, object_name_ = s3_uri_.replace("s3://", "").split("/", 1)
+
+		# Download the file from S3.
+		file_path_: str = f"/tmp/{object_name_}"
+		with open(file_path_, "wb") as f:
+			await s3_client_.download_fileobj(bucket_name_, object_name_, f)
+
+		# Return the file path.
+		return file_path_
+	except Exception as e:
+		raise S3DownloadError() from e

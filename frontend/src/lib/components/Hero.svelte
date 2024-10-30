@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { nodes } from '$lib/stores/workspace.store';
 
 	async function handleFileUpload(event: Event) {
 		const input = event.target as HTMLInputElement;
@@ -11,25 +10,18 @@
 			const formData: FormData = new FormData();
 			formData.append('file_', file);
 
-			const response = await fetch('http://localhost:5000/api/v1/upload', {
+			const response = await fetch('http://localhost:5000/api/v1/generate/base', {
 				method: 'POST',
 				body: formData,
 				credentials: 'include'
 			});
 
 			if (response.ok) {
-				const document: App.Document = await response.json();
+				const data: any = await response.json();
+				goto(`/${data[0].document_id}`);
 			} else {
-				console.error('Failed to upload file!');
+				console.error('Failed to upload file and retrieve nodes!');
 			}
-
-			// if (response.ok) {
-			// 	const data: any = await response.json();
-			// 	nodes.set(data);
-			// 	goto('/workspace');
-			// } else {
-			// 	console.error('Failed to upload file and retrieve nodes!');
-			// }
 		}
 	}
 </script>

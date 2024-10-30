@@ -26,27 +26,27 @@ async def does_document_exist_(session_: AsyncSession, document_id_: int) -> boo
   return result_.scalars().first() is not None
 
 
-async def read_max_document_id_for_user_(session_: AsyncSession, user_id_: str) -> int:
+async def read_path_for_document_owned_by_user_(session_: AsyncSession, document_id_: int) -> str:
   """
-	Retrieve the highest document ID for a given user.
+	Retrieve the path of a document owned by a user.
 
 	:param session_: The database session
 	:type session_: AsyncSession
 
-	:param user_id_: The ID of the user
-	:type user_id_: str
+	:param document_id_: The ID of the document
+	:type document_id_: int
 
-	:return: The highest document ID for the user
-	:rtype: int
+	:return: The path of the document
+	:rtype: str
 	"""
   from ...models_ import Document
 
-  result_: Result[Tuple[int]] = await session_.execute(
-		select(func.max(Document.id)).filter(Document.user_id == user_id_)
+  result_: Result[Tuple[str]] = await session_.execute(
+		select(Document.path).filter(Document.id == document_id_)
 	)
 
-  max_document_id: int | None = result_.scalar()
-  return max_document_id if max_document_id is not None else -1
+  path_: str | None = result_.scalar()
+  return path_ if path_ is not None else ""
 
 
 async def create_document_(
@@ -79,11 +79,7 @@ async def create_document_(
 	"""
   from ...models_ import Document
 
-  max_document_id_: int = await read_max_document_id_for_user_(session_, user_id_)
-  document_id_: int = max_document_id_ + 1
-
   document_: Document = Document(
-		id=document_id_,
 		user_id=user_id_,
 		name=name_,
 		type=type_,

@@ -12,7 +12,7 @@
 	<Logo />
 	<NavMenu />
 	<NavActions>
-		<ProfileDropdown user={data.user} />
+		<ProfileDropdown user={data?.user} />
 		<NavMenuToggle />
 	</NavActions>
 </Header>

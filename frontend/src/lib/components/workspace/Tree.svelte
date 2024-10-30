@@ -1,8 +1,10 @@
 <script lang="ts">
 	import TreeNode from './TreeNode.svelte';
 	import { derived, type Readable } from 'svelte/store';
-	import { nodes } from '$lib/stores/workspace.store';
 	import { onMount } from 'svelte';
+	import { type Writable } from 'svelte/store';
+
+	export let nodes: Writable<App.Node[]>;
 
 	type TreeNode = App.Node & { children?: TreeNode[] };
 
@@ -34,7 +36,7 @@
 	<div id="tree">
 		{#if $treeData}
 			<ul>
-				<TreeNode treeNode={$treeData} isRoot={true} />
+				<TreeNode {nodes} treeNode={$treeData} isRoot={true} />
 			</ul>
 		{/if}
 	</div>

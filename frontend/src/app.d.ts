@@ -4,7 +4,7 @@ import type { PrismaClient } from "@prisma/client";
 declare global {
 	namespace App {
 		interface Document {
-			id: internal,
+			id: number;
 			user_id: number,
 			name: string,
 			type: string,

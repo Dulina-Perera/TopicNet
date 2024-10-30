@@ -4,6 +4,7 @@ from .aws_ import (
   InvalidS3URIError,
   NoSuchS3BucketError,
   NoSuchS3FileError,
+  S3DownloadError,
   S3UploadError,
 	UndefinedAWSEnvironmentVariableError
 )

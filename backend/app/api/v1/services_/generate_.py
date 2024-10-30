@@ -20,10 +20,10 @@ from ....core_ import (
   does_document_exist_,
   does_node_exist,
   has_child_nodes,
-  get_nodes,
+  read_nodes,
   get_nodes_by_ids,
 	read_sentences_belonging_to_node,
-  save_base_nodes,
+  create_base_nodes,
   save_node_layer,
   save_s3_uri,
   save_sentences
@@ -112,7 +112,7 @@ async def generate_base(
   refined_content.insert(0, summary)
 
   # Save the refined content to the database.
-  node_ids: List[int] = await save_base_nodes(db_session, refined_content, document_id)
+  node_ids: List[int] = await create_base_nodes(db_session, refined_content, document_id)
 
   logger.info(f"Saved {len(node_ids)} base nodes to the database.")
 
@@ -128,7 +128,7 @@ async def generate_base(
 
   # ################################################################################################
   # Read the nodes from the database.
-  nodes: List[Any] = await get_nodes(db_session, document_id)
+  nodes: List[Any] = await read_nodes(db_session, document_id)
 
   # Convert the nodes to the response model.
   nodes_response: List[NodeResponse] = [NodeResponse.model_validate(node) for node in nodes]

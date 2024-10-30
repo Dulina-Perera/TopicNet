@@ -14,11 +14,13 @@
 	import { boardDraggable } from '$lib/stores/workspace.store';
 	import { get } from 'svelte/store';
 	import { marked } from 'marked';
-	import { nodes } from '$lib/stores/workspace.store';
 	import { onDestroy, onMount } from 'svelte';
+	import { type Writable } from 'svelte/store';
+
 
 	// Props
 	export let node: App.Node;
+	export let nodes: Writable<App.Node[]>;
 	export let customStyles: string = '';
 
 	// Stores
