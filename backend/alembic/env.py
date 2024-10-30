@@ -12,7 +12,7 @@ from typing import Any, Dict, Union
 
 from app.core_ import load_db_config
 from app.core_.database_ import Base
-from app.models_ import Document, Node, Sentence
+from app.models_ import Document, Node, Sentence, Session, User
 
 # %%
 # The Alembic config object, which provides access to the values within the .ini file in use.

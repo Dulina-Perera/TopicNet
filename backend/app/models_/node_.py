@@ -8,7 +8,7 @@ from ..core_.database_ import Base
 
 # %%
 class Node(Base):
-  __tablename__ = "node"
+  __tablename__ = "_node"
 
   id: Mapped[int] = mapped_column()
   document_id: Mapped[int] = mapped_column(nullable=False)
@@ -17,8 +17,8 @@ class Node(Base):
 
   __table_args__ = (
 		PrimaryKeyConstraint("id", "document_id"),
-		ForeignKeyConstraint(["document_id"], ["document.id"], ondelete="CASCADE"),
-		ForeignKeyConstraint(["parent_id", "document_id"], ["node.id", "node.document_id"], ondelete="CASCADE"),
+		ForeignKeyConstraint(["document_id"], ["_document.id"], ondelete="CASCADE"),
+		ForeignKeyConstraint(["parent_id", "document_id"], ["_node.id", "_node.document_id"], ondelete="CASCADE"),
 		Index("ix_node_document_id_parent_id", "document_id", "parent_id")
 	)
 

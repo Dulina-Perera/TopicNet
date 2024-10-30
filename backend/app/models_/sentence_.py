@@ -10,7 +10,7 @@ from ..core_.database_ import Base
 
 # %%
 class Sentence(Base):
-  __tablename__ = "sentence"
+  __tablename__ = "_sentence"
 
   id: Mapped[int] = mapped_column()
   document_id: Mapped[int] = mapped_column(nullable=False)
@@ -20,8 +20,8 @@ class Sentence(Base):
 
   __table_args__ = (
 		PrimaryKeyConstraint("id", "document_id"),
-		ForeignKeyConstraint(["document_id"], ["document.id"], ondelete="CASCADE"),
-		ForeignKeyConstraint(["node_id", "document_id"], ["node.id", "node.document_id"], ondelete="SET NULL"),
+		ForeignKeyConstraint(["document_id"], ["_document.id"], ondelete="CASCADE"),
+		ForeignKeyConstraint(["node_id", "document_id"], ["_node.id", "_node.document_id"], ondelete="SET NULL"),
 		Index("ix_sentence_document_id_node_id", "document_id", "node_id")
 	)
 

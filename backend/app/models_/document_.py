@@ -1,6 +1,5 @@
 # %%
 # Import the required classes, functions, and modules.
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.schema import Index, PrimaryKeyConstraint
@@ -9,7 +8,7 @@ from ..core_.database_ import Base
 
 # %%
 class Document(Base):
-  __tablename__ = "document"
+  __tablename__ = "_document"
 
   id: Mapped[int] = mapped_column(autoincrement="auto")
   path: Mapped[str] = mapped_column(nullable=False, unique=True)
