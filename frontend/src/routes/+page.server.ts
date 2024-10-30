@@ -1,57 +1,78 @@
-// import type { Actions, PageServerLoad } from "./$types";
-// import { prismaClient } from "$lib/server/prisma";
-// import { fail } from "@sveltejs/kit";
+import bcrypt from "bcrypt";
+import type { Actions, PageServerLoad } from "./$types";
+import { fail, redirect } from "@sveltejs/kit";
+import { Cookie, generateIdFromEntropySize } from "lucia";
+import { lucia } from "$lib/server/lucia";
+import { prismaClient } from "$lib/server/prisma";
+import type { Session } from "@prisma/client";
 
-// export const load: PageServerLoad = async () => {
-// 	return {
-// 		articles: await prismaClient.article.findMany()
-// 	};
-// };
+export const load: PageServerLoad = async ({ locals }) => {
+	return {
+		user: locals.user
+	};
+};
 
-// export const actions: Actions = {
-// 	createArticle: async ({ request }) => {
-// 		const { title, content } = Object.fromEntries(await request.formData()) as {
-// 			title: string,
-// 			content: string
-// 		};
+export const actions: Actions = {
+	register: async (event) => {
+		const formData = await event.request.formData();
+		console.log(formData);
+		const username = formData.get("username");
+		const password = formData.get("password");
 
-// 		try {
-// 			await prismaClient.article.create({
-// 				data: {
-// 					title,
-// 					content
-// 				}
-// 			});
-// 		} catch (error) {
-// 			console.error(error);
-// 			return fail(500, { message: "Failed to create article" });
-// 		}
+		if (
+			typeof username !== "string" ||
+			username.length < 4 ||
+			username.length > 30 ||
+			!/^[a-z0-9-_]+$/.test(username)
+		) {
+			return fail(400, {
+				message: "Username must be 4-30 characters, containing only lowercase letters, numbers, dashes, or underscores."
+			});
+		}
 
-// 		return {
-// 			status: 201
-// 		};
-// 	},
+		if (typeof password !== "string" || password.length < 16 || password.length > 64) {
+			return fail(400, {
+				message: "Password must be between 16 and 64 characters."
+			});
+		}
 
-// 	deleteArticle: async ({ url }) => {
-// 		const id = url.searchParams.get("id");
+		const userId = generateIdFromEntropySize(10);
+		const passwordHash = await bcrypt.hash(password, 10);
 
-// 		if (!id) {
-// 			return fail(400, { message: "Missing id" });
-// 		}
+		const existingUser = await prismaClient.user.findUnique({ where: { username } });
+		if (existingUser) {
+			return fail(400, {
+				message: "Username already taken. Please choose another one."
+			});
+		}
 
-// 		try {
-// 			await prismaClient.article.delete({
-// 				where: {
-// 					id: parseInt(id)
-// 				}
-// 			});
-// 		} catch (error) {
-// 			console.error(error);
-// 			return fail(500, { message: "Failed to delete article" });
-// 		};
+		await prismaClient.user.create({
+			data: { id: userId, username, passwordHash, isPermanent: true }
+		});
 
-// 		return {
-// 			status: 200
-// 		};
-// 	}
-// };
+		const session: Session = await lucia.createSession(userId, {});
+		const sessionCookie: Cookie = lucia.createSessionCookie(session.id);
+		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: ".",
+			...sessionCookie.attributes
+		});
+
+		throw redirect(302, "/");
+	},
+
+	logout: async ({ locals, cookies }) => {
+		if (!locals.session) {
+			return fail(401);
+		}
+
+		await lucia.invalidateSession(locals.session.id);
+
+		const sessionCookie: Cookie = lucia.createBlankSessionCookie();
+		cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: "/",
+			...sessionCookie.attributes
+		});
+
+		throw redirect(302, "/?loggedOut=true");
+	}
+};

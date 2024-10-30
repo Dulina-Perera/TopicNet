@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Tree } from '$lib/components/workspace';
 	import { Header, Logo } from '$lib/components';
-	import { LoginButton } from '$lib/components/login';
 	import { NavActions } from '$lib/components/nav';
+	import { ProfileDropdown } from '$lib/components/profile';
 
 	export let data: { user: { id: string; username: string; isPermanent: boolean } | null };
 </script>
@@ -11,7 +11,7 @@
 	<Header>
 		<Logo />
 		<NavActions>
-			<LoginButton user={data.user} />
+			<ProfileDropdown user={data.user} />
 		</NavActions>
 	</Header>
 	<Tree />
