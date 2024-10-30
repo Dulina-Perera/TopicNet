@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { loginVisible } from "$lib/stores";
 
+	export let user: { id: string; username: string; isPermanent: boolean } | null;
+
 	const showLogin = () => {
 		loginVisible.update(() => true);
 	};
@@ -8,7 +10,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<i class="ri-ghost-smile-line" id="login-btn" on:click={showLogin}></i>
+<i class={user ? "ri-user-line" : "ri-ghost-smile-line"} id="login-btn" on:click={showLogin}></i>
 
 <style lang="scss">
 	#login-btn {

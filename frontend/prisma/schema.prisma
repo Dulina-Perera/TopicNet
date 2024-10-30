@@ -13,42 +13,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Article {
-	id				      Int       @id @default(autoincrement())
-	title			      String
-	content	 	      String
-
-	@@map("article")
-}
-
 model User {
-  id              String    @id @unique
-	username        String    @unique
-  session         Session[]
-  key             Key[]
+  id            String    @id
+	username      String    @unique
+	passwordHash  String
+	isPermanent   Boolean   @default(false)
+  sessions      Session[]
 
-	@@map("user")
+	@@map("_user")
 }
 
 model Session {
-  id              String    @id @unique
-  user_id         String
-  active_expires  BigInt
-  idle_expires    BigInt
+  id            String    @id
+  userId        String
+  expiresAt     DateTime
 
-	user            User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user          User      @relation(references: [id], fields: [userId], onDelete: Cascade)
 
-  @@index([user_id])
-	@@map("session")
-}
-
-model Key {
-  id              String    @id @unique
-  hashed_password String?
-  user_id         String
-
-  user            User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
-
-  @@index([user_id])
-	@@map("key")
+	@@index([userId])
+	@@map("_session")
 }

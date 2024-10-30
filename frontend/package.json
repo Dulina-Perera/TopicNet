@@ -16,6 +16,8 @@
 	},
 	"devDependencies": {
 		"@magidoc/plugin-svelte-marked": "^6.1.0",
+		"@melt-ui/pp": "^0.3.2",
+		"@melt-ui/svelte": "^0.85.0",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
@@ -47,6 +49,7 @@
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^4.0.1",
 		"@lucia-auth/sveltekit": "^0.6.11",
+		"@node-rs/argon2": "^2.0.0",
 		"@picocss/pico": "^2.0.6",
 		"@prisma/client": "^5.20.0",
 		"@tailwindcss/typography": "^0.5.15",
@@ -63,8 +66,9 @@
 		"@tiptap/extension-text": "^2.8.0",
 		"@tiptap/pm": "^2.8.0",
 		"@tiptap/starter-kit": "^2.8.0",
-		"bits-ui": "^0.21.16",
+		"bcrypt": "^5.1.1",
 		"lucia": "^3.2.0",
+		"phc-argon2": "^1.1.4",
 		"stripe": "^17.2.0"
 	}
 }
