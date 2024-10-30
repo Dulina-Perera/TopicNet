@@ -17,7 +17,7 @@ from .topic_modeling import create_topic_dict, model_topics_with_nmf, parse_topi
 from .verification_and_validation_ import is_file_format_allowed, is_file_not_none
 from ....core_ import (
   bind_sentence_to_node,
-  does_document_exist,
+  does_document_exist_,
   does_node_exist,
   has_child_nodes,
   get_nodes,
@@ -162,7 +162,7 @@ async def extend_node(
  	"""
   # ################################################################################################
   # Check if the document exists in the database.
-  if not await does_document_exist(db_session, document_id):
+  if not await does_document_exist_(db_session, document_id):
     raise DocumentDoesNotExistError(document_id)
   logger.info(f"Document {document_id} exists.")
 

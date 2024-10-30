@@ -3,6 +3,14 @@ import type { PrismaClient } from "@prisma/client";
 // for information about these interfaces
 declare global {
 	namespace App {
+		interface Document {
+			id: internal,
+			user_id: number,
+			name: string,
+			type: string,
+			path: string
+		}
+
 		interface Node {
 			id: number;
 			document_id: number;

@@ -9,20 +9,27 @@
 			const file: File = input.files[0];
 
 			const formData: FormData = new FormData();
-			formData.append('file', file);
+			formData.append('file_', file);
 
-			const response = await fetch('http://localhost:5000/api/v1/generate/base', {
+			const response = await fetch('http://localhost:5000/api/v1/upload', {
 				method: 'POST',
-				body: formData
+				body: formData,
+				credentials: 'include'
 			});
 
 			if (response.ok) {
-				const data: any = await response.json();
-				nodes.set(data);
-				goto('/workspace');
+				const document: App.Document = await response.json();
 			} else {
-				console.error('Failed to upload file and retrieve nodes!');
+				console.error('Failed to upload file!');
 			}
+
+			// if (response.ok) {
+			// 	const data: any = await response.json();
+			// 	nodes.set(data);
+			// 	goto('/workspace');
+			// } else {
+			// 	console.error('Failed to upload file and retrieve nodes!');
+			// }
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 # %%
 from .base_ import Base, async_db_session_dep, get_db_session
-from .document_ import does_document_exist, save_s3_uri
+from .document_ import create_document_, does_document_exist_, read_max_document_id_for_user_
 from .node_ import (
   delete_nodes,
   does_node_exist,
@@ -19,3 +19,4 @@ from .sentence_ import (
   read_sentences_belonging_to_node,
   save_sentences
 )
+from .session_ import read_user_id_by_session_id_

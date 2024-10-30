@@ -5,8 +5,9 @@ from .database_ import (
 	Base,
 	async_db_session_dep,
 	bind_sentence_to_node,
+	create_document_,
 	delete_nodes,
-	does_document_exist,
+	does_document_exist_,
 	does_node_exist,
 	does_sentence_exist,
 	get_db_session,
@@ -15,10 +16,11 @@ from .database_ import (
 	has_child_nodes,
  	point_sentences_to_parent_node,
 	read_descendant_node_ids,
+	read_max_document_id_for_user_,
 	read_sentences_belonging_to_node,
+	read_user_id_by_session_id_,
 	save_base_nodes,
 	save_node_layer,
-	save_s3_uri,
 	save_sentences,
 	update_node_content
 )
