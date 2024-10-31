@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { boardDraggable } from '$lib/stores/workspace.store';
+	import { Editor } from '@tiptap/core';
 	import Bold from '@tiptap/extension-bold';
 	import BulletList from '@tiptap/extension-bullet-list';
 	import Document from '@tiptap/extension-document';
@@ -9,16 +11,13 @@
 	import OrderedList from '@tiptap/extension-ordered-list';
 	import Paragraph from '@tiptap/extension-paragraph';
 	import Text from '@tiptap/extension-text';
-	import Toolbar from './Toolbar.svelte';
-	import { Editor } from '@tiptap/core';
-	import { boardDraggable } from '$lib/stores/workspace.store';
-	import { get } from 'svelte/store';
-	import { marked } from 'marked';
-	import { nodes } from '$lib/stores/workspace.store';
 	import { onDestroy, onMount } from 'svelte';
+	import { get, type Writable } from 'svelte/store';
+
 
 	// Props
 	export let node: App.Node;
+	export let nodes: Writable<App.Node[]>;
 	export let customStyles: string = '';
 
 	// Stores
@@ -33,6 +32,9 @@
 	let offsetX: number = 0;
 	let offsetY: number = 0;
 	let isEditable: boolean = false;
+	let isSelectedText: boolean = false;
+	let selectedText: string = '';
+	let toolbarElement: HTMLDivElement; // Bind to the toolbar element
 
 	let toolbarProps: { top: number; left: number; visible: boolean } = {
 		top: 0,
@@ -40,11 +42,21 @@
 		visible: false
 	};
 
+	// const handleTextSelection = () => {
+	// 	const selection = window.getSelection();
+	// 	if (selection && selection.toString().length > 0) {
+	// 		editor.setEditable(true);
+	// 		isEditable = true;
+	// 	} else {
+	// 		isEditable = false;
+	// 	}
+	// };
+
 	// Lifecycle methods
 	onMount(() => {
 		editor = new Editor({
 			element: element,
-			content: marked.parse(node.topic_and_content), // Convert markdown to HTML.
+			content: '<p>HGsjadcgjkfhsKDANKjVDB<br/>hgghgjhgjhghjg</p>',//marked.parse(node.topic_and_content), // Convert markdown to HTML.
 			extensions: [
 				Bold,
 				BulletList,
@@ -63,10 +75,37 @@
 				Paragraph,
 				Text
 			],
-			injectCSS: false
+			
+
+			onTransaction: () => {
+				editor = editor; // force re-render
+			},
+
+			onSelectionUpdate: ({editor}) => {
+				isSelectedText = !editor.state.selection.empty;
+				
+				if (isSelectedText) {
+					//const { from, to } = editor.state.selection;
+
+					// Observing selected text
+					// selectedText = editor.state.doc.textBetween(from, to, ' ');
+					// console.log("Selected Text:", selectedText);
+
+					// const start = editor.view.coordsAtPos(from);
+					// const end = editor.view.coordsAtPos(to);
+
+					// toolbarProps = {
+					// 	top: (start.top + end.bottom) / 2 + window.scrollY,
+					// 	left: (start.left + end.right) / 2 + window.scrollX,
+					// 	visible: true
+					// };
+					updateToolbarPosition()
+				}
+			}
 		});
 
 		document.addEventListener('mousedown', handleOutsideClick);
+		// document.addEventListener('mouseup', handleTextSelection)
 	});
 
 	onDestroy(() => {
@@ -114,7 +153,8 @@
 	};
 
 	const handleOutsideClick: (event: MouseEvent) => void = (event: MouseEvent) => {
-		if (isDraggable && isEditable && element && !element.contains(event.target as Node)) {
+		if (isDraggable && isEditable && element && !element.contains(event.target as Node) &&
+		(!toolbarElement || !toolbarElement.contains(event.target as Node))) {
 			editor.setEditable(false);
 			isEditable = false;
 
@@ -140,6 +180,8 @@
 				left: rect.left - parentRect.left,
 				visible: true
 			};
+
+			editor.commands.focus()
 		} else {
 			toolbarProps.visible = false;
 		}
@@ -212,7 +254,88 @@
 	on:wheel={handleWheel}
 >
 	{#if isEditable && toolbarProps.visible}
-		<Toolbar {editor} content={node.topic_and_content} customStyles={toolbarProps} />
+		<div
+		style="left: {toolbarProps.left}px; top: {toolbarProps.top}px; position: absolute;"
+		id="toolbar-wrapper"
+		bind:this={toolbarElement}
+	>
+		<div id="toolbar"
+		>
+			<!-- Bold Button -->
+			<button
+				
+				class="toolbar-button"
+				on:click={() => {
+					console.log("Bold button clicked")
+					editor.chain().focus().toggleBold().run()
+				}}
+			>
+				<i class="ri-bold"></i>
+			</button>
+
+			<!-- Italic Button -->
+			<button
+				style={editor.isActive('italic')
+					? 'background-color: var(--theme-primary-color); border-radius: 0.5rem; color: #fff; padding: 0.5rem;'
+					: 'color: var(--theme-title-color);'}
+				class="toolbar-button"
+				on:click={() => editor.chain().focus().toggleItalic().run()}
+			>
+				<i class="ri-italic"></i>
+			</button>
+
+			<!-- Bullet List Button -->
+			<button
+				style={editor.isActive('bulletList')
+					? 'background-color: var(--theme-primary-color); border-radius: 0.5rem; color: #fff; padding: 0.5rem;'
+					: 'color: var(--theme-title-color);'}
+				class="toolbar-button"
+				on:click={() => editor.chain().focus().toggleBulletList().run()}
+			>
+				<i class="ri-list-unordered"></i>
+			</button>
+
+			<!-- Ordered List Button -->
+			<button
+				style={editor.isActive('orderedList')
+					? 'background-color: var(--theme-primary-color); border-radius: 0.5rem; color: #fff; padding: 0.5rem;'
+					: 'color: var(--theme-title-color);'}
+				class="toolbar-button"
+				on:click={() => editor.chain().focus().toggleOrderedList().run()}
+			>
+				<i class="ri-list-ordered"></i>
+			</button>
+
+			<!-- Heading Buttons -->
+			<!-- {#each [1, 2, 3] as level}
+				<button
+					style={editor.isActive('heading', { level })
+						? 'background-color: var(--theme-primary-color); border-radius: 0.5rem; color: #fff; padding: 0.5rem;'
+						: 'color: var(--theme-title-color);'}
+					class="toolbar-button"
+					on:click={() => editor.chain().focus().toggleHeading({ level }).run()}
+				>
+					H{level}
+				</button>
+			{/each} -->
+
+			<!-- Link Button -->
+			<button
+				style={editor.isActive('link')
+					? 'background-color: var(--theme-primary-color); border-radius: 0.5rem; color: #fff; padding: 0.5rem;'
+					: 'color: var(--theme-title-color);'}
+				class="toolbar-button"
+				on:click={() => {
+					const url = prompt('Enter the URL');
+					if (url) {
+						editor.chain().focus().setLink({ href: url }).run();
+					}
+				}}
+			>
+				<i class="ri-link"></i>
+			</button>
+		</div>
+	</div>
 	{/if}
 
 	<div
@@ -230,6 +353,35 @@
 <style lang="scss">
 	#node-wrapper {
 		position: relative;
+
+		#toolbar-wrapper {
+		background-color: var(--theme-body-color);
+		border-radius: 0.375rem;
+		border: 1px solid var(--theme-border-color);
+		padding: 0.75rem 1rem;
+		z-index: 1000;
+
+		#toolbar {
+			display: flex;
+			gap: 1rem;
+			
+
+			button {
+				background-color: var(--theme-body-color);
+				border: none;
+				cursor: pointer;
+				font-size: 1rem;
+				padding: 0.25rem;
+				border-radius: 0.375rem;
+				transition: background-color 0.2s ease;
+
+				&:hover {
+					background-color: var(--theme-title-color);
+					color: #fff;
+				}
+			}
+		}
+	}
 
 		#node {
 			background-color: var(--theme-body-color);

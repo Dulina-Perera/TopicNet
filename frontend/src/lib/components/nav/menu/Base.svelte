@@ -9,10 +9,10 @@
 <div class={`${$isVisible ? 'is-visible' : ''}`} id="nav-menu">
 	<!-- svelte-ignore a11y-invalid-attribute -->
 	<ul id="nav-list">
-		<li><a href="#" id="nav-link">About Us</a></li>
-		<li><a href="#" id="nav-link">Services</a></li>
-		<li><a href="#" id="nav-link">Featured</a></li>
-		<li><a href="#" id="nav-link">Contact Me</a></li>
+		<li><a href="/about" id="nav-link">About Us</a></li>
+		<li><a href="/services" id="nav-link">Services</a></li>
+		<li><a href="/featured" id="nav-link">Featured</a></li>
+		<li><a href="/contact" id="nav-link">Contact Me</a></li>
 	</ul>
 
 	<button id="nav-close" on:click={hideNavMenu}><i class="ri-close-line"></i></button>

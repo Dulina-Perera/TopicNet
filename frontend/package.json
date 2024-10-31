@@ -67,6 +67,7 @@
 		"@tiptap/starter-kit": "^2.8.0",
 		"bits-ui": "^0.21.16",
 		"lucia": "^3.2.0",
+		"lucide-svelte": "^0.454.0",
 		"stripe": "^17.2.0"
 	}
 }
