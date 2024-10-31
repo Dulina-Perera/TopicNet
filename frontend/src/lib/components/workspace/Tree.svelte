@@ -44,20 +44,7 @@
 
 <style lang="scss">
 	#scroll-wrapper {
-		align-items: start;
-		display: flex;
-		height: 100vh;
-		justify-content: start;
-		left: 50%;
-		overflow-x: auto;
-		position: absolute;
+		position: relative;
 		top: 5rem;
-		transform: translateX(-50%);
-
-		#tree {
-			align-items: center;
-			display: flex;
-			justify-content: center;
-		}
 	}
 </style>

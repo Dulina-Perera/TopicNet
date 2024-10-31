@@ -1,7 +1,7 @@
 Cognitive Analytics Cognition is mental action or process acquiring knowledge by understanding true thought experience senses
 Cognitive Analytics Cognitive processes use existing knowledge generate new knowledge
 Cognitive Analytics Purpose cognitive computing is perform tasks that only humans used be able do
-Cognitive Analytics It augments human capabilities (As opposed AI which just automates)
+Cognitive Analytics It augments human capabilities As opposed AI which just automates
 
 Cognitive Analytics Cognitive analytics reveals certain patterns connections that simple analytics cannot
 Cognitive Analytics Cognitive computing allows wide variety problems previously incapable being solved by fixed program instructions be calculable estimable

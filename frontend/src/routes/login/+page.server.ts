@@ -55,7 +55,6 @@ export const actions: Actions = {
 
 	login: async (event) => {
 		const formData = await event.request.formData();
-		console.log(formData);
 		const username = formData.get("username");
 		const password = formData.get("password");
 

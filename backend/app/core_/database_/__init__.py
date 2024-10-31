@@ -3,6 +3,7 @@ from .base_ import Base, async_db_session_dep, get_db_session
 from .document_ import (
   create_document_,
   does_document_exist_,
+  read_files_owned_by_user_,
   read_path_for_document_owned_by_user_
 )
 from .node_ import (

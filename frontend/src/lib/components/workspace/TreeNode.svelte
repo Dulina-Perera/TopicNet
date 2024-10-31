@@ -23,7 +23,7 @@
 	{#if treeNode.children && treeNode.children.length > 0}
 		<ul class="child-nodes">
 			{#each treeNode.children as childNode, index}
-				<svelte:self treeNode={childNode} isRoot={false} />
+				<svelte:self {nodes} treeNode={childNode} isRoot={false} />
 			{/each}
 		</ul>
 	{/if}

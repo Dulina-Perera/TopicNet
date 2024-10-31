@@ -26,6 +26,27 @@ async def does_document_exist_(session_: AsyncSession, document_id_: int) -> boo
   return result_.scalars().first() is not None
 
 
+async def read_files_owned_by_user_(session_: AsyncSession, user_id_: str) -> Any:
+	"""
+	Retrieve the files owned by a user.
+
+	:param session_: The database session
+	:type session_: AsyncSession
+
+	:param user_id_: The ID of the user
+	:type user_id_: str
+
+	:return: The files owned by the user
+	:rtype: Any
+	"""
+	from ...models_ import Document
+
+	result_: Result[Tuple[Document]] = await session_.execute(
+		select(Document).filter(Document.user_id == user_id_)
+	)
+	return result_.scalars().all()
+
+
 async def read_path_for_document_owned_by_user_(session_: AsyncSession, document_id_: int) -> str:
   """
 	Retrieve the path of a document owned by a user.

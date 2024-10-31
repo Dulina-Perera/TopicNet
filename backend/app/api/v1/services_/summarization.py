@@ -61,7 +61,7 @@ async def refine_summary_using_openai(summary: str, model: Optional[str] = "gpt-
 		f"You are a helpful assistant."
 		f"You will be provided with an extractive summary of a document."
 		f"Please generate a detailed and refined topic, and then enhance the summary to make it more concise and coherent."
-		f"The output should be a markdown-formatted summary in the following format: \"<your summary>\"."
+		f"It is of utmost importance that you generate content in markdown format. But, don't use code blocks."
 	)
   user_prompt: str = summary
 
@@ -72,7 +72,7 @@ async def refine_summary_using_openai(summary: str, model: Optional[str] = "gpt-
 			{"role": "system", "content": system_prompt},
 			{"role": "user", "content": user_prompt}
 		],
-		max_tokens=200,
+		max_tokens=1000,
 		temperature=0.3
 	)
 

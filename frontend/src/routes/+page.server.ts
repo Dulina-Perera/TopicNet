@@ -1,9 +1,7 @@
-import bcrypt from "bcrypt";
 import type { Actions, PageServerLoad } from "./$types";
 import { fail, redirect } from "@sveltejs/kit";
 import { Cookie } from "lucia";
 import { lucia } from "$lib/server/lucia";
-import { prismaClient } from "$lib/server/prisma";
 
 export const load: PageServerLoad = async ({ locals }) => {
 	return {

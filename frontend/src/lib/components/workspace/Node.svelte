@@ -308,33 +308,33 @@
 		}
 	}
 
-	:global(h1) {
+	:global(.tiptap h1) {
 		font-size: 1.125rem;
 		color: var(--theme-title-color);
 	}
 
-	:global(h2) {
+	:global(.tiptap h2) {
 		font-size: 1rem;
 		color: var(--theme-title-color);
 	}
 
-	:global(h3) {
+	:global(.tiptap h3) {
 		font-size: 0.875rem;
 		color: var(--theme-title-color);
 	}
 
-	:global(p) {
+	:global(.tiptap p) {
 		color: var(--theme-title-color);
 		display: inline;
 	}
 
-	:global(ol) {
+	:global(.tiptap ol) {
 		color: var(--theme-title-color);
 		list-style-position: inside;
 		list-style-type: decimal;
 	}
 
-	:global(ul) {
+	:global(.tiptap ul) {
 		color: var(--theme-title-color);
 		list-style-position: inside;
 		list-style-type: disc;

@@ -1,5 +1,8 @@
+import type { Actions, PageServerLoad } from "./$types";
+import { Cookie } from "lucia";
 import { error } from "@sveltejs/kit";
-import type { PageServerLoad } from './$types';
+import { fail, redirect } from "@sveltejs/kit";
+import { lucia } from "$lib/server/lucia";
 
 export const load: PageServerLoad = async ({ parent, params }) => {
 	const parentData = await parent();
@@ -15,4 +18,22 @@ export const load: PageServerLoad = async ({ parent, params }) => {
 		...parentData,
 		nodes,
 	};
+};
+
+export const actions: Actions = {
+	logout: async ({ locals, cookies }) => {
+		if (!locals.session) {
+			return fail(401);
+		}
+
+		await lucia.invalidateSession(locals.session.id);
+
+		const sessionCookie: Cookie = lucia.createBlankSessionCookie();
+		cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: "/",
+			...sessionCookie.attributes
+		});
+
+		throw redirect(302, "/?loggedOut=true");
+	}
 };

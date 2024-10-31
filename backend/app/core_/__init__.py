@@ -16,6 +16,7 @@ from .database_ import (
 	has_child_nodes,
  	point_sentences_to_parent_node,
 	read_descendant_node_ids,
+	read_files_owned_by_user_,
 	read_path_for_document_owned_by_user_,
 	read_sentences_belonging_to_node,
 	read_user_id_by_session_id_,

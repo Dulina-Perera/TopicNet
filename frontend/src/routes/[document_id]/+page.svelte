@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Header, Logo } from '$lib/components';
-	import { NavActions } from '$lib/components/nav';
 	import type { PageData } from './$types';
+	import { Explorer, Header, Logo } from '$lib/components';
+	import { NavActions } from '$lib/components/nav';
 	import { ProfileDropdown } from '$lib/components/profile';
 	import { Tree } from '$lib/components/workspace';
 	import { type Writable, writable } from 'svelte/store';
@@ -21,6 +21,7 @@
 	</Header>
 	<Tree {nodes} />
 </div>
+<Explorer />
 
 <style lang="scss">
 	#container {
