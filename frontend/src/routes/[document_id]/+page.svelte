@@ -7,7 +7,6 @@
 	import { type Writable, writable } from 'svelte/store';
 
 	export let data: PageData;
-	export let userMetadata: { user: { id: string; username: string; isPermanent: boolean } | null };
 
 	const nodes: Writable<App.Node[]> = writable(data.nodes);
 </script>
@@ -16,7 +15,8 @@
 	<Header>
 		<Logo />
 		<NavActions>
-			<ProfileDropdown user={userMetadata?.user} />
+			<!-- Access data.user directly instead of userMetadata -->
+			<ProfileDropdown user={data?.user} />
 		</NavActions>
 	</Header>
 	<Tree {nodes} />

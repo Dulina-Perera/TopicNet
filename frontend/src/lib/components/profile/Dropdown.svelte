@@ -19,10 +19,16 @@
 
 	{#if user}
 		<div id="menu">
-			<a href="#" id="menu-item">Profile</a>
-			<a href="#" id="menu-item">Settings</a>
+			<a href="#" id="menu-item">
+				<i class="ri-profile-line"></i> Profile
+			</a>
+			<a href="#" id="menu-item">
+				<i class="ri-settings-5-line"></i> Settings
+			</a>
 			<form method="post" action="?/logout" use:enhance>
-				<button id="menu-item" type="submit">Logout</button>
+				<button id="menu-item" type="submit">
+					<i class="ri-logout-circle-line"></i> Logout
+				</button>
 			</form>
 		</div>
 	{/if}
@@ -55,22 +61,44 @@
 			padding: 0.5rem 0;
 			position: absolute;
 			right: 0;
-			width: 8rem;
+			width: 10rem;
 			z-index: var(--theme-z-index-modal);
 
 			#menu-item {
+				align-items: center;
 				background-color: var(--theme-body-color);
 				color: var(--theme-title-color);
-				display: block;
+				display: flex;
 				font-size: 0.875rem;
 				line-height: 1.25rem;
 				font-weight: 600;
 				padding: 0.5rem 1rem;
 				text-decoration: none;
 				transition: background-color 0.3s ease;
+				cursor: select;
 
-				&:hover {
+				&:hover,
+				&:hover i {
 					color: var(--theme-primary-color);
+				}
+
+				i {
+					color: var(--theme-title-color);
+					font-size: 1rem;
+					margin-right: 0.5rem;
+				}
+
+				/* For buttons specifically */
+				button {
+					cursor: default;
+					background: none;
+					border: none;
+					padding: 0;
+					color: inherit;
+					font: inherit;
+					display: flex;
+					align-items: center;
+					width: 100%;
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
+	import { enhance } from '$app/forms';
 	import { signupMode } from '$lib/stores';
 
 	$: mode = $signupMode;
@@ -17,7 +18,7 @@
 	};
 </script>
 
-<form class={`${mode ? "sign-up" : ""}`} action="">
+<form class={`${mode ? 'sign-up' : ''}`} action="?/login" method="post" use:enhance>
 	<Logo />
 
 	<div id="heading">
@@ -32,6 +33,7 @@
 		<div class="input-wrapper">
 			<input
 				type="text"
+				name="username"
 				minlength="4"
 				required
 				id="username"
@@ -44,7 +46,9 @@
 		<div class="input-wrapper">
 			<input
 				type="password"
+				name="password"
 				minlength="16"
+				maxlength="64"
 				required
 				id="password"
 				class="input-field"
@@ -94,7 +98,9 @@
 		@media (max-width: 768px) {
 			max-width: revert;
 			padding: 1.5rem 2.5rem 2rem;
-			transition: opacity 0.45s linear, transform 0.8s ease-in-out;
+			transition:
+				opacity 0.45s linear,
+				transform 0.8s ease-in-out;
 		}
 	}
 
@@ -153,7 +159,7 @@
 
 				+ label {
 					font-size: 0.75rem;
-					top: -2px
+					top: -2px;
 				}
 			}
 		}

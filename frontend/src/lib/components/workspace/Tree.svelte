@@ -48,10 +48,11 @@
 		display: flex;
 		height: 100vh;
 		justify-content: start;
-		left: 0;
+		left: 50%;
 		overflow-x: auto;
 		position: absolute;
 		top: 5rem;
+		transform: translateX(-50%);
 
 		#tree {
 			align-items: center;
