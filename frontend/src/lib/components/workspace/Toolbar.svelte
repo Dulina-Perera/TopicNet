@@ -12,9 +12,11 @@
 </script>
 
 {#if editor && customStyles.visible}
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		style="left: {customStyles.left}px; top: {customStyles.top}px; position: absolute;"
 		id="toolbar-wrapper"
+		on:mousedown|stopPropagation
 	>
 		<div id="toolbar">
 			<button
@@ -40,6 +42,7 @@
 		justify-content: space-between;
 		padding: 0.75rem 1rem;
 		width: 100%;
+		z-index: var(--theme-z-index-modal);
 
 		#toolbar {
 			align-items: center;

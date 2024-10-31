@@ -10,6 +10,8 @@
 	import Paragraph from '@tiptap/extension-paragraph';
 	import Text from '@tiptap/extension-text';
 	import Toolbar from './Toolbar.svelte';
+	import TurndownService from 'turndown';
+	import pkg from 'lodash';
 	import { Editor } from '@tiptap/core';
 	import { boardDraggable } from '$lib/stores/workspace.store';
 	import { get } from 'svelte/store';
@@ -17,6 +19,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { type Writable } from 'svelte/store';
 
+	const { debounce } = pkg;
 
 	// Props
 	export let node: App.Node;
@@ -35,6 +38,8 @@
 	let offsetX: number = 0;
 	let offsetY: number = 0;
 	let isEditable: boolean = false;
+
+	const turndownService: TurndownService = new TurndownService();
 
 	let toolbarProps: { top: number; left: number; visible: boolean } = {
 		top: 0,
@@ -68,55 +73,58 @@
 			injectCSS: false
 		});
 
+		editor.on(
+			'update',
+			debounce(async () => {
+				const html_content: string = editor.getHTML();
+				const markdown_content: string = turndownService.turndown(html_content);
+
+				if (markdown_content !== node.topic_and_content) {
+					const response: Response = await fetch(
+						`http://localhost:5000/api/v1/update/node?document_id=${node.document_id}&node_id=${node.id}`,
+						{
+							method: 'PUT',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ content: markdown_content })
+						}
+					);
+				}
+			}, 1000)
+		);
+
 		document.addEventListener('mousedown', handleOutsideClick);
+		document.addEventListener('selectionchange', handleSelectionChange);
 	});
 
 	onDestroy(() => {
 		if (editor) {
 			editor.destroy();
+
+			document.removeEventListener('mousedown', handleOutsideClick);
+			document.removeEventListener('selectionchange', handleSelectionChange);
 		}
 	});
 
 	// Event handlers
 	const handleMouseDown: (event: MouseEvent) => void = (event: MouseEvent) => {
-		if (isDraggable) {
-			if (isEditable) {
-				toolbarProps.visible = false;
-			} else {
-				isDragging = true;
-				offsetX = event.clientX - (wrapper_element?.offsetLeft || 0);
-				offsetY = event.clientY - (wrapper_element?.offsetTop || 0);
-			}
+		if (isEditable) {
+			toolbarProps.visible = false;
 		}
 	};
 
 	const handleDoubleClick: () => void = () => {
-		if (isDraggable) {
-			if (!isEditable) {
-				editor.commands.focus();
-				editor.setEditable(true);
-				isEditable = true;
-			}
-			updateToolbarPosition();
+		if (!isEditable) {
+			editor.commands.focus();
+			editor.setEditable(true);
+			isEditable = true;
 		}
-	};
-
-	const handleMouseMove: (event: MouseEvent) => void = (event: MouseEvent) => {
-		if (isDraggable && isDragging) {
-			wrapper_element.style.position = 'absolute';
-			wrapper_element.style.left = `${event.clientX - offsetX}px`;
-			wrapper_element.style.top = `${event.clientY - offsetY}px`;
-		}
-	};
-
-	const handleMouseUp: () => void = () => {
-		if (isDraggable && isDragging) {
-			isDragging = false;
-		}
+		updateToolbarPosition();
 	};
 
 	const handleOutsideClick: (event: MouseEvent) => void = (event: MouseEvent) => {
-		if (isDraggable && isEditable && element && !element.contains(event.target as Node)) {
+		if (isEditable && element && !element.contains(event.target as Node)) {
 			editor.setEditable(false);
 			isEditable = false;
 
@@ -124,9 +132,15 @@
 		}
 	};
 
-	const handleWheel: (event: WheelEvent) => void = (event: WheelEvent) => {
-		event.stopPropagation();
-	};
+	function handleSelectionChange() {
+		const selection: Selection | null = document.getSelection();
+
+		if (selection && selection.rangeCount > 0 && selection.toString().length > 0 && isEditable) {
+			updateToolbarPosition();
+		} else {
+			toolbarProps.visible = false;
+		}
+	}
 
 	// Functions
 	const updateToolbarPosition: () => void = () => {
@@ -134,11 +148,14 @@
 		if (selection && selection.rangeCount > 0) {
 			const range: Range = selection.getRangeAt(0);
 			const rect: DOMRect = range.getBoundingClientRect();
-
 			const parentRect: DOMRect = wrapper_element.getBoundingClientRect();
 
+			// Calculate top position within bounds
+			const toolbarTop: number = rect.top - parentRect.top - 50;
+			const clampedTop = Math.max(0, Math.min(toolbarTop, wrapper_element.offsetHeight - 50));
+
 			toolbarProps = {
-				top: rect.top - parentRect.top - 50,
+				top: clampedTop,
 				left: rect.left - parentRect.left,
 				visible: true
 			};
@@ -209,9 +226,6 @@
 	bind:this={wrapper_element}
 	on:dblclick={handleDoubleClick}
 	on:mousedown={handleMouseDown}
-	on:mousemove={handleMouseMove}
-	on:mouseup={handleMouseUp}
-	on:wheel={handleWheel}
 >
 	{#if isEditable && toolbarProps.visible}
 		<Toolbar {editor} content={node.topic_and_content} customStyles={toolbarProps} />

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
-	import { Explorer, Header, Logo } from '$lib/components';
+	import { About, Contact, Explorer, Featured, Header, Logo, Services } from '$lib/components';
 	import { NavActions } from '$lib/components/nav';
 	import { NavMenu, NavMenuToggle } from '$lib/components/nav/menu';
 	import { ProfileDropdown } from '$lib/components/profile';
@@ -30,6 +30,9 @@
 	</NavActions>
 </Header>
 <Hero />
-{#if data.user && data.user.isPermanent}
+<About />
+<Services />
+<Featured />
+{#if data.user}
 	<Explorer />
 {/if}
